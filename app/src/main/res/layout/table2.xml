@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#BAC8E4">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingStart="23sp"
+            android:text="@string/adap"
+            android:textColor="#190101"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingStart="23sp"
+            android:text="@string/intel"
+            android:textColor="#0E0E0E"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingStart="23sp"
+            android:text="@string/feed"
+            android:textColor="#0E0E0E"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/getHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingStart="23sp"
+            android:textAlignment="center"
+            android:text="70% easy"
+            android:textColor="#190101"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/getWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="13dp"
+            android:paddingStart="23sp"
+            android:text="60%, can train"
+            android:textColor="#0E0E0E"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/getLspan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:paddingStart="23sp"
+            android:text="70%, Easy"
+            android:textColor="#0E0E0E"
+            android:textSize="18sp" />
+    </TableRow>
+
+
+</TableLayout>

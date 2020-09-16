@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic__search"
+        android:enabled="true"
+        android:title="@string/nav_search" />
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/ic_chat"
+        android:enabled="true"
+        android:title="@string/nav_chat" />
+    <item
+        android:id="@+id/nav_ad"
+        android:icon="@drawable/ic_money"
+        android:title="@string/nav_ad" />
+    <item
+        android:id="@+id/nav_info"
+        android:icon="@drawable/ic_info"
+        android:title="@string/nav_info" />
+
+</menu>

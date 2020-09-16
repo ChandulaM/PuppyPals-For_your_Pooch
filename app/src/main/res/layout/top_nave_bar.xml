@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="#0B85E6"
+        android:backgroundTintMode="add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08" />
+    <ImageButton
+        android:id="@+id/probtn"
+        android:layout_width="42dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="12dp"
+        android:onClick="showPopup"
+        app:layout_constraintBottom_toBottomOf="@+id/divider3"
+        app:layout_constraintEnd_toEndOf="@+id/divider3"
+        app:layout_constraintTop_toTopOf="@+id/divider3"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/profile_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--Implementation of 'showPopup' method. Add bellow methods in to your activity classes, which you wants to add top navigation bar-->
+
+    <!--    public void showPopup(View v) {-->
+    <!--    PopupMenu popup = new PopupMenu(this, v);-->
+    <!--    popup.setOnMenuItemClickListener(this);-->
+    <!--    popup.inflate(R.menu.popup_menu);-->
+    <!--    popup.show();-->
+    <!--    }-->
+
+    <!--    @Override-->
+    <!--    public boolean onMenuItemClick(MenuItem item) {-->
+    <!--    switch (item.getItemId()){-->
+    <!--    case R.id.pitm1:-->
+    <!--    Toast.makeText(this,"Item 1 clicked", Toast.LENGTH_SHORT).show();-->
+    <!--    return true;-->
+
+    <!--    case R.id.pitm2:-->
+    <!--    Toast.makeText(this,"Item 2 clicked", Toast.LENGTH_SHORT).show();-->
+    <!--    return true;-->
+    <!--    }-->
+    <!--    return false;-->
+    <!--    }-->
