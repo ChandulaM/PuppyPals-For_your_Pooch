@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">PuppyPals - For your Pooch</string>
+    <string name="title_activity_login">Login</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="login_login">LOGIN</string>
+    <string name="login_new_here">New Here?</string>
+    <string name="login_sign_up">Sign Up</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="reg_header">Registration</string>
+    <string name="reg_email">Email</string>
+    <string name="reg_dog">Register Your Pooch</string>
+    <string name="reg_conf_pass">Confirm Password</string>
+    <string name="reg_dog_name">Dog\'s Name</string>
+    <string name="reg_dog_breed">Dog\'s Breed</string>
+    <string name="reg_dog_gender">Dog\'s Gender</string>
+    <string name="reg_dog_age">Dog\'s Age</string>
+    <string name="reg_gen_male">Male</string>
+    <string name="reg_gen_female">Female</string>
+    <string name="reg_years">Years</string>
+    <string name="prof_head">Profile</string>
+    <string name="prof_upload">Upload a Pic of your Pooch</string>
+    <string name="prof_update">UPDATE PROFILE</string>
+    <string name="prof_logout">LOG OUT</string>
+    <string name="prof_chat">Chat</string>
+    <string name="upProf_oldPass">Old Password</string>
+    <string name="search_head">PuppyPals Near You</string>
+    <string name="search_view">View</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_chat">Chat</string>
+    <string name="nav_ad">Ad</string>
+    <string name="nav_info">Info</string>
 </resources>
