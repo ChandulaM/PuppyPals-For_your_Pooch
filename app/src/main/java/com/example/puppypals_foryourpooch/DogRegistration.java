@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.puppypals_foryourpooch.model.Dog;
-import com.example.puppypals_foryourpooch.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
