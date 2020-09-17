@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.puppypals_foryourpooch">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,59 +12,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewProfile"></activity>
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".botNav" />
-        <activity android:name=".UserProfile" />
-        <activity android:name=".ChangePassword" />
+
+        <activity android:name=".PuppyPalSearch"></activity>
         <activity android:name=".UpdateProfile" />
-        <activity android:name=".Register" />
-        <activity android:name=".Login">
+        <activity android:name=".ViewProfile" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".DogRegistration" />
+        <activity android:name=".Registration" />
+        <activity android:name=".Login" />
 
-        </activity>
         <activity android:name=".MainActivity">
-
-        </activity>
-
-        <activity android:name=".AdminProfile">
-
-
-        </activity>
-
-        <activity android:name=".CusBreedInfo">
-            <intent-filter>
+          <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity android:name=".AdminProfile">
+        </activity>
+
+        <activity android:name=".CusBreedInfo">            
+        </activity>
+
         <activity android:name=".CusBreedSelect">
-
-
         </activity>
 
         <activity android:name=".UpadteBreedInfo" >
-
-
         </activity>
 
         <activity
             android:name=".Manage_breed_info"
             android:windowSoftInputMode="adjustPan" >
-
-
         </activity>
 
         <activity android:name=".ManageBreedInfo" >
-
         </activity>
 
-
-
         <activity android:name=".AddBreedInfo" >
-
-
         </activity>
 
         <meta-data

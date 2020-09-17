@@ -1,8 +1,8 @@
 package com.example.puppypals_foryourpooch;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
 
 public class ViewProfile extends AppCompatActivity {
 
