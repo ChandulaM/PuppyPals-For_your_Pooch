@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Login extends AppCompatActivity  {
 
     Button btn_signup;
-
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +36,6 @@ public class Login extends AppCompatActivity  {
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 startActivity(new Intent(getApplicationContext(), Registration.class));
             }
         });

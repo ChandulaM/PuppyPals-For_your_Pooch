@@ -13,10 +13,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class UserProfile extends AppCompatActivity {
     Button btn_update;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
         btn_update = findViewById(R.id.uProf_btn_update);
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +46,5 @@ public class UserProfile extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 }

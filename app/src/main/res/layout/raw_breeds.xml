@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/removeBreedInfo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        android:padding="10dp"
+
+        <RelativeLayout
+            android:layout_width="66dp"
+            android:layout_height="65dp"
+            android:background="@drawable/beagal">
+
+
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"/>-->
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/breedname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="90dp"
+            android:text="Breed Name"
+            android:textColor="#0D0C0C"
+            android:textSize="16sp" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/arrow"-->
+        <!--            android:layout_width="48dp"-->
+        <!--            android:layout_height="56dp"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_alignParentEnd="true"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:layout_marginEnd="10dp"-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            android:src="@drawable/arrow_foreground" />-->
+
+        <Button
+            android:id="@+id/updateBreedInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="310dp"
+            android:backgroundTint="#06F11D"
+            android:text="update"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/remove"
+            android:layout_width="72dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="230dp"
+            android:backgroundTint="#EF0E0E"
+            android:text="Remove"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+</LinearLayout>
