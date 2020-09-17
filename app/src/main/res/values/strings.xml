@@ -33,4 +33,9 @@
     <string name="nav_chat">Chat</string>
     <string name="nav_ad">Ad</string>
     <string name="nav_info">Info</string>
+    <string-array name="breeds_trial">
+        <item>Alsatian</item>
+        <item>Doberman</item>
+        <item>German Shepherd</item>
+    </string-array>
 </resources>

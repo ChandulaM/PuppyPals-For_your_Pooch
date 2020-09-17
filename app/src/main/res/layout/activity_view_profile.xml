@@ -42,15 +42,16 @@
 
     <ImageView
         android:id="@+id/viewProf_prPic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/sample_profile_pic"
         app:layout_constraintBottom_toTopOf="@+id/viewProf_dname_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewProf_head"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/sample_profile_pic" />
 
     <TextView
         android:id="@+id/viewProf_dname_tv"

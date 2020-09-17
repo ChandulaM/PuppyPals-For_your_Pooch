@@ -24,21 +24,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity  {
 
-    Button btn_signup;
+    Button btn_signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn_signup = findViewById(R.id.signup_btn);
+        btn_signUp = findViewById(R.id.signup_btn);
 
-        btn_signup.setOnClickListener(new View.OnClickListener() {
+        btn_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                startActivity(new Intent(getApplicationContext(), Registration.class));
+                Intent intent = new Intent(Login.this, Registration.class);
+                startActivity(intent);
             }
         });
     }
