@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <View
-        android:id="@+id/divider3"
+        android:id="@+id/adminDivider"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="?android:attr/listDivider"
@@ -29,23 +29,25 @@
         android:backgroundTintMode="add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.082" />
+
     <ImageButton
         android:id="@+id/probtn"
         android:layout_width="42dp"
         android:layout_height="45dp"
         android:layout_marginEnd="12dp"
         android:onClick="showPopup"
-        app:layout_constraintBottom_toBottomOf="@+id/divider3"
-        app:layout_constraintEnd_toEndOf="@+id/divider3"
-        app:layout_constraintTop_toTopOf="@+id/divider3"
+        app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
+        app:layout_constraintEnd_toEndOf="@+id/adminDivider"
+        app:layout_constraintTop_toTopOf="@+id/adminDivider"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/profile_icon" />
 
     <TextView
-        android:id="@+id/manageBreadInfo"
+        android:id="@+id/myPro"
         android:layout_width="128dp"
         android:layout_height="27dp"
         android:fontFamily="@font/aclonica"
@@ -54,38 +56,39 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintVertical_bias="0.17" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/adminViewBreed"
         android:layout_width="52dp"
         android:layout_height="56dp"
         android:backgroundTint="#FBF9F9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08"
+        app:layout_constraintVertical_bias="0.082"
         app:srcCompat="@drawable/find_page_foreground" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/manageBreed"
         android:layout_width="48dp"
         android:layout_height="45dp"
         android:backgroundTint="#FBF6F6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintHorizontal_bias="0.63"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.081"
         app:srcCompat="@drawable/list_foreground" />
+
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/addNewBreed"
         android:layout_width="48dp"
         android:layout_height="44dp"
         android:backgroundTint="#F3F4F8"
@@ -98,7 +101,7 @@
         app:srcCompat="@drawable/add_foreground" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/adminName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -112,7 +115,7 @@
         app:layout_constraintVertical_bias="0.374" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/adminPswd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -126,7 +129,7 @@
         app:layout_constraintVertical_bias="0.521" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/unametxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Name"
@@ -140,7 +143,7 @@
         app:layout_constraintVertical_bias="0.323" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/pswdtxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
@@ -148,22 +151,23 @@
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintHorizontal_bias="0.277"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.467" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/adminProBtb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#0B85E6"
         android:text="Change User name and password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67" />
+        app:layout_constraintVertical_bias="0.714" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

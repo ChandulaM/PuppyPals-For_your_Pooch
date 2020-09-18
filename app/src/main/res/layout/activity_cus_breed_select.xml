@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <View
-        android:id="@+id/divider3"
+        android:id="@+id/adminDivider"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="?android:attr/listDivider"
@@ -42,9 +42,9 @@
         android:layout_height="45dp"
         android:layout_marginEnd="12dp"
         android:onClick="showPopup"
-        app:layout_constraintBottom_toBottomOf="@+id/divider3"
-        app:layout_constraintEnd_toEndOf="@+id/divider3"
-        app:layout_constraintTop_toTopOf="@+id/divider3"
+        app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
+        app:layout_constraintEnd_toEndOf="@+id/adminDivider"
+        app:layout_constraintTop_toTopOf="@+id/adminDivider"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/profile_icon" />
 
@@ -71,14 +71,14 @@
         android:layout_height="52dp"
         android:background="#BDC2E0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3"
+        app:layout_constraintTop_toBottomOf="@+id/adminDivider"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="16dp" />
 
     <ImageButton
         android:id="@+id/imageButton9"
-        android:layout_width="174dp"
-        android:layout_height="164dp"
+        android:layout_width="181dp"
+        android:layout_height="172dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.107"

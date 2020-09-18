@@ -7,7 +7,7 @@
     tools:context=".AddBreedInfo">
 
     <View
-        android:id="@+id/divider3"
+        android:id="@+id/adminDivider"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="?android:attr/listDivider"
@@ -40,14 +40,14 @@
         android:layout_height="45dp"
         android:layout_marginEnd="12dp"
         android:onClick="showPopup"
-        app:layout_constraintBottom_toBottomOf="@+id/divider3"
-        app:layout_constraintEnd_toEndOf="@+id/divider3"
-        app:layout_constraintTop_toTopOf="@+id/divider3"
+        app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
+        app:layout_constraintEnd_toEndOf="@+id/adminDivider"
+        app:layout_constraintTop_toTopOf="@+id/adminDivider"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/profile_icon" />
 
     <EditText
-        android:id="@+id/breed"
+        android:id="@+id/breedName"
         android:layout_width="373dp"
         android:layout_height="54dp"
         android:ems="10"
@@ -105,7 +105,7 @@
         app:layout_constraintVertical_bias="0.705" />
 
     <EditText
-        android:id="@+id/feed2"
+        android:id="@+id/infoLink"
         android:layout_width="183dp"
         android:layout_height="45dp"
         android:ems="10"
@@ -215,7 +215,7 @@
         app:layout_constraintVertical_bias="0.337" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/dogImgView"
         android:layout_width="75dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -227,7 +227,7 @@
         android:src="@drawable/beagal" />
 
     <Button
-        android:id="@+id/reset"
+        android:id="@+id/resetBreed"
         android:layout_width="83dp"
         android:layout_height="48dp"
         android:backgroundTint="#2196F3"
@@ -240,20 +240,20 @@
         app:layout_constraintVertical_bias="0.979" />
 
     <Button
-        android:id="@+id/add"
+        android:id="@+id/saveBreed"
         android:layout_width="83dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         android:backgroundTint="#2196F3"
-        android:text="Add"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.905"
+        app:layout_constraintHorizontal_bias="0.911"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/addImgBtn"
         android:layout_width="61dp"
         android:layout_height="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -265,7 +265,7 @@
         app:srcCompat="@drawable/img_add_foreground" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/manageBreed"
         android:layout_width="48dp"
         android:layout_height="45dp"
         android:backgroundTint="#FBF6F6"
@@ -278,7 +278,7 @@
         app:srcCompat="@drawable/list_foreground" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/addNewBreed"
         android:layout_width="48dp"
         android:layout_height="44dp"
         android:backgroundTint="#F3F4F8"
@@ -291,7 +291,7 @@
         app:srcCompat="@drawable/add_foreground" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/adminViewBreed"
         android:layout_width="52dp"
         android:layout_height="56dp"
         android:backgroundTint="#FBF9F9"

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <View
-        android:id="@+id/divider3"
+        android:id="@+id/adminDivider"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="?android:attr/listDivider"
@@ -22,9 +22,9 @@
         android:layout_height="45dp"
         android:layout_marginEnd="12dp"
         android:onClick="showPopup"
-        app:layout_constraintBottom_toBottomOf="@+id/divider3"
-        app:layout_constraintEnd_toEndOf="@+id/divider3"
-        app:layout_constraintTop_toTopOf="@+id/divider3"
+        app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
+        app:layout_constraintEnd_toEndOf="@+id/adminDivider"
+        app:layout_constraintTop_toTopOf="@+id/adminDivider"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/profile_icon" />
 
