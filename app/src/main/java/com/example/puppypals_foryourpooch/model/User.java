@@ -6,6 +6,7 @@ public class User implements Serializable {
     private String email;
     private String username;
     private String password;
+    private String imageUrl;
     private double latitude;
     private double longitude;
 
@@ -52,14 +53,7 @@ public class User implements Serializable {
         this.longitude = longitude;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                '}';
-    }
+    public String getImageUrl() { return imageUrl; }
+
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }

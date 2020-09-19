@@ -61,8 +61,8 @@ public class DogRegistration extends AppCompatActivity implements AdapterView.On
                 else{
                     dog.setName(name);
                     dog.setAge(age);
+                    dog.setBreed(spinner.getSelectedItem().toString());
                     String dogId = dogRef.push().getKey();
-
                     dogRef.child(dogId).setValue(dog);
                     userRef.child(fAuth.getUid()).child("dog").setValue(dogId);
                     startActivity(new Intent(getApplicationContext(), UserProfile.class));

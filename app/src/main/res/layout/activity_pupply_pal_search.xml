@@ -6,14 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/user_background"
-    tools:context=".PupplyPalSearch">
+    tools:context=".PuppyPalSearch">
 
     <TextView
         android:id="@+id/search_head"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/cherry_swash"
         android:text="@string/search_head"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -58,6 +59,8 @@
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_bot_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
