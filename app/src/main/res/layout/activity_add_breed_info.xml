@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/con"
     android:layout_height="match_parent"
     tools:context=".AddBreedInfo">
 
@@ -45,80 +46,43 @@
         app:layout_constraintTop_toTopOf="@+id/adminDivider"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/profile_icon" />
-
-    <EditText
-        android:id="@+id/breedName"
-        android:layout_width="373dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="Breed Name"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
+    <ImageButton
+        android:id="@+id/addNewBreed"
+        android:layout_width="48dp"
+        android:layout_height="44dp"
+        android:backgroundTint="#F3F4F8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintHorizontal_bias="0.798"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        app:layout_constraintVertical_bias="0.081"
+        app:srcCompat="@drawable/add_foreground" />
 
-    <EditText
-        android:id="@+id/adap"
-        android:layout_width="373dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="Adaptability"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
+    <ImageButton
+        android:id="@+id/adminViewBreed"
+        android:layout_width="52dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#FBF9F9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.395"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-
-    <EditText
-        android:id="@+id/intell"
-        android:layout_width="373dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="Intelligence"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599" />
-
-    <EditText
-        android:id="@+id/feed"
-        android:layout_width="374dp"
-        android:layout_height="51dp"
-        android:ems="10"
-        android:hint="Feedings"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705" />
-
-    <EditText
-        android:id="@+id/infoLink"
-        android:layout_width="183dp"
+        app:layout_constraintVertical_bias="0.08"
+        app:srcCompat="@drawable/find_page_foreground" />
+    <ImageButton
+        android:id="@+id/manageBreed"
+        android:layout_width="48dp"
         android:layout_height="45dp"
-        android:ems="10"
-        android:hint="Infor Link"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
+        android:backgroundTint="#FBF6F6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="0.595"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826" />
-
+        app:layout_constraintVertical_bias="0.081"
+        app:srcCompat="@drawable/list_foreground" />
     <TextView
         android:id="@+id/addbreedinfo"
         android:layout_width="158dp"
@@ -135,7 +99,38 @@
         app:layout_constraintVertical_bias="0.171" />
 
     <EditText
-        android:id="@+id/hno"
+        android:id="@+id/breedName"
+        android:layout_width="373dp"
+        android:layout_height="54dp"
+        android:ems="10"
+        android:hint="Breed Name"
+        android:inputType="textPersonName"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251" />
+
+
+    <EditText
+        android:id="@+id/infoLink"
+        android:layout_width="183dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Infor Link"
+        android:inputType="textPersonName"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.884" />
+
+    <EditText
+        android:id="@+id/wno"
         android:layout_width="117dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -147,7 +142,7 @@
         app:layout_constraintVertical_bias="0.394" />
 
     <EditText
-        android:id="@+id/wno"
+        android:id="@+id/hno"
         android:layout_width="118dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -218,13 +213,13 @@
         android:id="@+id/dogImgView"
         android:layout_width="75dp"
         android:layout_height="80dp"
+        android:src="@drawable/beagal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.849"
-        android:src="@drawable/beagal" />
+        app:layout_constraintVertical_bias="0.932" />
 
     <Button
         android:id="@+id/resetBreed"
@@ -237,7 +232,7 @@
         app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/saveBreed"
@@ -254,53 +249,91 @@
 
     <ImageButton
         android:id="@+id/addImgBtn"
-        android:layout_width="61dp"
-        android:layout_height="57dp"
+        android:layout_width="62dp"
+        android:layout_height="55dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintHorizontal_bias="0.306"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819"
+        app:layout_constraintVertical_bias="0.897"
         app:srcCompat="@drawable/img_add_foreground" />
 
-    <ImageButton
-        android:id="@+id/manageBreed"
-        android:layout_width="48dp"
-        android:layout_height="45dp"
-        android:backgroundTint="#FBF6F6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.595"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081"
-        app:srcCompat="@drawable/list_foreground" />
 
-    <ImageButton
-        android:id="@+id/addNewBreed"
-        android:layout_width="48dp"
-        android:layout_height="44dp"
-        android:backgroundTint="#F3F4F8"
+    <EditText
+        android:id="@+id/adapget"
+        android:layout_width="368dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="324dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Adaptability"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081"
-        app:srcCompat="@drawable/add_foreground" />
+        app:layout_constraintTop_toTopOf="@+id/adpanel"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
-        android:id="@+id/adminViewBreed"
-        android:layout_width="52dp"
-        android:layout_height="56dp"
-        android:backgroundTint="#FBF9F9"
+    <EditText
+        android:id="@+id/intelget"
+        android:layout_width="367dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="324dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Intelligence"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/adpanel"
+        app:layout_constraintVertical_bias="0.195" />
+
+    <EditText
+        android:id="@+id/feedget"
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="324dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Feeding"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/adpanel"
+        app:layout_constraintVertical_bias="0.39" />
+
+    <EditText
+        android:id="@+id/healget"
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="324dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Health"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/adpanel"
+        app:layout_constraintVertical_bias="0.58" />
+
+    <ProgressBar
+        android:id="@+id/proBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08"
-        app:srcCompat="@drawable/find_page_foreground" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

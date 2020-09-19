@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.puppypals_foryourpooch">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,26 +10,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CusBreedInfoScroll">
+        <activity android:name=".Cus_breeds"></activity>
+
+        <activity android:name=".CusBreedInfoScroll" />
+        <activity android:name=".botNav" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".AdminProfile" />
+        <activity android:name=".CusBreedInfo" />
+        <activity android:name=".CusBreedSelect" />
+        <activity android:name=".UpadteBreedInfo" />
+        <activity
+            android:name=".Manage_breed_info"
+            android:windowSoftInputMode="adjustPan" >
+
+        </activity>
+        <activity android:name=".ManageBreedInfo" />
+        <activity android:name=".AddBreedInfo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".botNav" />
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".AdminProfile"></activity>
-        <activity android:name=".CusBreedInfo"></activity>
-        <activity android:name=".CusBreedSelect"></activity>
-        <activity android:name=".UpadteBreedInfo"></activity>
-        <activity
-            android:name=".Manage_breed_info"
-            android:windowSoftInputMode="adjustPan">
-
-        </activity>
-        <activity android:name=".ManageBreedInfo"></activity>
-        <activity android:name=".AddBreedInfo"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
