@@ -38,4 +38,7 @@
         <item>Doberman</item>
         <item>German Shepherd</item>
     </string-array>
+    <string name="upImg_choose">Choose Image from Gallery</string>
+    <string name="upImg_cam">Take Picture</string>
+    <string name="upImg_upload">Upload</string>
 </resources>
