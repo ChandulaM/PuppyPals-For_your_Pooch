@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,9 +19,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class UserProfile extends AppCompatActivity {
     Button btn_update, btn_upload;
+    ImageView profilePic;
     TextView userName, dogName, dogAge, dogBreed;
     FirebaseAuth fAuth;
     DatabaseReference userRef, dogRef;
@@ -38,6 +41,7 @@ public class UserProfile extends AppCompatActivity {
         dogName = findViewById(R.id.uProf_dname);
         dogBreed = findViewById(R.id.uProf_breed);
         dogAge = findViewById(R.id.uProf_age);
+        profilePic = findViewById(R.id.uProf_profPic);
 
         fAuth = FirebaseAuth.getInstance();
         userRef = FirebaseDatabase.getInstance().getReference().child("User").child(fAuth.getUid()); //gets current user
@@ -47,6 +51,13 @@ public class UserProfile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChildren()){
                     userName.setText(dataSnapshot.child("username").getValue().toString());
+                    if(dataSnapshot.hasChild("imgUrl")) {
+                        Picasso.with(getApplicationContext())
+                                .load(dataSnapshot.child("imgUrl").getValue().toString())
+                                .fit()
+                                .centerCrop()
+                                .into(profilePic);
+                    }
                     String dogId = dataSnapshot.child("dog").getValue().toString();
 
                     dogRef = FirebaseDatabase.getInstance().getReference().child("Dog").child(dogId);   //gets the current user's dog
