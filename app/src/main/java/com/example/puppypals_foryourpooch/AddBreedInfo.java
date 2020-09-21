@@ -83,7 +83,8 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
        rest.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-
+               Intent i= new Intent(AddBreedInfo.this,AddBreedInfo.class);
+               startActivity(i);
            }
        });
 
@@ -97,21 +98,24 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
        navViewBrd.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-
+               Intent i= new Intent(AddBreedInfo.this,CusBreedSelect.class);
+               startActivity(i);
            }
        });
 
        navManageBrd.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-
+               Intent i= new Intent(AddBreedInfo.this,Manage_breed_info.class);
+               startActivity(i);
            }
        });
 
        navAddBrd.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-
+               Intent i= new Intent(AddBreedInfo.this,AddBreedInfo.class);
+               startActivity(i);
            }
        });
 
