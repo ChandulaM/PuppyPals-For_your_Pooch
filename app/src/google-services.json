@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1015868773354",
+    "firebase_url": "https://puppypals---for-your-pooch.firebaseio.com",
+    "project_id": "puppypals---for-your-pooch",
+    "storage_bucket": "puppypals---for-your-pooch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015868773354:android:1d599de2213b4286e6d893",
+        "android_client_info": {
+          "package_name": "com.example.puppypals_foryourpooch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015868773354-6e7ccm0op0jh6ie0ar91lc2hbv1ff20h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANg57l8iyqBG8WT-obzPR1crtIIRrZIjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015868773354-6e7ccm0op0jh6ie0ar91lc2hbv1ff20h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
