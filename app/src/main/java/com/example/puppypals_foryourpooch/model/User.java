@@ -1,13 +1,25 @@
 package com.example.puppypals_foryourpooch.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String email;
     private String username;
     private String password;
+    private String imageUrl;
     private double latitude;
     private double longitude;
 
     public User() {
+    }
+
+    public User(String email, String username, String password, String imageUrl, double latitude, double longitude) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.imageUrl = imageUrl;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getEmail() {
@@ -50,14 +62,7 @@ public class User {
         this.longitude = longitude;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                '}';
-    }
+    public String getImageUrl() { return imageUrl; }
+
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }

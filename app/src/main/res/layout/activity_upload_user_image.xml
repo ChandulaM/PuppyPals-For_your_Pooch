@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/userImg_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/user_background"
+    tools:context=".UploadUserImage">
+
+    <Button
+        android:id="@+id/upImg_btn_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_light"
+        android:fontFamily="@font/actor"
+        android:padding="3dp"
+        android:text="@string/upImg_choose" />
+
+    <Button
+        android:id="@+id/upImg_btn_cam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/upImg_btn_choose"
+        android:background="@android:color/holo_orange_light"
+        android:fontFamily="@font/actor"
+        android:text="@string/upImg_cam" />
+
+    <ImageView
+        android:id="@+id/upImg_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/upImg_progress"
+        android:layout_below="@+id/upImg_btn_choose"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/design_default_color_background"
+        android:backgroundTint="#8A7676"
+        app:srcCompat="@drawable/sample_profile_pic" />
+
+    <ProgressBar
+        android:id="@+id/upImg_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_above="@+id/upImg_btn_upload"/>
+
+    <Button
+        android:id="@+id/upImg_btn_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/holo_orange_dark"
+        android:fontFamily="@font/actor"
+        android:text="@string/upImg_upload"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+</RelativeLayout>
