@@ -3,114 +3,155 @@ package com.example.puppypals_foryourpooch;
 import java.io.Serializable;
 
 public class BreedModel implements Serializable {
+    private String breedId;
     private String breedName;
-    private int height;
-    private int weight;
-    private int lSpan;
-    private String adap;
-    private String intell;
-    private String feed;
+    private Integer height;
+    private Integer weight;
+    private Integer lifeSpan;
+    private String adaptability;
+    private String intelligence;
+    private String feedings;
     private String health;
     private String link;
-    private String bImage;
+    private String breedImage;
 
     public BreedModel() {
     }
 
-    public BreedModel(String breedName, int height, int weight, int lSpan, String adap, String intell, String feed, String health, String link, String bImage) {
+    public BreedModel(String breedId, String breedName, Integer height, Integer weight, Integer lifeSpan, String adaptability, String intelligence, String feedings, String health, String link, String breedImage) {
+        this.breedId = breedId;
         this.breedName = breedName;
         this.height = height;
         this.weight = weight;
-        this.lSpan = lSpan;
-        this.adap = adap;
-        this.intell = intell;
-        this.feed = feed;
+        this.lifeSpan = lifeSpan;
+        this.adaptability = adaptability;
+        this.intelligence = intelligence;
+        this.feedings = feedings;
         this.health = health;
         this.link = link;
-        this.bImage = bImage;
+        this.breedImage = breedImage;
+    }
+
+    public BreedModel(String breedName, Integer height, Integer weight, Integer lifeSpan, String adaptability, String intelligence, String feedings, String health, String link, String breedImage) {
+        this.breedName = breedName;
+        this.height = height;
+        this.weight = weight;
+        this.lifeSpan = lifeSpan;
+        this.adaptability = adaptability;
+        this.intelligence = intelligence;
+        this.feedings = feedings;
+        this.health = health;
+        this.link = link;
+        this.breedImage = breedImage;
     }
 
     public BreedModel(String breedName) {
         this.breedName = breedName;
     }
 
+    public String getBreedId() {
+        return breedId;
+    }
+
     public String getBreedName() {
         return breedName;
     }
 
-    public void setBreedName(String breedName) {
-        this.breedName = breedName;
-    }
-
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
+    public Integer getLifeSpan() {
+        return lifeSpan;
     }
 
-    public int getlSpan() {
-        return lSpan;
+    public String getAdaptability() {
+        return adaptability;
     }
 
-    public void setlSpan(int lSpan) {
-        this.lSpan = lSpan;
+    public String getIntelligence() {
+        return intelligence;
     }
 
-    public String getAdap() {
-        return adap;
-    }
-
-    public void setAdap(String adap) {
-        this.adap = adap;
-    }
-
-    public String getIntell() {
-        return intell;
-    }
-
-    public void setIntell(String intell) {
-        this.intell = intell;
-    }
-
-    public String getFeed() {
-        return feed;
-    }
-
-    public void setFeed(String feed) {
-        this.feed = feed;
+    public String getFeedings() {
+        return feedings;
     }
 
     public String getHealth() {
         return health;
     }
 
-    public void setHealth(String health) {
-        this.health = health;
-    }
-
     public String getLink() {
         return link;
+    }
+
+    public String getBreedImage() {
+        return breedImage;
+    }
+
+
+    public void setBreedId(String breedId) {
+        this.breedId = breedId;
+    }
+
+    public void setBreedName(String breedName) {
+        this.breedName = breedName;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
+    public void setLifeSpan(Integer lifeSpan) {
+        this.lifeSpan = lifeSpan;
+    }
+
+    public void setAdaptability(String adaptability) {
+        this.adaptability = adaptability;
+    }
+
+    public void setIntelligence(String intelligence) {
+        this.intelligence = intelligence;
+    }
+
+    public void setFeedings(String feedings) {
+        this.feedings = feedings;
+    }
+
+    public void setHealth(String health) {
+        this.health = health;
     }
 
     public void setLink(String link) {
         this.link = link;
     }
 
-    public String getbImage() {
-        return bImage;
+    public void setBreedImage(String breedImage) {
+        this.breedImage = breedImage;
     }
 
-    public void setbImage(String bImage) {
-        this.bImage = bImage;
+    @Override
+    public String toString() {
+        return "BreedModel{" +
+                "breedId='" + breedId + '\'' +
+                ", breedName='" + breedName + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", lifeSpan=" + lifeSpan +
+                ", adaptability='" + adaptability + '\'' +
+                ", intelligence='" + intelligence + '\'' +
+                ", feedings='" + feedings + '\'' +
+                ", health='" + health + '\'' +
+                ", link='" + link + '\'' +
+                ", breedImage='" + breedImage + '\'' +
+                '}';
     }
 }
