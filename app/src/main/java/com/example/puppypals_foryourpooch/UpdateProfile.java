@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.puppypals_foryourpooch.model.Dog;
 import com.example.puppypals_foryourpooch.model.User;
@@ -20,15 +23,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class UpdateProfile extends AppCompatActivity {
 
     Button btn_update;
     TextView email, password, dogName, dogAge;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
-    DatabaseReference userRef, dogRef;
-    User user;
-    Dog dog;
+    DatabaseReference userRef, dogRef, breedRef;
+    Spinner spinner;
+    ArrayAdapter<String> adapter;
+    ArrayList<String> spinnerData;
+    ValueEventListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +46,17 @@ public class UpdateProfile extends AppCompatActivity {
         email = findViewById(R.id.upProf_email);
         password = findViewById(R.id.upProf_oldPwd);
         dogName = findViewById(R.id.upProf_dname);
-        dogAge = findViewById(R.id.uProf_age);
+        dogAge = findViewById(R.id.upProf_age);
         progressBar = findViewById(R.id.upProf_prBar);
+        spinner = findViewById(R.id.upProf_breed);
+
+        progressBar.setVisibility(View.INVISIBLE);
+        spinnerData = new ArrayList<>();
+        breedRef = FirebaseDatabase.getInstance().getReference().child("Breed");
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
+                spinnerData);
+        spinner.setAdapter(adapter);
+        retrieveBreeds();
 
         fAuth = FirebaseAuth.getInstance();
         userRef = FirebaseDatabase.getInstance().getReference().child("User").child(fAuth.getUid());
@@ -67,7 +83,7 @@ public class UpdateProfile extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                            Toast.makeText(UpdateProfile.this, databaseError.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
                 }else{
@@ -91,37 +107,65 @@ public class UpdateProfile extends AppCompatActivity {
 
                 if(newPass.length() < 6){
                     password.setError("Password must have at least 7 characters");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if(TextUtils.isEmpty(newEmail)) {
                     email.setError("Please enter an email");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if(TextUtils.isEmpty(newPass)){
                     email.setError("Please enter a password");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if(TextUtils.isEmpty(newDogName)) {
                     email.setError("Please enter a name for your dog");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if(newDogAge == null) {
                     email.setError("Please enter an age for your dog");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
 
                 userRef.child("email").setValue(newEmail);
                 userRef.child("password").setValue(newPass);
+                dogRef.child("name").setValue(newDogName);
+                dogRef.child("age").setValue(newDogAge);
+                dogRef.child("breed").setValue(spinner.getSelectedItem().toString());
 
-                //dogRef = userRef.child("dog").get
-
-
+                startActivity(new Intent(getApplicationContext(), UserProfile.class));
 
             }
         });
 
+    }
 
+    public void retrieveBreeds(){
+
+        listener = breedRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot item : dataSnapshot.getChildren()){
+
+                    spinnerData.add(item.child("breedName").getValue().toString());
+
+                }
+
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getApplicationContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }

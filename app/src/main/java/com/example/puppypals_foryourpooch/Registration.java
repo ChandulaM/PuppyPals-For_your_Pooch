@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.puppypals_foryourpooch.model.User;
@@ -30,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Registration extends AppCompatActivity{
     EditText email, username, password, conPassword;
+    ProgressBar progressBar;
     Button regDog;
     User user;
     DatabaseReference reference;
@@ -46,6 +48,7 @@ public class Registration extends AppCompatActivity{
         password = findViewById(R.id.reg_pass);
         conPassword = findViewById(R.id.reg_confPass);
         regDog = findViewById(R.id.btn_regDog);
+        progressBar = findViewById(R.id.reg_pBar);
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -67,30 +70,37 @@ public class Registration extends AppCompatActivity{
             public void onClick(View view) {
 
                 reference = FirebaseDatabase.getInstance().getReference().child("User");
+                progressBar.setVisibility(View.VISIBLE);
 
                 if(password.getText().toString().length() < 6){
                     password.setError("Password must have at least 7 characters");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
 
                 if(TextUtils.isEmpty(email.getText().toString())) {
                     email.setError("Please enter an email");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 else if(TextUtils.isEmpty(username.getText().toString())) {
                     username.setError("Please enter a username");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 else if(TextUtils.isEmpty(password.getText().toString())) {
                     username.setError("Please enter a password");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 else if(TextUtils.isEmpty(conPassword.getText().toString())) {
                     username.setError("Please confirm your password");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 else if(!password.getText().toString().equalsIgnoreCase(conPassword.getText().toString())) {
                     conPassword.setError("Passwords don't match");
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 else {
@@ -114,6 +124,7 @@ public class Registration extends AppCompatActivity{
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                user.setUserId(fAuth.getUid());
                                 reference.child(fAuth.getUid()).setValue(user);
                                 startActivity(new Intent(getApplicationContext(), DogRegistration.class));
                             }

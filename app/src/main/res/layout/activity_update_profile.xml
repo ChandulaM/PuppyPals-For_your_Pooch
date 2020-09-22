@@ -166,9 +166,9 @@
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/upProf_age_tv"
-        app:layout_constraintEnd_toStartOf="@+id/upProf_breed"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/upProf_btn_update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upProf_dname_tv" />
 
@@ -176,22 +176,25 @@
         android:id="@+id/upProf_breed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@color/design_default_color_background"
         android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/upProf_age_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/upProf_breed_tv"
-        app:layout_constraintTop_toBottomOf="@+id/upProf_dname" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upProf_breed_tv"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/upProf_age_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/reg_dog_age"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -200,7 +203,7 @@
         app:layout_constraintEnd_toStartOf="@+id/upProf_age"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upProf_breed_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/upProf_breed" />
 
     <EditText
         android:id="@+id/upProf_age"
@@ -221,7 +224,7 @@
         android:id="@+id/upProf_btn_update"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="250dp"
         android:background="@color/colorPrimaryDark"
         android:fontFamily="@font/actor"
         android:text="@string/prof_update"
@@ -231,14 +234,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upProf_age_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/upProf_breed_tv" />
 
     <ProgressBar
         android:id="@+id/upProf_prBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

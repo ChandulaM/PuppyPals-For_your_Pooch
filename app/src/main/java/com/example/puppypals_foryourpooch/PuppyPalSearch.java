@@ -26,12 +26,14 @@ import java.util.List;
 
 public class PuppyPalSearch extends AppCompatActivity {
 
+    private static final String TAG = "DIST";
     RecyclerView recyclerView;
     SearchImageAdapter searchAdapter;
 
     DatabaseReference userRef;
     FirebaseAuth fAuth;
     List<User> users;
+    double currentUserLat, currentUserLong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,23 +52,45 @@ public class PuppyPalSearch extends AppCompatActivity {
         userRef = FirebaseDatabase.getInstance().getReference().child("User");
         fAuth = FirebaseAuth.getInstance();
 
+        userRef.child(fAuth.getUid()).addValueEventListener(new ValueEventListener() {  //to get current user's location
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChildren()){
+                    currentUserLat = Double.valueOf(dataSnapshot.child("latitude").getValue().toString());
+                    currentUserLong = Double.valueOf(dataSnapshot.child("longitude").getValue().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        //loop through the users and add only the relevant users
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snap : dataSnapshot.getChildren()){
                     if(!fAuth.getUid().toString().equals(snap.getKey().toString())){
-                        User user = new User(snap.child("email").getValue().toString(),
+                        User user = new User(snap.child("userId").getValue().toString(),
+                                snap.child("email").getValue().toString(),
                                 snap.child("username").getValue().toString(),
                                 snap.child("password").getValue().toString(),
                                 snap.child("imgUrl").getValue().toString(),
                                 Double.valueOf(snap.child("latitude").getValue().toString()),
                                 Double.valueOf(snap.child("longitude").getValue().toString()));
-                        users.add(user);
+
+                        DistanceCalculator dc = new DistanceCalculator();
+                        double distanceBetween = dc.distance(currentUserLat, user.getLatitude(), //method to calculate distance with lat and long
+                                currentUserLong, user.getLongitude());
+                        if(distanceBetween <= 10) {
+                            users.add(user);
+                        }
                     }
                 }
                 searchAdapter = new SearchImageAdapter(getApplicationContext(), users);
                 recyclerView.setAdapter(searchAdapter);
-
             }
 
             @Override
@@ -74,10 +98,6 @@ public class PuppyPalSearch extends AppCompatActivity {
                 Toast.makeText(PuppyPalSearch.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
     }
 
     private void getBotNav() {
