@@ -39,7 +39,6 @@ public class ViewProfile extends AppCompatActivity {
         getBotNav();
 
         String userId = getIntent().getStringExtra("userId");
-        Log.d(TAG, "User ID: " + userId);
 
         btn_chat = findViewById(R.id.viewProf_btn_chat);
         btn_back = findViewById(R.id.viewProf_btn_back);

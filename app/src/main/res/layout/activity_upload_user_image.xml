@@ -10,23 +10,24 @@
     tools:context=".UploadUserImage">
 
     <Button
+        android:id="@+id/upImg_btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/abc_vector_test"
+        android:backgroundTint="@android:color/black"
+        android:fontFamily="@font/actor"
+        android:padding="3dp" />
+
+    <Button
         android:id="@+id/upImg_btn_choose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_light"
         android:fontFamily="@font/actor"
-        android:padding="3dp"
-        android:text="@string/upImg_choose" />
-
-    <Button
-        android:id="@+id/upImg_btn_cam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_toRightOf="@+id/upImg_btn_back"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/upImg_btn_choose"
-        android:background="@android:color/holo_orange_light"
-        android:fontFamily="@font/actor"
-        android:text="@string/upImg_cam" />
+        android:text="@string/upImg_choose" />
 
     <ImageView
         android:id="@+id/upImg_pic"

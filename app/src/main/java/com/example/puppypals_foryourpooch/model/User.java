@@ -24,6 +24,15 @@ public class User implements Serializable {
         this.longitude = longitude;
     }
 
+    public User(String userId, String email, String username, String password, double latitude, double longitude) {
+        this.userId = userId;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
     public String getUserId() { return userId; }
 
     public void setUserId(String userId) { this.userId = userId;  }

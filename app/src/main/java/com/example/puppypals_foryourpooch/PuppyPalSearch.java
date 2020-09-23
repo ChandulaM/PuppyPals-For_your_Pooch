@@ -9,7 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.puppypals_foryourpooch.model.User;
@@ -29,6 +32,8 @@ public class PuppyPalSearch extends AppCompatActivity {
     private static final String TAG = "DIST";
     RecyclerView recyclerView;
     SearchImageAdapter searchAdapter;
+    ProgressBar progressBar;
+    TextView error_msg;
 
     DatabaseReference userRef;
     FirebaseAuth fAuth;
@@ -46,6 +51,8 @@ public class PuppyPalSearch extends AppCompatActivity {
         recyclerView = findViewById(R.id.search_recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        progressBar = findViewById(R.id.search_prBar);
+        error_msg = findViewById(R.id.search_error_msg);
 
         users = new ArrayList<>();
 
@@ -73,13 +80,24 @@ public class PuppyPalSearch extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot snap : dataSnapshot.getChildren()){
                     if(!fAuth.getUid().toString().equals(snap.getKey().toString())){
-                        User user = new User(snap.child("userId").getValue().toString(),
-                                snap.child("email").getValue().toString(),
-                                snap.child("username").getValue().toString(),
-                                snap.child("password").getValue().toString(),
-                                snap.child("imgUrl").getValue().toString(),
-                                Double.valueOf(snap.child("latitude").getValue().toString()),
-                                Double.valueOf(snap.child("longitude").getValue().toString()));
+                        User user;
+                        if(snap.child("imgUrl").getValue() != null ) {
+                            user =new User(snap.child("userId").getValue().toString(),
+                                    snap.child("email").getValue().toString(),
+                                    snap.child("username").getValue().toString(),
+                                    snap.child("password").getValue().toString(),
+                                    snap.child("imgUrl").getValue().toString(),
+                                    Double.valueOf(snap.child("latitude").getValue().toString()),
+                                    Double.valueOf(snap.child("longitude").getValue().toString()));
+
+                        }else{
+                            user =new User(snap.child("userId").getValue().toString(),
+                                    snap.child("email").getValue().toString(),
+                                    snap.child("username").getValue().toString(),
+                                    snap.child("password").getValue().toString(),
+                                    Double.valueOf(snap.child("latitude").getValue().toString()),
+                                    Double.valueOf(snap.child("longitude").getValue().toString()));
+                        }
 
                         DistanceCalculator dc = new DistanceCalculator();
                         double distanceBetween = dc.distance(currentUserLat, user.getLatitude(), //method to calculate distance with lat and long
@@ -89,8 +107,13 @@ public class PuppyPalSearch extends AppCompatActivity {
                         }
                     }
                 }
-                searchAdapter = new SearchImageAdapter(getApplicationContext(), users);
-                recyclerView.setAdapter(searchAdapter);
+                progressBar.setVisibility(View.GONE);
+                if(!users.isEmpty()) {
+                    searchAdapter = new SearchImageAdapter(getApplicationContext(), users);
+                    recyclerView.setAdapter(searchAdapter);
+                }else{
+                    error_msg.setText("Sorry! We couldn't locate any PuppyPals near you!");
+                }
             }
 
             @Override

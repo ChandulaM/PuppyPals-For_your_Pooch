@@ -31,7 +31,7 @@ public class UploadUserImage extends AppCompatActivity {
 
     private static final int PICK_IMG_REQUEST = 2;
 
-    Button btn_choose, btn_take, btn_upload;
+    Button btn_choose, btn_upload;
     ImageView profilePic;
     ProgressBar progressBar;
     Uri imgUri;
@@ -45,7 +45,6 @@ public class UploadUserImage extends AppCompatActivity {
         setContentView(R.layout.activity_upload_user_image);
 
         btn_choose = findViewById(R.id.upImg_btn_choose);
-        btn_take = findViewById(R.id.upImg_btn_cam);
         btn_upload = findViewById(R.id.upImg_btn_upload);
         profilePic = findViewById(R.id.upImg_pic);
         progressBar = findViewById(R.id.upImg_progress);
