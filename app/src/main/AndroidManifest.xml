@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -16,19 +17,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UploadUserImage"></activity>
+        <activity android:name=".update_advertiesment"></activity>
+        <activity android:name=".pup_register" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".UploadUserImage" />
         <activity android:name=".PuppyPalSearch" />
-
-
         <activity android:name=".UpdateProfile" />
         <activity android:name=".ViewProfile" />
         <activity android:name=".UserProfile" />
         <activity android:name=".DogRegistration" />
         <activity android:name=".Registration" />
         <activity android:name=".Login" />
-
-        <activity android:name=".MainActivity">
-          <intent-filter>
+        <activity android:name=".pup_add_page">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -39,28 +40,15 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".AdminProfile">
-        </activity>
-
-        <activity android:name=".CusBreedInfo">
-        </activity>
-
-        <activity android:name=".CusBreedSelect">
-        </activity>
-
-        <activity android:name=".UpadteBreedInfo" >
-        </activity>
-
+        <activity android:name=".AdminProfile" />
+        <activity android:name=".CusBreedInfo" />
+        <activity android:name=".CusBreedSelect" />
+        <activity android:name=".UpadteBreedInfo" />
         <activity
             android:name=".Manage_breed_info"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-
-        <activity android:name=".ManageBreedInfo" >
-        </activity>
-
-        <activity android:name=".AddBreedInfo" >
-        </activity>
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".ManageBreedInfo" />
+        <activity android:name=".AddBreedInfo" />
 
         <meta-data
             android:name="preloaded_fonts"
