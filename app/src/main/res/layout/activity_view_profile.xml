@@ -58,8 +58,8 @@
             android:id="@+id/viewProf_prPic"
             android:layout_width="175dp"
             android:layout_height="175dp"
-            android:background="@drawable/sample_profile_pic"
-            app:srcCompat="@drawable/sample_profile_pic" />
+            android:background="@drawable/new_logo"
+             />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -172,7 +172,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        app:itemBackground="@android:color/holo_red_light"
+        app:itemBackground="@android:color/holo_red_dark"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"

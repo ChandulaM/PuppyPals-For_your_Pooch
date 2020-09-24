@@ -14,7 +14,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/abc_vector_test"
-        android:backgroundTint="@android:color/black"
+        android:backgroundTint="@android:color/white"
         android:fontFamily="@font/actor"
         android:padding="3dp" />
 

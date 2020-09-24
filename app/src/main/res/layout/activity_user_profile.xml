@@ -42,7 +42,7 @@
             android:id="@+id/uProf_profPic"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/sample_profile_pic"
+            android:background="@drawable/new_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

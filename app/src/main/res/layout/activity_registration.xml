@@ -37,31 +37,41 @@
         android:text="@string/prompt_password"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/reg_pass"
+        app:layout_constraintBottom_toTopOf="@+id/reg_pass_holder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/reg_pass"
+        app:layout_constraintEnd_toStartOf="@+id/reg_pass_holder"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_uname" />
 
-    <EditText
-        android:id="@+id/reg_pass"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/reg_pass_holder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/design_default_color_background"
-        android:ems="10"
-        android:hint="@string/prompt_password"
-        android:inputType="textPassword"
-        android:padding="5dp"
-        android:textSize="18sp"
+        app:passwordToggleEnabled="true"
+        app:hintEnabled="false"
         app:layout_constraintBottom_toTopOf="@+id/reg_conPw_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_pass_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_pass_tv">
+
+        <EditText
+            android:id="@+id/reg_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_background"
+            android:ems="10"
+            android:hint="@string/prompt_password"
+            android:inputType="textPassword"
+            android:padding="5dp"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/reg_conPw_tv"
+            app:layout_constraintTop_toBottomOf="@+id/reg_pass_tv" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/reg_conPw_tv"
@@ -72,30 +82,40 @@
         android:text="@string/reg_conf_pass"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/reg_confPass"
+        app:layout_constraintBottom_toTopOf="@+id/conf_pass_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_pass" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_pass_holder" />
 
-    <EditText
-        android:id="@+id/reg_confPass"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/conf_pass_holder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_regDog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_conPw_tv"
+        >
+    <EditText
+        android:id="@+id/reg_confPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/design_default_color_background"
         android:ems="10"
         android:hint="@string/reg_conf_pass"
         android:inputType="textPassword"
         android:padding="5dp"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_regDog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_conPw_tv" />
+         />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/reg_email_tv"
@@ -124,7 +144,7 @@
         android:ems="10"
         android:hint="@string/reg_email"
         android:inputType="textPersonName"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/reg_uname_tv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +163,7 @@
         android:ems="10"
         android:hint="@string/prompt_username"
         android:inputType="textPersonName"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/reg_pass_tv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -184,7 +204,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_confPass" />
+        app:layout_constraintTop_toBottomOf="@+id/conf_pass_holder" />
 
     <ProgressBar
         android:id="@+id/reg_pBar"
@@ -192,6 +212,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:textAlignment="center"
-        app:itemBackground="@android:color/holo_red_light"
+        app:itemBackground="@android:color/holo_red_dark"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/menu_bot_nav" />

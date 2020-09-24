@@ -76,7 +76,6 @@ public class SearchImageAdapter extends RecyclerView.Adapter<SearchImageAdapter.
                 Toast.makeText(mContext, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
         //load the profile picture
         Picasso.with(mContext)
                 .load(userCurrent.getImageUrl())

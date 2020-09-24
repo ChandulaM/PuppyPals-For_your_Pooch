@@ -146,25 +146,23 @@ public class UpdateProfile extends AppCompatActivity {
                 }
                 progressBar.setVisibility(View.VISIBLE);
 
-                /*AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(),
-                        user.getPassword());
-                fAuth.getCurrentUser().reauthenticate(credential);*/
-
-                currentUser.updatePassword(newPass)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful()){
-                                    userRef.child("password").setValue(newPass);
-                                }/*else{
-                                    Toast.makeText(UpdateProfile.this, "Error in updating profile", Toast.LENGTH_SHORT).show();
-                                }*/
-                            }
-                        });
-
                 dogRef.child("name").setValue(newDogName);
                 dogRef.child("age").setValue(newDogAge);
                 dogRef.child("breed").setValue(spinner.getSelectedItem().toString());
+
+                if(!user.getPassword().equals(newPass)){
+                    currentUser.updatePassword(newPass)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        userRef.child("password").setValue(newPass);
+                                    }/*else{
+                                    Toast.makeText(UpdateProfile.this, "Error in updating profile", Toast.LENGTH_SHORT).show();
+                                }*/
+                                }
+                            });
+                }
 
                 if(!user.getEmail().equals(newEmail)){
                     currentUser.updateEmail(newEmail)
