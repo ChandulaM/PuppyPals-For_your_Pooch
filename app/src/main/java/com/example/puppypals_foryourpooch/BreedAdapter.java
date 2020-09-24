@@ -1,9 +1,12 @@
 package com.example.puppypals_foryourpooch;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -13,36 +16,54 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapterVh> implements Filterable {
 
-    private List<BreedModel> breedModelList;
-    private List<BreedModel> getbreedModelListFiltered;
+    private static final String TAG = "RecyclerView";
+
+    private ArrayList<BreedModel> breedModelList;
+    private ArrayList<BreedModel> getbreedModelListFiltered;
     private Context context;
     private SelectBreed selectBreed;
 
-    public BreedAdapter(List<BreedModel> breedModelList, SelectBreed selectBreed) {
+    public BreedAdapter(ArrayList<BreedModel> breedModelList, SelectBreed selectBreed) {
+        this.breedModelList = breedModelList;
+        this.getbreedModelListFiltered = breedModelList;
+        this.selectBreed = selectBreed;
+
+    }
+
+    public BreedAdapter(Context context, ArrayList<BreedModel> breedModelList, SelectBreed selectBreed) {
+        this.context = context;
         this.breedModelList = breedModelList;
         this.getbreedModelListFiltered = breedModelList;
         this.selectBreed = selectBreed;
     }
 
+
     @NonNull
     @Override
     public BreedAdapter.BreedAdapterVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.raw_breeds, parent, false);
+//        return new BreedAdapterVh(view);
         context= parent.getContext();
         return new BreedAdapterVh(LayoutInflater.from(context).inflate(R.layout.raw_breeds, null));
     }
 
     @Override
     public void onBindViewHolder(@NonNull BreedAdapter.BreedAdapterVh holder, int position) {
-        BreedModel breedModel = breedModelList.get(position);
-        String breedName = breedModel.getBreedName();
-        String prefix = breedModel.getBreedName().substring(0,1);
+//        BreedModel breedModel = breedModelList.get(position);
+//        String breedName = breedModel.getBreedName();
+//        String prefix = breedModel.getBreedName().substring(0,1);
+//        holder.breedname.setText(breedName);
 
-        holder.breedname.setText(breedName);
+        holder.breedname.setText(breedModelList.get(position).getBreedName());
+
+        Glide.with(context).load(breedModelList.get(position).getBreedImage()).into(holder.pic);
 
     }
 
@@ -77,33 +98,55 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-                breedModelList = (List<BreedModel>) results.values;
+                breedModelList = (ArrayList<BreedModel>) results.values;
                 notifyDataSetChanged();
             }
         };
         return filter;
     }
 
-    public interface SelectBreed{
-        void selectedBreed(BreedModel breedModel);
+    public class SelectBreed{
+        public void selectedBreed(BreedModel breedModel) {
+            context.startActivity(new Intent(context.getApplicationContext(), CusBreedInfoScroll.class).putExtra("Breed", breedModel));
+        }
     }
 
     public class BreedAdapterVh extends RecyclerView.ViewHolder {
         ImageView pic;
         TextView breedname;
-        ImageView imgVicon;
+        Button brdRemoveBtn, brdUpdateBtn;
         public BreedAdapterVh(@NonNull View itemView) {
             super(itemView);
             breedname = itemView.findViewById(R.id.breedname);
-//            imgVicon = itemView.findViewById(R.id.arrow);
-//            pic = itemView.findViewById();
+            pic = itemView.findViewById(R.id.brdRowImg);
+            brdUpdateBtn = itemView.findViewById(R.id.updateBreedInfo);
+            brdRemoveBtn = itemView.findViewById(R.id.brdRemove);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            breedname.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    selectBreed.selectedBreed(breedModelList.get(getAdapterPosition()));
+                public void onClick(View view) {
+                    SelectBreed sb = new SelectBreed();
+                    sb.selectedBreed(breedModelList.get(getAdapterPosition()));
                 }
             });
+
+            pic.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SelectBreed sb = new SelectBreed();
+                    sb.selectedBreed(breedModelList.get(getAdapterPosition()));
+                }
+            });
+
+            /*itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d(TAG, "BreedAdapterVh: " + breedModelList.get(1));
+                    selectBreed.selectedBreed(breedModelList.get(1));
+                }
+            });*/
         }
+
+
     }
 }

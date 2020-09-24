@@ -25,8 +25,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Breeds."
-                android:textSize="18sp" />
+                android:text="Search &amp; Manage Breeds."
+                android:textSize="20sp" />
         </androidx.appcompat.widget.Toolbar>
     </LinearLayout>
 
@@ -38,7 +38,7 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
+            android:id="@+id/brdRecyclerview"
             android:layout_marginStart="3dp"
             android:layout_marginTop="3dp"
             android:layout_width="match_parent"

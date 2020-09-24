@@ -132,6 +132,8 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
            public void onClick(View view) {
                Intent i= new Intent(AddBreedInfo.this,CusBreedSelect.class);
                startActivity(i);
+
+
            }
        });
 
@@ -191,42 +193,52 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
          if (TextUtils.isEmpty(breedName))
         {
             Toast.makeText(this, "Breed Name is Mandatory!", Toast.LENGTH_SHORT).show();
+            breednm.setError("Enter Breed Name");
         }
         else if (TextUtils.isEmpty(brdHi.getText().toString()))
         {
             Toast.makeText(this, "Breed height is Mandatory!", Toast.LENGTH_SHORT).show();
+            brdHi.setError("Enter Breed Height");
         }
         else if(TextUtils.isEmpty(brdWe.getText().toString()))
         {
             Toast.makeText(this, "Breed Weight is Mandatory!", Toast.LENGTH_SHORT).show();
+            brdWe.setError("Enter Breed Weight");
         }
         else if (TextUtils.isEmpty(brdLspn.getText().toString()))
         {
             Toast.makeText(this, "Breed Life Span is Mandatory!", Toast.LENGTH_SHORT).show();
+            brdLspn.setError("Enter Breed Life Span");
         }
         else if (TextUtils.isEmpty(adaptability))
         {
             Toast.makeText(this, "Breed Adaptability is Mandatory!", Toast.LENGTH_SHORT).show();
+            adapt.setError("Enter Adaptability Info");
         }
         else if (TextUtils.isEmpty(intelligence))
         {
             Toast.makeText(this, "Breed Intelligence is Mandatory!", Toast.LENGTH_SHORT).show();
+            intel.setError("Enter Intelligence Info");
         }
         else if (TextUtils.isEmpty(feedings))
         {
             Toast.makeText(this, "Breed Feedings is Mandatory!", Toast.LENGTH_SHORT).show();
+            feeds.setError("Enter Feeding Info");
         }
         else if (TextUtils.isEmpty(hlth))
         {
             Toast.makeText(this, "Breed Health is Mandatory!", Toast.LENGTH_SHORT).show();
+            health.setError("Enter Health Info");
         }
         else if (TextUtils.isEmpty(link))
         {
             Toast.makeText(this, "Info link is Mandatory!", Toast.LENGTH_SHORT).show();
+            links.setError("Enter the Link ");
         }
         else if (brdImgUri == null)
         {
             Toast.makeText(this, "Breed image is Mandatory!", Toast.LENGTH_SHORT).show();
+
         }
 
         else
@@ -258,7 +270,7 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
         productRandomKey = saveCurrentDate + saveCurrentTime;
 
 
-        final StorageReference filePath = ProductImagesRef.child(brdImgUri.getLastPathSegment() + productRandomKey + ".jpg");
+        final StorageReference filePath = ProductImagesRef.child(brdImgUri.getLastPathSegment() );
 
         final UploadTask uploadTask = filePath.putFile(brdImgUri);
 

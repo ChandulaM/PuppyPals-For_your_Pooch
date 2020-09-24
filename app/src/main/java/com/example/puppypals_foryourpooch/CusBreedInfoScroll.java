@@ -5,15 +5,51 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
+    ImageView im;
+    TextView brdName, h, w, ls, adap, intell, feed, hlth, link;
+    Button buyPup, morInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cus_breed_info_scroll);
+        BreedModel model = (BreedModel) getIntent().getSerializableExtra("Breed");
+
+        im = findViewById(R.id.cusBreedimg);
+        brdName = findViewById(R.id.cusBreednm);
+        h = findViewById(R.id.txtHeight);
+        w = findViewById(R.id.txtWeight);
+        ls = findViewById(R.id.txtLspan);
+        adap = findViewById(R.id.adaptxt);
+        intell = findViewById(R.id.intelltxt);
+        feed = findViewById(R.id.fed);
+        hlth = findViewById(R.id.med);
+        link = findViewById(R.id.moreinfo);
+
+        buyPup = findViewById(R.id.bypup);
+        morInfo = findViewById(R.id.moreinfo);
+
+
+        Glide.with(getApplicationContext()).load(model.getBreedImage()).into(im);
+        brdName.setText(model.getBreedName());
+        h.setText(model.getHeight().toString().trim());
+        w.setText(model.getWeight().toString().trim());
+        ls.setText(model.getLifeSpan().toString().trim());
+        adap.setText(model.getAdaptability());
+        intell.setText(model.getIntelligence());
+        feed.setText(model.getFeedings());
+        hlth.setText(model.getHealth());
+
+
     }
 
     public void showPopup(View v) {

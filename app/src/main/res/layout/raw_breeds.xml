@@ -11,13 +11,12 @@
 
         <RelativeLayout
             android:layout_width="66dp"
-            android:layout_height="65dp"
-            android:background="@drawable/beagal">
+            android:layout_height="65dp">
 
-
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"/>-->
+        <ImageView
+            android:id="@+id/brdRowImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         </RelativeLayout>
 
@@ -31,16 +30,7 @@
             android:textColor="#0D0C0C"
             android:textSize="16sp" />
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/arrow"-->
-        <!--            android:layout_width="48dp"-->
-        <!--            android:layout_height="56dp"-->
-        <!--            android:layout_marginStart="10dp"-->
-        <!--            android:layout_alignParentEnd="true"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:layout_marginEnd="10dp"-->
-        <!--            android:layout_marginBottom="10dp"-->
-        <!--            android:src="@drawable/arrow_foreground" />-->
+
 
         <Button
             android:id="@+id/updateBreedInfo"
@@ -53,7 +43,7 @@
             android:textSize="12sp" />
 
         <Button
-            android:id="@+id/remove"
+            android:id="@+id/brdRemove"
             android:layout_width="72dp"
             android:layout_height="36dp"
             android:layout_centerVertical="true"
