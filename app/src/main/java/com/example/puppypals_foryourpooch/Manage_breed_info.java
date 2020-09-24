@@ -28,7 +28,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Manage_breed_info extends AppCompatActivity /*implements BreedAdapter.SelectBreed*/{
+public class Manage_breed_info extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView recyView;
 

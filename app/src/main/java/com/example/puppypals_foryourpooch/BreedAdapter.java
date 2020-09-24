@@ -116,7 +116,6 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 dbRef.removeValue();
-
             }
 
             @Override

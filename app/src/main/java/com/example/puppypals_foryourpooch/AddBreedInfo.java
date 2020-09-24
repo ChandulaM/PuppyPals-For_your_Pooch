@@ -130,7 +130,7 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
        navViewBrd.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent i= new Intent(AddBreedInfo.this,CusBreedSelect.class);
+               Intent i= new Intent(AddBreedInfo.this,CusSelectBreed.class);
                startActivity(i);
 
 

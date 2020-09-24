@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CusSelectBreed"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/adpanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="@string/Breed_info_customers_title"
+        android:textColor="#121111"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/adminDivider"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#0B85E6"
+            android:backgroundTintMode="add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.079" />
+
+
+        <ImageButton
+            android:id="@+id/probtn"
+            android:layout_width="46dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:onClick="showPopup"
+            app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
+            app:layout_constraintEnd_toEndOf="@+id/adminDivider"
+            app:layout_constraintTop_toTopOf="@+id/adminDivider"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/profile_icon" />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/breedGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:layout_margin="8dp"
+        android:horizontalSpacing="6dp"
+        android:verticalSpacing="6dp"
+        >
+
+    </GridView>
+
+
+
+
+</LinearLayout>
