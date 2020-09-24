@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BreedRows"></activity>
+        <activity android:name=".UpdateBreedInfo"></activity>
+        <activity android:name=".BreedRows" />
         <activity android:name=".Cus_breeds" />
         <activity android:name=".CusBreedInfoScroll" />
         <activity android:name=".botNav" />
@@ -22,7 +23,7 @@
         <activity android:name=".UpadteBreedInfo" />
         <activity
             android:name=".Manage_breed_info"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ManageBreedInfo" />
         <activity android:name=".AddBreedInfo">
             <intent-filter>

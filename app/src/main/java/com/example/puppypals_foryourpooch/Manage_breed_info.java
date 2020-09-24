@@ -106,6 +106,8 @@ public class Manage_breed_info extends AppCompatActivity /*implements BreedAdapt
         });
     }
 
+
+
     private void clearAll(){
         if(breedModelList != null){
             breedModelList.clear();

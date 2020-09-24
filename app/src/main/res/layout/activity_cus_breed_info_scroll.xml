@@ -47,14 +47,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.079" />
 
+
             <ImageButton
                 android:id="@+id/probtn"
-                android:layout_width="42dp"
-                android:layout_height="45dp"
-                android:layout_alignParentStart="true"
+                android:layout_width="46dp"
+                android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="349dp"
-                android:layout_marginEnd="21dp"
+                android:layout_marginEnd="16dp"
                 android:onClick="showPopup"
                 app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
                 app:layout_constraintEnd_toEndOf="@+id/adminDivider"

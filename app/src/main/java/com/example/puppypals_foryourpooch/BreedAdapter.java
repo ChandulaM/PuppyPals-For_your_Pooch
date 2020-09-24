@@ -1,6 +1,8 @@
 package com.example.puppypals_foryourpooch;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,12 +13,18 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +35,10 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
 
     private ArrayList<BreedModel> breedModelList;
     private ArrayList<BreedModel> getbreedModelListFiltered;
+    private BreedModel bm;
     private Context context;
     private SelectBreed selectBreed;
+    private DatabaseReference dbRef;
 
     public BreedAdapter(ArrayList<BreedModel> breedModelList, SelectBreed selectBreed) {
         this.breedModelList = breedModelList;
@@ -55,7 +65,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BreedAdapter.BreedAdapterVh holder, int position) {
+    public void onBindViewHolder(@NonNull BreedAdapter.BreedAdapterVh holder, final int position) {
 //        BreedModel breedModel = breedModelList.get(position);
 //        String breedName = breedModel.getBreedName();
 //        String prefix = breedModel.getBreedName().substring(0,1);
@@ -65,6 +75,55 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
 
         Glide.with(context).load(breedModelList.get(position).getBreedImage()).into(holder.pic);
 
+        holder.brdRemoveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setMessage("Are you Sure?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                deleteBreed(breedModelList.get(position).getBreedId());
+                                Intent intent = new Intent(context.getApplicationContext(),Manage_breed_info.class);
+                                Toast.makeText(context.getApplicationContext(), "Delete Successful.", Toast.LENGTH_SHORT).show();
+                                context.startActivity(intent);
+
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+        });
+
+    }
+
+    public void deleteBreed(String breedId){
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Breed").child(breedId);
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dbRef.removeValue();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
@@ -106,15 +165,21 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
     }
 
     public class SelectBreed{
+
         public void selectedBreed(BreedModel breedModel) {
             context.startActivity(new Intent(context.getApplicationContext(), CusBreedInfoScroll.class).putExtra("Breed", breedModel));
         }
+        public void selectForUpdateBreed(BreedModel breedModel) {
+            context.startActivity(new Intent(context.getApplicationContext(), UpdateBreedInfo.class).putExtra("Breed", breedModel));
+        }
+
     }
 
     public class BreedAdapterVh extends RecyclerView.ViewHolder {
         ImageView pic;
         TextView breedname;
         Button brdRemoveBtn, brdUpdateBtn;
+
         public BreedAdapterVh(@NonNull View itemView) {
             super(itemView);
             breedname = itemView.findViewById(R.id.breedname);
@@ -138,14 +203,15 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
                 }
             });
 
-            /*itemView.setOnClickListener(new View.OnClickListener() {
+            brdUpdateBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    Log.d(TAG, "BreedAdapterVh: " + breedModelList.get(1));
-                    selectBreed.selectedBreed(breedModelList.get(1));
+                public void onClick(View view) {
+                    SelectBreed sb = new SelectBreed();
+                    sb.selectForUpdateBreed(breedModelList.get(getAdapterPosition()));
                 }
-            });*/
+            });
         }
+
 
 
     }
