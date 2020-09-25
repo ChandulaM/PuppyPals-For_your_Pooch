@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CusSelectBreed">
+        <activity android:name=".CusSelectBreed"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:label="Search Breeds">
 
         </activity>
         <activity android:name=".UpdateBreedInfo" />

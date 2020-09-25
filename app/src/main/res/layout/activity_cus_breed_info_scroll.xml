@@ -238,7 +238,8 @@
                     android:layout_height="115dp"
                     android:textSize="17sp"
                     android:textAlignment="center"
-                    android:background="@drawable/text_view_decorations"/>
+                    android:background="@drawable/text_view_decorations"
+                    />
 
                 <TextView
                     android:id="@+id/feeding"
@@ -286,7 +287,8 @@
                     android:layout_height="115dp"
                     android:textSize="17sp"
                     android:textAlignment="center"
-                    android:background="@drawable/text_view_decorations"/>
+                    android:background="@drawable/text_view_decorations"
+                    android:layout_marginBottom="20dp"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -298,7 +300,7 @@
                         android:layout_width="110dp"
                         android:layout_height="50dp"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="63dp"
+                        android:layout_marginEnd="33dp"
                         android:backgroundTint="#0B85E6"
                         android:text="Buy Puppies"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -312,10 +314,8 @@
                         android:id="@+id/moreinfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginStart="69dp"
-                        android:layout_marginEnd="232dp"
+                        android:layout_marginEnd="160dp"
                         android:backgroundTint="#0B85E6"
                         android:text="More Info"
                         app:layout_constraintBottom_toBottomOf="parent"

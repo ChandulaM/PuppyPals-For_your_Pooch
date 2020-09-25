@@ -1,25 +1,26 @@
 package com.example.puppypals_foryourpooch;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
@@ -36,14 +37,15 @@ import java.util.List;
 
 public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
+    private static final String TAG = "breed";
+
     private Toolbar toolbar;
     private GridView gridView;
 
     private DatabaseReference dbRef ;
     private StorageReference stRef = FirebaseStorage.getInstance().getReference("Breed Images");;
 
-    private ArrayList<BreedModel> breedModelList = new ArrayList<>();
-    BreedModel breedModel;
+    public ArrayList<BreedModel> breedModelList = new ArrayList<>();
     CustomAdapter customAdapter;
 
     @Override
@@ -59,17 +61,30 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
         clearAll();
         getDataFromDB();
 
-//
-//        this.setSupportActionBar(toolbar);
-//        this.getSupportActionBar().setTitle("");
-
-
-
-
-
     }
 
-    public class CustomAdapter extends BaseAdapter{
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.searchbar_for_customers, menu);
+        MenuItem menuItem =menu.findItem(R.id.serchbar_for_customers);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                customAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+        return true;
+    }
+
+    public class CustomAdapter extends BaseAdapter implements Filterable {
 
         private List<BreedModel> brdList;
         private List<BreedModel> brdListFiltered;
@@ -100,11 +115,58 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
         public View getView(int position, View view, ViewGroup viewGroup) {
             View view1 = getLayoutInflater().inflate(R.layout.row_cus_breed, null);
 
-            ImageView imageView = view1.findViewById(R.id.cbrdIm);
-            TextView textView = view1.findViewById(R.id.txtCusbreed);
-            Glide.with(getApplicationContext()).load(brdList.get(position).getBreedImage()).into(imageView);
-            textView.setText(brdList.get(position).getBreedName());
+            ImageView imageViewbrd = view1.findViewById(R.id.cbrdIm);
+            TextView textViewbrd = view1.findViewById(R.id.txtCusbreed);
+            Glide.with(getApplicationContext()).load(brdList.get(position).getBreedImage()).into(imageViewbrd);
+            textViewbrd.setText(brdList.get(position).getBreedName());
+
             return view1;
+        }
+
+        @Override
+        public Filter getFilter() {
+            Filter filter = new Filter() {
+                @Override
+                protected FilterResults performFiltering(CharSequence constraint) {
+                    FilterResults filterResults = new FilterResults();
+                    if(constraint == null || constraint.length() == 0){
+                        filterResults.count = brdList.size();
+                        filterResults.values = brdList;
+                    }else {
+                        String searchChr = constraint.toString().toLowerCase() ;
+                        List<BreedModel> resultData = new ArrayList<>();
+                        Log.d(TAG, "performFiltering: " + searchChr);
+                        for(BreedModel breedModel: brdList){
+                            Log.d(TAG, "performFiltering: " + breedModel.getBreedName());
+                            if(breedModel.getBreedName().toLowerCase().contains(searchChr)){
+                                Log.d(TAG, "performFiltering: " + 1);
+                                resultData.add(breedModel);
+
+                            }
+
+                        }
+                        filterResults.values = resultData;
+                        filterResults.count = resultData.size();
+
+                        Log.d(TAG, "result count: " + filterResults.count);
+                        for(int i=0; i<filterResults.count; i++) {
+                            Log.d(TAG, "results in  : " + filterResults.values.toString());
+                        }
+
+                    }
+                    return filterResults;
+                }
+
+                @Override
+                protected void publishResults(CharSequence constraint, FilterResults results) {
+                    brdListFiltered = (ArrayList<BreedModel>) results.values;
+                    notifyDataSetChanged();
+                    for(int i=0; i<brdListFiltered.size(); i++) {
+                        Log.d(TAG, "results: " + brdListFiltered.get(i));
+                    }
+                }
+            };
+            return filter;
         }
     }
 
@@ -163,35 +225,16 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
         startActivity(new Intent(Manage_breed_info.this, CusBreedInfoScroll.class).putExtra("Breed", breedModel));
     }*/
 
-  //  @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.search, menu);
-//        MenuItem menuItem =menu.findItem(R.id.Search_View);
-//        SearchView searchView = (SearchView) menuItem.getActionView();
-//        searchView.setMaxWidth(Integer.MAX_VALUE);
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                customAdapter.getFilter().filter(newText);
-//                return true;
-//            }
-//        });
-//        return true;
-//    }
 
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        int id = item.getItemId();
-//        if(id == R.id.Search_View) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.serchbar_for_customers) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
     public void showPopup(View v) {

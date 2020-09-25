@@ -8,21 +8,6 @@
     android:orientation="vertical">
 
 
-    <TextView
-        android:id="@+id/adpanel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:text="@string/Breed_info_customers_title"
-        android:textColor="#121111"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -57,18 +42,39 @@
             app:srcCompat="@drawable/profile_icon" />
     </RelativeLayout>
 
+
+
     <GridView
         android:id="@+id/breedGrid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="2"
-        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:horizontalSpacing="6dp"
-        android:verticalSpacing="6dp"
-        >
+        android:numColumns="2"
+        android:verticalSpacing="6dp"></GridView>
 
-    </GridView>
 
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#4A4AF4"
+        android:backgroundTint="#F4F0F0"
+        app:itemBackground="@color/design_default_color_background"
+        app:itemIconTint="@color/design_default_color_error"
+        app:itemTextColor="#BA0B0B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_navigation" />
 
 
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/removeBreedInfo"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,10 +15,10 @@
             android:layout_width="66dp"
             android:layout_height="65dp">
 
-        <ImageView
-            android:id="@+id/brdRowImg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            <ImageView
+                android:id="@+id/brdRowImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </RelativeLayout>
 
@@ -31,26 +33,39 @@
             android:textSize="16sp" />
 
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="68dp">
 
-        <Button
-            android:id="@+id/updateBreedInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="310dp"
-            android:backgroundTint="#06F11D"
-            android:text="update"
-            android:textSize="12sp" />
+            <Button
+                android:id="@+id/updateBreedInfo"
+                android:layout_width="71dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#06F11D"
+                android:text="update"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/brdRemove"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/brdRemove"
-            android:layout_width="72dp"
-            android:layout_height="36dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="230dp"
-            android:backgroundTint="#EF0E0E"
-            android:text="Remove"
-            android:textSize="12sp" />
+            <Button
+                android:id="@+id/brdRemove"
+                android:layout_width="73dp"
+                android:layout_height="38dp"
+                android:layout_marginEnd="92dp"
+                android:backgroundTint="#EF0E0E"
+                android:text="Remove"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.518" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
 </LinearLayout>
