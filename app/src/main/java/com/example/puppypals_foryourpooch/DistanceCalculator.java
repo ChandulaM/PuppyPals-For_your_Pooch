@@ -1,17 +1,8 @@
 package com.example.puppypals_foryourpooch;
 
-import com.example.puppypals_foryourpooch.model.User;
-
 public final class DistanceCalculator {
 
     Math math;
-
-    public double calDistance(User userCurrent, User user){
-
-        return distance(userCurrent.getLatitude(), user.getLatitude(),
-                userCurrent.getLongitude(), user.getLongitude());
-
-    }
 
     public double distance(double lat1, double lat2,
                            double long1, double long2){

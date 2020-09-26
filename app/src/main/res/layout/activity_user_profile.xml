@@ -5,7 +5,7 @@
     android:id="@+id/uProf_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/user_background"
+    android:background="@drawable/bg_pink1"
     tools:context=".UserProfile">
 
     <TextView
@@ -212,7 +212,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        app:itemBackground="@android:color/holo_red_dark"
+        app:itemBackground="@android:color/holo_red_light"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
