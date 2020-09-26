@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CusSelectBreed"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    tools:context=".CusSelectBreed">
 
 
     <RelativeLayout
@@ -43,7 +42,6 @@
     </RelativeLayout>
 
 
-
     <GridView
         android:id="@+id/breedGrid"
         android:layout_width="match_parent"
@@ -55,8 +53,6 @@
         android:horizontalSpacing="6dp"
         android:numColumns="2"
         android:verticalSpacing="6dp"></GridView>
-
-
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -75,7 +71,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/menu_bot_nav" />
-
 
 
 </LinearLayout>

@@ -1,3 +1,6 @@
+/*IT19149318
+ * Dharmasinghe P.D.G.N.T.D.
+ * KDY_WD03*/
 package com.example.puppypals_foryourpooch;
 
 import androidx.annotation.NonNull;
@@ -36,6 +39,7 @@ import com.google.firebase.storage.UploadTask;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+//Class for update Breed details.
 public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
 
@@ -50,11 +54,11 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
 
     private StorageReference ProductImagesRef;
     private DatabaseReference mDatabaseRef;
-    private ProgressDialog loadingBar ;
+    private ProgressDialog loadingBar;
     private BreedModel bm;
 
 
-    private String id, breedName, adaptability,intelligence,feedings,hlth,link,saveCurrentDate,saveCurrentTime,productRandomKey,downloadImageUrl;
+    private String id, breedName, adaptability, intelligence, feedings, hlth, link, saveCurrentDate, saveCurrentTime, productRandomKey, downloadImageUrl;
 
 
     @Override
@@ -96,8 +100,6 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         navAddBrd = findViewById(R.id.addNewBreed);
 
 
-
-
         ProductImagesRef = FirebaseStorage.getInstance().getReference("Breed Images");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Breed");
 
@@ -112,7 +114,6 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         });
 
 
-
         addImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,7 +124,7 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         navViewBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(UpdateBreedInfo.this,CusSelectBreed.class);
+                Intent i = new Intent(UpdateBreedInfo.this, CusSelectBreed.class);
                 startActivity(i);
 
 
@@ -133,7 +134,7 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         navManageBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(UpdateBreedInfo.this,Manage_breed_info.class);
+                Intent i = new Intent(UpdateBreedInfo.this, Manage_breed_info.class);
                 startActivity(i);
             }
         });
@@ -141,7 +142,7 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         navAddBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(UpdateBreedInfo.this,AddBreedInfo.class);
+                Intent i = new Intent(UpdateBreedInfo.this, AddBreedInfo.class);
                 startActivity(i);
             }
         });
@@ -149,29 +150,31 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
     }
 
 
-    private void openFileChooser(){
+    private void openFileChooser() {
         Intent i = new Intent();
         i.setType("image/*");
         i.setAction(i.ACTION_GET_CONTENT);
-        startActivityForResult(i,PICK_IMAGE_REQUEST);
+        startActivityForResult(i, PICK_IMAGE_REQUEST);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             brdImgUri = data.getData();
             breedImg.setImageURI(brdImgUri);
         }
 
     }
-    private String getFileExtension(Uri uri){
+
+    private String getFileExtension(Uri uri) {
         ContentResolver cr = getContentResolver();
         MimeTypeMap mm = MimeTypeMap.getSingleton();
         return mm.getExtensionFromMimeType(cr.getType(uri));
     }
 
-    public void validateData(){
+    public void validateData() {
 
         breedName = breednm.getText().toString();
         adaptability = adapt.getText().toString();
@@ -180,60 +183,37 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         hlth = health.getText().toString();
         link = links.getText().toString();
 
-        if (TextUtils.isEmpty(breedName))
-        {
+        if (TextUtils.isEmpty(breedName)) {
             Toast.makeText(this, "Breed Name is Mandatory!", Toast.LENGTH_SHORT).show();
             breednm.setError("Enter Breed Name");
-        }
-        else if (TextUtils.isEmpty(brdHi.getText().toString()))
-        {
+        } else if (TextUtils.isEmpty(brdHi.getText().toString())) {
             Toast.makeText(this, "Breed height is Mandatory!", Toast.LENGTH_SHORT).show();
             brdHi.setError("Enter Breed Height");
-        }
-        else if(TextUtils.isEmpty(brdWe.getText().toString()))
-        {
+        } else if (TextUtils.isEmpty(brdWe.getText().toString())) {
             Toast.makeText(this, "Breed Weight is Mandatory!", Toast.LENGTH_SHORT).show();
             brdWe.setError("Enter Breed Weight");
-        }
-        else if (TextUtils.isEmpty(brdLspn.getText().toString()))
-        {
+        } else if (TextUtils.isEmpty(brdLspn.getText().toString())) {
             Toast.makeText(this, "Breed Life Span is Mandatory!", Toast.LENGTH_SHORT).show();
             brdLspn.setError("Enter Breed Life Span");
-        }
-        else if (TextUtils.isEmpty(adaptability))
-        {
+        } else if (TextUtils.isEmpty(adaptability)) {
             Toast.makeText(this, "Breed Adaptability is Mandatory!", Toast.LENGTH_SHORT).show();
             adapt.setError("Enter Adaptability Info");
-        }
-        else if (TextUtils.isEmpty(intelligence))
-        {
+        } else if (TextUtils.isEmpty(intelligence)) {
             Toast.makeText(this, "Breed Intelligence is Mandatory!", Toast.LENGTH_SHORT).show();
             intel.setError("Enter Intelligence Info");
-        }
-        else if (TextUtils.isEmpty(feedings))
-        {
+        } else if (TextUtils.isEmpty(feedings)) {
             Toast.makeText(this, "Breed Feedings is Mandatory!", Toast.LENGTH_SHORT).show();
             feeds.setError("Enter Feeding Info");
-        }
-        else if (TextUtils.isEmpty(hlth))
-        {
+        } else if (TextUtils.isEmpty(hlth)) {
             Toast.makeText(this, "Breed Health is Mandatory!", Toast.LENGTH_SHORT).show();
             health.setError("Enter Health Info");
-        }
-        else if (TextUtils.isEmpty(link))
-        {
+        } else if (TextUtils.isEmpty(link)) {
             Toast.makeText(this, "Info link is Mandatory!", Toast.LENGTH_SHORT).show();
             links.setError("Enter the Link ");
-        }
-        else if (brdImgUri == null)
-        {
+        } else if (brdImgUri == null) {
             Toast.makeText(this, "Breed image is Mandatory!", Toast.LENGTH_SHORT).show();
 
-        }
-
-        else
-
-        {
+        } else {
             StoreProductInformation();
         }
 
@@ -241,9 +221,7 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
     }
 
 
-
-    private void StoreProductInformation()
-    {
+    private void StoreProductInformation() {
 
         loadingBar.setTitle("Updating Selected Breed Info");
         loadingBar.setMessage("Dear Admin, please wait while we are Updating the Selected Breed Info.");
@@ -261,31 +239,27 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         productRandomKey = id;
 
 
-        final StorageReference filePath = ProductImagesRef.child(brdImgUri.getLastPathSegment() );
+        final StorageReference filePath = ProductImagesRef.child(brdImgUri.getLastPathSegment());
 
         final UploadTask uploadTask = filePath.putFile(brdImgUri);
 
 
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onFailure(@NonNull Exception e)
-            {
+            public void onFailure(@NonNull Exception e) {
                 String message = e.toString();
                 Toast.makeText(UpdateBreedInfo.this, "Error: " + message, Toast.LENGTH_SHORT).show();
                 loadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
-            {
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Toast.makeText(UpdateBreedInfo.this, "Product Image uploaded Successfully...", Toast.LENGTH_SHORT).show();
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception
-                    {
-                        if (!task.isSuccessful())
-                        {
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
                             throw task.getException();
                         }
 
@@ -294,10 +268,8 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
                     }
                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                     @Override
-                    public void onComplete(@NonNull Task<Uri> task)
-                    {
-                        if (task.isSuccessful())
-                        {
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
                             downloadImageUrl = task.getResult().toString();
 
                             Toast.makeText(UpdateBreedInfo.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
@@ -310,7 +282,7 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         });
     }
 
-    public void updateData(){
+    public void updateData() {
         try {
             BreedModel breedModel = new BreedModel();
             breedModel.setBreedId(productRandomKey);
@@ -328,9 +300,9 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
             mDatabaseRef.child(productRandomKey).setValue(breedModel);
             Toast.makeText(getApplicationContext(), "Breed Info is added successfully..", Toast.LENGTH_SHORT).show();
             loadingBar.dismiss();
-            Intent i = new Intent(UpdateBreedInfo.this,Manage_breed_info.class);
+            Intent i = new Intent(UpdateBreedInfo.this, Manage_breed_info.class);
             startActivity(i);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             Toast.makeText(getApplicationContext(), "Invalid height/weight/lifeSpan values!", Toast.LENGTH_SHORT).show();
         }
     }
@@ -345,15 +317,15 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.pitm1:
-                Intent i = new Intent(this,AdminProfile.class);
+                Intent i = new Intent(this, AdminProfile.class);
                 startActivity(i);
-                Toast.makeText(this,"Admin Profile", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Admin Profile", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:
-                Toast.makeText(this,"Logging Out!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;

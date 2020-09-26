@@ -157,7 +157,7 @@
                             android:id="@+id/txtHeight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                           android:background="@drawable/text_view_decorations"
+                            android:background="@drawable/text_view_decorations"
                             android:padding="10dp"
                             android:paddingStart="23sp"
                             android:textAlignment="center"
@@ -168,10 +168,10 @@
                             android:id="@+id/txtWeight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/text_view_decorations"
                             android:padding="13dp"
                             android:paddingStart="23sp"
                             android:textAlignment="center"
-                            android:background="@drawable/text_view_decorations"
 
                             android:textColor="#0E0E0E"
                             android:textSize="18sp" />
@@ -180,10 +180,10 @@
                             android:id="@+id/txtLspan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/text_view_decorations"
                             android:padding="10dp"
                             android:paddingStart="23sp"
                             android:textAlignment="center"
-                            android:background="@drawable/text_view_decorations"
                             android:textColor="#0E0E0E"
                             android:textSize="18sp" />
                     </TableRow>
@@ -196,10 +196,10 @@
                     android:layout_height="46dp"
                     android:fontFamily="@font/aclonica"
                     android:gravity="center"
+                    android:paddingTop="5dp"
                     android:text="Adaptability"
                     android:textColor="#160101"
                     android:textSize="18sp"
-                    android:paddingTop="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
@@ -211,10 +211,10 @@
                     android:id="@+id/adaptxt"
                     android:layout_width="match_parent"
                     android:layout_height="115dp"
-                    android:textAlignment="center"
+                    android:background="@drawable/text_view_decorations"
 
-                    android:textSize="17sp"
-                    android:background="@drawable/text_view_decorations"/>
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/intell"
@@ -236,10 +236,9 @@
                     android:id="@+id/intelltxt"
                     android:layout_width="match_parent"
                     android:layout_height="115dp"
-                    android:textSize="17sp"
-                    android:textAlignment="center"
                     android:background="@drawable/text_view_decorations"
-                    />
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/feeding"
@@ -261,9 +260,9 @@
                     android:id="@+id/fed"
                     android:layout_width="match_parent"
                     android:layout_height="115dp"
-                    android:textSize="17sp"
+                    android:background="@drawable/text_view_decorations"
                     android:textAlignment="center"
-                    android:background="@drawable/text_view_decorations"/>
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/medtxt"
@@ -285,10 +284,10 @@
                     android:id="@+id/med"
                     android:layout_width="match_parent"
                     android:layout_height="115dp"
-                    android:textSize="17sp"
-                    android:textAlignment="center"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/text_view_decorations"
-                    android:layout_marginBottom="20dp"/>
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"

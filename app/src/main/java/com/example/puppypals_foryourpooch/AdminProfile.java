@@ -12,10 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 
 
-
 public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
-    private ImageButton  navViewBrd, navManageBrd, navAddBrd;
+    private ImageButton navViewBrd, navManageBrd, navAddBrd;
     private Button changeUP;
 
     @Override
@@ -30,7 +29,7 @@ public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuI
         navViewBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(AdminProfile.this,CusSelectBreed.class);
+                Intent i = new Intent(AdminProfile.this, CusSelectBreed.class);
                 startActivity(i);
 
 
@@ -40,7 +39,7 @@ public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuI
         navManageBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(AdminProfile.this,Manage_breed_info.class);
+                Intent i = new Intent(AdminProfile.this, Manage_breed_info.class);
                 startActivity(i);
             }
         });
@@ -48,7 +47,7 @@ public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuI
         navAddBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(AdminProfile.this,AddBreedInfo.class);
+                Intent i = new Intent(AdminProfile.this, AddBreedInfo.class);
                 startActivity(i);
             }
         });
@@ -66,13 +65,13 @@ public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuI
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.pitm1:
-                Toast.makeText(this,"You are in Admin Profile", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You are in Admin Profile", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:
-                Toast.makeText(this,"Logging Out!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;

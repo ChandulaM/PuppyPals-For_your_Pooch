@@ -1,3 +1,6 @@
+/*IT19149318
+ * Dharmasinghe P.D.G.N.T.D.
+ * KDY_WD03*/
 package com.example.puppypals_foryourpooch;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +19,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
+//Class for Display Breed information
+public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     ImageView im;
     TextView brdName, h, w, ls, adap, intell, feed, hlth, link;
     Button buyPup, morInfo;
@@ -42,7 +46,7 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
         buyPup = findViewById(R.id.bypup);
         morInfo = findViewById(R.id.moreinfo);
 
-        if(model != null) {
+        if (model != null) {
             Glide.with(getApplicationContext()).load(model.getBreedImage()).into(im);
             brdName.setText(model.getBreedName());
             h.setText(model.getHeight().toString().trim());
@@ -61,7 +65,7 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
                     startActivity(intent);
                 }
             });
-        }else {
+        } else {
 
             Glide.with(getApplicationContext()).load(model2.getBreedImage()).into(im);
             brdName.setText(model2.getBreedName());
@@ -95,15 +99,15 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.pitm1:
 
-                Toast.makeText(this,"My Profile", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "My Profile", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:
 
-                Toast.makeText(this,"Logging Out!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;

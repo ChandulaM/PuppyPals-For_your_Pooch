@@ -1,3 +1,6 @@
+/*IT19149318
+ * Dharmasinghe P.D.G.N.T.D.
+ * KDY_WD03*/
 package com.example.puppypals_foryourpooch;
 
 import android.app.AlertDialog;
@@ -31,6 +34,7 @@ import java.util.List;
 
 public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapterVh> implements Filterable {
 
+    //Declaring Variables.
     private static final String TAG = "RecyclerView";
 
     private ArrayList<BreedModel> breedModelList;
@@ -40,6 +44,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
     private SelectBreed selectBreed;
     private DatabaseReference dbRef;
 
+    //Constructors
     public BreedAdapter(ArrayList<BreedModel> breedModelList, SelectBreed selectBreed) {
         this.breedModelList = breedModelList;
         this.getbreedModelListFiltered = breedModelList;
@@ -47,6 +52,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
 
     }
 
+    //Constructors
     public BreedAdapter(Context context, ArrayList<BreedModel> breedModelList, SelectBreed selectBreed) {
         this.context = context;
         this.breedModelList = breedModelList;
@@ -54,31 +60,28 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
         this.selectBreed = selectBreed;
     }
 
-
+    //Fetching layout.
     @NonNull
     @Override
     public BreedAdapter.BreedAdapterVh onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.raw_breeds, parent, false);
-//        return new BreedAdapterVh(view);
-        context= parent.getContext();
+        context = parent.getContext();
         return new BreedAdapterVh(LayoutInflater.from(context).inflate(R.layout.raw_breeds, null));
     }
 
+    //Binding data to layout.
     @Override
     public void onBindViewHolder(@NonNull BreedAdapter.BreedAdapterVh holder, final int position) {
-//        BreedModel breedModel = breedModelList.get(position);
-//        String breedName = breedModel.getBreedName();
-//        String prefix = breedModel.getBreedName().substring(0,1);
-//        holder.breedname.setText(breedName);
 
         holder.breedname.setText(breedModelList.get(position).getBreedName());
 
+        //Setting image to the image view.
         Glide.with(context).load(breedModelList.get(position).getBreedImage()).into(holder.pic);
 
         holder.brdRemoveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //Alert dialog.
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setMessage("Are you Sure?")
                         .setCancelable(false)
@@ -87,7 +90,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
                             public void onClick(DialogInterface dialogInterface, int i) {
 
                                 deleteBreed(breedModelList.get(position).getBreedId());
-                                Intent intent = new Intent(context.getApplicationContext(),Manage_breed_info.class);
+                                Intent intent = new Intent(context.getApplicationContext(), Manage_breed_info.class);
                                 Toast.makeText(context.getApplicationContext(), "Delete Successful.", Toast.LENGTH_SHORT).show();
                                 context.startActivity(intent);
 
@@ -110,7 +113,8 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
 
     }
 
-    public void deleteBreed(String breedId){
+    //Method for deleting a breed
+    public void deleteBreed(String breedId) {
         dbRef = FirebaseDatabase.getInstance().getReference().child("Breed").child(breedId);
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -130,21 +134,22 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
         return breedModelList.size();
     }
 
+    //Search result filter method.
     @Override
     public Filter getFilter() {
         Filter filter = new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults filterResults = new FilterResults();
-                if(constraint == null | constraint.length() == 0){
+                if (constraint == null | constraint.length() == 0) {
                     filterResults.count = getbreedModelListFiltered.size();
                     filterResults.values = getbreedModelListFiltered;
-                }else {
+                } else {
                     String searchChr = constraint.toString().toLowerCase();
                     List<BreedModel> resultData = new ArrayList<>();
 
-                    for(BreedModel breedModel: getbreedModelListFiltered){
-                        if(breedModel.getBreedName().toLowerCase().contains(searchChr)){
+                    for (BreedModel breedModel : getbreedModelListFiltered) {
+                        if (breedModel.getBreedName().toLowerCase().contains(searchChr)) {
                             resultData.add(breedModel);
                         }
                     }
@@ -163,17 +168,20 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
         return filter;
     }
 
-    public class SelectBreed{
+    //Class for passing objects
+    public class SelectBreed {
 
         public void selectedBreed(BreedModel breedModel) {
             context.startActivity(new Intent(context.getApplicationContext(), CusBreedInfoScroll.class).putExtra("Breed", breedModel));
         }
+
         public void selectForUpdateBreed(BreedModel breedModel) {
             context.startActivity(new Intent(context.getApplicationContext(), UpdateBreedInfo.class).putExtra("Breed", breedModel));
         }
 
     }
 
+    //Adapter class for breeds.
     public class BreedAdapterVh extends RecyclerView.ViewHolder {
         ImageView pic;
         TextView breedname;
@@ -210,7 +218,6 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
                 }
             });
         }
-
 
 
     }

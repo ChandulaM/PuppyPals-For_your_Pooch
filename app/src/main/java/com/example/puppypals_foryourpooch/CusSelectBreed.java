@@ -1,3 +1,6 @@
+/*IT19149318
+ * Dharmasinghe P.D.G.N.T.D.
+ * KDY_WD03*/
 package com.example.puppypals_foryourpooch;
 
 import android.content.Context;
@@ -37,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+//Class for display, search dog breeds
 public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
     private static final String TAG = "breed";
@@ -44,8 +48,9 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
     private Toolbar toolbar;
     private GridView gridView;
 
-    private DatabaseReference dbRef ;
-    private StorageReference stRef = FirebaseStorage.getInstance().getReference("Breed Images");;
+    private DatabaseReference dbRef;
+    private StorageReference stRef = FirebaseStorage.getInstance().getReference("Breed Images");
+    ;
 
     public ArrayList<BreedModel> breedModelList = new ArrayList<>();
     CustomAdapter customAdapter;
@@ -65,10 +70,11 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
 
     }
 
+    //Search bar implementation.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.searchbar_for_customers, menu);
-        MenuItem menuItem =menu.findItem(R.id.serchbar_for_customers);
+        MenuItem menuItem = menu.findItem(R.id.serchbar_for_customers);
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -86,6 +92,7 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
         return true;
     }
 
+    //Adapter class.
     public class CustomAdapter extends BaseAdapter implements Filterable {
 
         private List<BreedModel> brdList;
@@ -119,16 +126,16 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
 
             ImageView imageViewbrd = view1.findViewById(R.id.cbrdIm);
             TextView textViewbrd = view1.findViewById(R.id.txtCusbreed);
-            Log.d(TAG, "getView: "+brdListFiltered.size());
+            Log.d(TAG, "getView: " + brdListFiltered.size());
             Glide.with(context).load(brdListFiltered.get(position).getBreedImage()).into(imageViewbrd);
-            Log.d(TAG, "breed list position : "+position);
-            Log.d(TAG, "breed list position : "+brdListFiltered.get(position));
+            Log.d(TAG, "breed list position : " + position);
+            Log.d(TAG, "breed list position : " + brdListFiltered.get(position));
             textViewbrd.setText(brdListFiltered.get(position).getBreedName());
 
             view1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(CusSelectBreed.this,CusBreedInfoScroll.class).putExtra("breedGrid",brdListFiltered.get(position)));
+                    startActivity(new Intent(CusSelectBreed.this, CusBreedInfoScroll.class).putExtra("breedGrid", brdListFiltered.get(position)));
                 }
             });
             return view1;
@@ -138,46 +145,48 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
         public Filter getFilter() {
             return filter;
         }
-            Filter filter = new Filter() {
-                @Override
-                protected FilterResults performFiltering(CharSequence constraint) {
-                    List<BreedModel> filterResults = new ArrayList<>();
-                    if(constraint == null || constraint.length() == 0){
-                        filterResults.addAll(brdList);
-                    }else {
-                        String searchChr = constraint.toString().toLowerCase().trim() ;
 
-                        Log.d(TAG, "performFiltering: " + searchChr);
-                        for(BreedModel breedModel: brdList){
-                            Log.d(TAG, "performFiltering: " + breedModel.getBreedName());
-                            if(breedModel.getBreedName().toLowerCase().contains(searchChr)){
-                                Log.d(TAG, "performFiltering: " + 1);
-                                filterResults.add(breedModel);
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                List<BreedModel> filterResults = new ArrayList<>();
+                if (constraint == null || constraint.length() == 0) {
+                    filterResults.addAll(brdList);
+                } else {
+                    String searchChr = constraint.toString().toLowerCase().trim();
 
-                            }
+                    Log.d(TAG, "performFiltering: " + searchChr);
+                    for (BreedModel breedModel : brdList) {
+                        Log.d(TAG, "performFiltering: " + breedModel.getBreedName());
+                        if (breedModel.getBreedName().toLowerCase().contains(searchChr)) {
+                            Log.d(TAG, "performFiltering: " + 1);
+                            filterResults.add(breedModel);
 
                         }
 
                     }
-                    FilterResults resultData = new FilterResults();
-                    resultData.values = filterResults;
-                    return resultData;
-                }
 
-                @Override
-                protected void publishResults(CharSequence constraint, FilterResults results) {
-                    brdListFiltered.clear();
-                    brdListFiltered.addAll((List) results.values);
-                    notifyDataSetChanged();
-                    for(int i=0; i<brdListFiltered.size(); i++) {
-                        Log.d(TAG, "results: " + brdListFiltered.get(i));
-                    }
                 }
-            };
+                FilterResults resultData = new FilterResults();
+                resultData.values = filterResults;
+                return resultData;
+            }
+
+            //Return data to grid list
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                brdListFiltered.clear();
+                brdListFiltered.addAll((List) results.values);
+                notifyDataSetChanged();
+                for (int i = 0; i < brdListFiltered.size(); i++) {
+                    Log.d(TAG, "results: " + brdListFiltered.get(i));
+                }
+            }
+        };
     }
 
 
-    private void getDataFromDB(){
+    private void getDataFromDB() {
         Query query = dbRef.child("Breed");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -212,31 +221,22 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
     }
 
 
-
-    private void clearAll(){
-        if(breedModelList != null){
+    private void clearAll() {
+        if (breedModelList != null) {
             breedModelList.clear();
 
-            if(customAdapter != null){
+            if (customAdapter != null) {
                 customAdapter.notifyDataSetChanged();
             }
         }
         breedModelList = new ArrayList<>();
     }
 
-
-
-    /*@Override
-    public void selectedBreed(BreedModel breedModel) {
-        startActivity(new Intent(Manage_breed_info.this, CusBreedInfoScroll.class).putExtra("Breed", breedModel));
-    }*/
-
-
-
+    //Selecting an item
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.serchbar_for_customers) {
+        if (id == R.id.serchbar_for_customers) {
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -252,13 +252,13 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.pitm1:
-                Toast.makeText(this,"Item 1 clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Item 1 clicked", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:
-                Toast.makeText(this,"Item 2 clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Item 2 clicked", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;

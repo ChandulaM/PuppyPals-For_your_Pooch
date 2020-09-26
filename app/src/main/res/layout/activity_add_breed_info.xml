@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <TextView
@@ -10,19 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="29dp"
         android:fontFamily="cursive"
+        android:gravity="center"
         android:text="Admin Panel"
         android:textColor="#121111"
         android:textSize="24sp"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <View
             android:id="@+id/adminDivider"
             android:layout_width="match_parent"
@@ -97,6 +99,7 @@
             app:srcCompat="@drawable/find_page_foreground" />
 
     </RelativeLayout>
+
     <TextView
         android:id="@+id/addbreedinfo"
         android:layout_width="158dp"
@@ -117,22 +120,23 @@
         android:layout_height="match_parent"
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:divider="@drawable/spaceline"
             android:orientation="vertical"
-            android:showDividers="middle"
-            android:divider="@drawable/spaceline">
+            android:showDividers="middle">
 
             <EditText
                 android:id="@+id/breedName"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:ems="10"
-                android:paddingLeft="10dp"
-                android:hint="Breed Name"
                 android:background="@drawable/shapes"
+                android:ems="10"
+                android:hint="Breed Name"
                 android:inputType="textPersonName"
+                android:paddingLeft="10dp"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -144,9 +148,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:divider="@drawable/spaceline"
                 android:orientation="horizontal"
-                android:showDividers="middle"
-                android:divider="@drawable/spaceline">
+                android:showDividers="middle">
+
                 <EditText
                     android:id="@+id/hno"
                     android:layout_width="120dp"
@@ -170,8 +175,8 @@
                     android:background="@drawable/shapes"
                     android:ems="10"
                     android:gravity="center"
-                    android:inputType="number"
                     android:hint="@string/weight"
+                    android:inputType="number"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -185,8 +190,8 @@
                     android:background="@drawable/shapes"
                     android:ems="10"
                     android:gravity="center"
-                    android:inputType="number"
                     android:hint="@string/life_span"
+                    android:inputType="number"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.931"
@@ -201,10 +206,10 @@
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
-                android:paddingLeft="10dp"
                 android:gravity="start|center"
                 android:hint="@string/adap"
                 android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.488"
@@ -219,10 +224,10 @@
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
-                android:paddingLeft="10dp"
                 android:gravity="start|center"
                 android:hint="@string/intel"
                 android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.431"
@@ -236,10 +241,10 @@
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
-                android:paddingLeft="10dp"
                 android:gravity="start|center"
                 android:hint="@string/feed"
                 android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.478"
@@ -253,10 +258,10 @@
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
-                android:paddingLeft="10dp"
                 android:gravity="start|center"
                 android:hint="Health"
                 android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.478"
@@ -270,9 +275,9 @@
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
-                android:paddingLeft="10dp"
                 android:hint="Infor Link"
                 android:inputType="textPersonName"
+                android:paddingLeft="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.912"
@@ -283,9 +288,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:divider="@drawable/spaceline"
                 android:orientation="horizontal"
-                android:showDividers="middle"
-                android:divider="@drawable/spaceline">
+                android:showDividers="middle">
 
                 <ImageView
                     android:id="@+id/dogImgView"
@@ -316,10 +321,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:showDividers="middle"
                 android:divider="@drawable/spaceline"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
                 <Button
                     android:id="@+id/resetBreed"
                     android:layout_width="83dp"
@@ -332,6 +338,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.976" />
+
                 <Button
                     android:id="@+id/saveBreed"
                     android:layout_width="83dp"
