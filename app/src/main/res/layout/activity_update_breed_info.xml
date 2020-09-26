@@ -124,12 +124,17 @@
             android:orientation="vertical"
             android:showDividers="middle"
             android:divider="@drawable/spaceline">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Breed Name"/>
 
             <EditText
                 android:id="@+id/upbreedName"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:ems="10"
+                android:paddingLeft="10dp"
                 android:hint="Breed Name"
                 android:background="@drawable/shapes"
                 android:inputType="textPersonName"
@@ -147,6 +152,32 @@
                 android:orientation="horizontal"
                 android:showDividers="middle"
                 android:divider="@drawable/spaceline">
+
+               <TextView
+                   android:layout_marginLeft="40dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Height"/>
+
+                <TextView
+                    android:layout_marginLeft="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight"/>
+                <TextView
+                    android:layout_marginLeft="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Life Span"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:showDividers="middle"
+                android:divider="@drawable/spaceline">
+
                 <EditText
                     android:id="@+id/uphno"
                     android:layout_width="120dp"
@@ -195,12 +226,18 @@
                     app:layout_constraintVertical_bias="0.394" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adaptability"/>
+
             <EditText
                 android:id="@+id/upadapget"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
+                android:paddingLeft="10dp"
                 android:gravity="start|center"
                 android:hint="@string/adap"
                 android:inputType="textMultiLine"
@@ -211,6 +248,10 @@
                 app:layout_constraintTop_toTopOf="@+id/adpanel"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Intelligence"/>
 
             <EditText
                 android:id="@+id/upintelget"
@@ -218,6 +259,7 @@
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
+                android:paddingLeft="10dp"
                 android:gravity="start|center"
                 android:hint="@string/intel"
                 android:inputType="textMultiLine"
@@ -228,12 +270,18 @@
                 app:layout_constraintTop_toTopOf="@+id/adpanel"
                 app:layout_constraintVertical_bias="0.195" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feedings"/>
+
             <EditText
                 android:id="@+id/upfeedget"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
+                android:paddingLeft="10dp"
                 android:gravity="start|center"
                 android:hint="@string/feed"
                 android:inputType="textMultiLine"
@@ -244,12 +292,18 @@
                 app:layout_constraintTop_toTopOf="@+id/adpanel"
                 app:layout_constraintVertical_bias="0.39" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Health"/>
+
             <EditText
                 android:id="@+id/uphealget"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
+                android:paddingLeft="10dp"
                 android:gravity="start|center"
                 android:hint="Health"
                 android:inputType="textMultiLine"
@@ -260,12 +314,18 @@
                 app:layout_constraintTop_toTopOf="@+id/adpanel"
                 app:layout_constraintVertical_bias="0.58" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Info Link"/>
+
             <EditText
                 android:id="@+id/upinfoLink"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
                 android:ems="10"
+                android:paddingLeft="10dp"
                 android:hint="Infor Link"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -315,18 +375,7 @@
                 android:showDividers="middle"
                 android:divider="@drawable/spaceline"
                 android:gravity="center">
-                <Button
-                    android:id="@+id/upresetBreed"
-                    android:layout_width="83dp"
-                    android:layout_height="48dp"
-                    android:backgroundTint="#2196F3"
-                    android:text="Reset"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.591"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.976" />
+
                 <Button
                     android:id="@+id/updateBreed"
                     android:layout_width="83dp"

@@ -343,94 +343,9 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
             Toast.makeText(getApplicationContext(), "Invalid height/weight/lifeSpan values!", Toast.LENGTH_SHORT).show();
     }
 
-//        HashMap<String, Object> productMap = new HashMap<>();
-//        productMap.put("pid", productRandomKey);
-////        productMap.put("date", saveCurrentDate);
-////        productMap.put("time", saveCurrentTime);
-//        productMap.put("breedName", breedName);
-//        productMap.put("height", height);
-//        productMap.put("weight", weight);
-//        productMap.put("lifeSpan", lifeSpan);
-//        productMap.put("adaptability", adaptability);
-//        productMap.put("intelligence", intelligence);
-//        productMap.put("feedings", feedings);
-//        productMap.put("health", hlth);
-//        productMap.put("link", link);
-        //      productMap.put("image", downloadImageUrl);
-
-
-//        mDatabaseRef.child(productRandomKey).updateChildren(productMap)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task)
-//                    {
-//                        if (task.isSuccessful())
-//                        {
-//                            Intent intent = new Intent(AddBreedInfo.this, AddBreedInfo.class);
-//                            startActivity(intent);
-//
-//                            //loadingBar.dismiss();
-//                            Toast.makeText(AddBreedInfo.this, "Breed Info is added successfully..", Toast.LENGTH_SHORT).show();
-//                        }
-//                        else
-//                        {
-//                            //loadingBar.dismiss();
-//                            String message = task.getException().toString();
-//                            Toast.makeText(AddBreedInfo.this, "Error: " + message, Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-
 
     }
 
-
-
-
-
-
-//    public void uploadDataAndImg(){
-//
-//        if(brdImgUri != null){
-//            final StorageReference sr = mStorageRef.child(System.currentTimeMillis()+"."+getFileExtension(brdImgUri));
-//
-//            sr.putFile(brdImgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                @Override
-//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                    Handler handler = new Handler();
-//                    handler.postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            pBar.setProgress(0);
-//                        }
-//                    }, 500);
-//                    Toast.makeText(AddBreedInfo.this, "Data Uploaded Successfully.", Toast.LENGTH_LONG).show();
-//                    BreedModel breedModel = new BreedModel(breednm.getText().toString().trim(),
-//                            Integer.parseInt(brdHi.getText().toString().trim()),Integer.parseInt(brdWe.getText().toString().trim()),
-//                            Integer.parseInt(brdLspn.getText().toString().trim()),adapt.getText().toString().trim(),
-//                            intel.getText().toString().trim(),feeds.getText().toString().trim(),health.getText().toString().trim(),links.getText().toString().trim(),
-//                            sr.getDownloadUrl().toString().trim());
-//                    String uploadId = mDatabaseRef.push().getKey();
-//                    mDatabaseRef.child(uploadId).setValue(breedModel);
-//                }
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//                    Toast.makeText(AddBreedInfo.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                @Override
-//                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
-//                    double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-//                    pBar.setProgress((int) progress);
-//                }
-//            });
-//
-//        }else {
-//            Toast.makeText(this, "No File Selected!!!", Toast.LENGTH_SHORT).show();
-//        }
-//
-//    }
 
 
 
@@ -445,11 +360,13 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()){
             case R.id.pitm1:
-                Toast.makeText(this,"Item 1 clicked", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this,AdminProfile.class);
+                startActivity(i);
+                Toast.makeText(this,"Admin Profile.", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:
-                Toast.makeText(this,"Item 2 clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Logging Out!", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;

@@ -2,6 +2,7 @@ package com.example.puppypals_foryourpooch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cus_breed_info_scroll);
         final BreedModel model = (BreedModel) getIntent().getSerializableExtra("Breed");
+        final BreedModel model2 = (BreedModel) getIntent().getSerializableExtra("breedGrid");
 
         im = findViewById(R.id.cusBreedimg);
         brdName = findViewById(R.id.cusBreednm);
@@ -40,26 +42,47 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
         buyPup = findViewById(R.id.bypup);
         morInfo = findViewById(R.id.moreinfo);
 
+        if(model != null) {
+            Glide.with(getApplicationContext()).load(model.getBreedImage()).into(im);
+            brdName.setText(model.getBreedName());
+            h.setText(model.getHeight().toString().trim());
+            w.setText(model.getWeight().toString().trim());
+            ls.setText(model.getLifeSpan().toString().trim());
+            adap.setText(model.getAdaptability());
+            intell.setText(model.getIntelligence());
+            feed.setText(model.getFeedings());
+            hlth.setText(model.getHealth());
 
-        Glide.with(getApplicationContext()).load(model.getBreedImage()).into(im);
-        brdName.setText(model.getBreedName());
-        h.setText(model.getHeight().toString().trim());
-        w.setText(model.getWeight().toString().trim());
-        ls.setText(model.getLifeSpan().toString().trim());
-        adap.setText(model.getAdaptability());
-        intell.setText(model.getIntelligence());
-        feed.setText(model.getFeedings());
-        hlth.setText(model.getHealth());
+            morInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri uri = Uri.parse(model.getLink());
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
+        }else {
 
-        morInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri uri = Uri.parse(model.getLink());
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
+            Glide.with(getApplicationContext()).load(model2.getBreedImage()).into(im);
+            brdName.setText(model2.getBreedName());
+            h.setText(model2.getHeight().toString().trim());
+            w.setText(model2.getWeight().toString().trim());
+            ls.setText(model2.getLifeSpan().toString().trim());
+            adap.setText(model2.getAdaptability());
+            intell.setText(model2.getIntelligence());
+            feed.setText(model2.getFeedings());
+            hlth.setText(model2.getHealth());
 
+            morInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri uri = Uri.parse(model2.getLink());
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            });
+
+        }
 
     }
 
@@ -74,11 +97,13 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()){
             case R.id.pitm1:
-                Toast.makeText(this,"Item 1 clicked", Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(this,"My Profile", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:
-                Toast.makeText(this,"Item 2 clicked", Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(this,"Logging Out!", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;

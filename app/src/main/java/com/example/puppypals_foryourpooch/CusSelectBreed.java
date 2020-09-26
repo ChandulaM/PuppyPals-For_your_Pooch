@@ -1,6 +1,7 @@
 package com.example.puppypals_foryourpooch;
 
 import android.content.Context;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +34,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -92,7 +94,7 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
 
         public CustomAdapter(List<BreedModel> brdList, Context context) {
             this.brdList = brdList;
-            this.brdListFiltered = brdList;
+            this.brdListFiltered = new ArrayList<>(brdList);
             this.context = context;
         }
 
@@ -112,62 +114,66 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
         }
 
         @Override
-        public View getView(int position, View view, ViewGroup viewGroup) {
+        public View getView(final int position, View view, ViewGroup viewGroup) {
             View view1 = getLayoutInflater().inflate(R.layout.row_cus_breed, null);
 
             ImageView imageViewbrd = view1.findViewById(R.id.cbrdIm);
             TextView textViewbrd = view1.findViewById(R.id.txtCusbreed);
-            Glide.with(getApplicationContext()).load(brdList.get(position).getBreedImage()).into(imageViewbrd);
-            textViewbrd.setText(brdList.get(position).getBreedName());
+            Log.d(TAG, "getView: "+brdListFiltered.size());
+            Glide.with(context).load(brdListFiltered.get(position).getBreedImage()).into(imageViewbrd);
+            Log.d(TAG, "breed list position : "+position);
+            Log.d(TAG, "breed list position : "+brdListFiltered.get(position));
+            textViewbrd.setText(brdListFiltered.get(position).getBreedName());
 
+            view1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(CusSelectBreed.this,CusBreedInfoScroll.class).putExtra("breedGrid",brdListFiltered.get(position)));
+                }
+            });
             return view1;
         }
 
         @Override
         public Filter getFilter() {
+            return filter;
+        }
             Filter filter = new Filter() {
                 @Override
                 protected FilterResults performFiltering(CharSequence constraint) {
-                    FilterResults filterResults = new FilterResults();
+                    List<BreedModel> filterResults = new ArrayList<>();
                     if(constraint == null || constraint.length() == 0){
-                        filterResults.count = brdList.size();
-                        filterResults.values = brdList;
+                        filterResults.addAll(brdList);
                     }else {
-                        String searchChr = constraint.toString().toLowerCase() ;
-                        List<BreedModel> resultData = new ArrayList<>();
+                        String searchChr = constraint.toString().toLowerCase().trim() ;
+
                         Log.d(TAG, "performFiltering: " + searchChr);
                         for(BreedModel breedModel: brdList){
                             Log.d(TAG, "performFiltering: " + breedModel.getBreedName());
                             if(breedModel.getBreedName().toLowerCase().contains(searchChr)){
                                 Log.d(TAG, "performFiltering: " + 1);
-                                resultData.add(breedModel);
+                                filterResults.add(breedModel);
 
                             }
 
                         }
-                        filterResults.values = resultData;
-                        filterResults.count = resultData.size();
-
-                        Log.d(TAG, "result count: " + filterResults.count);
-                        for(int i=0; i<filterResults.count; i++) {
-                            Log.d(TAG, "results in  : " + filterResults.values.toString());
-                        }
 
                     }
-                    return filterResults;
+                    FilterResults resultData = new FilterResults();
+                    resultData.values = filterResults;
+                    return resultData;
                 }
 
                 @Override
                 protected void publishResults(CharSequence constraint, FilterResults results) {
-                    brdListFiltered = (ArrayList<BreedModel>) results.values;
+                    brdListFiltered.clear();
+                    brdListFiltered.addAll((List) results.values);
                     notifyDataSetChanged();
                     for(int i=0; i<brdListFiltered.size(); i++) {
                         Log.d(TAG, "results: " + brdListFiltered.get(i));
                     }
                 }
             };
-            return filter;
-        }
     }
 
 

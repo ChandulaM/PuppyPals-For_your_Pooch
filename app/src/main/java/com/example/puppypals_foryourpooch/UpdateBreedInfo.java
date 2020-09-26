@@ -87,7 +87,7 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         links.setText(model.getLink());
         Glide.with(getApplicationContext()).load(model.getBreedImage()).into(breedImg);
 
-        rest = findViewById(R.id.upresetBreed);
+
         update = findViewById(R.id.updateBreed);
 
         addImg = findViewById(R.id.upaddImgBtn);
@@ -347,11 +347,13 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()){
             case R.id.pitm1:
-                Toast.makeText(this,"Item 1 clicked", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this,AdminProfile.class);
+                startActivity(i);
+                Toast.makeText(this,"Admin Profile", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:
-                Toast.makeText(this,"Item 2 clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Logging Out!", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;

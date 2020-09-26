@@ -14,6 +14,29 @@ public class BreedModel implements Serializable {
     private String health;
     private String link;
     private String breedImage;
+    private int img;
+
+    public void setImg(int img) {
+        this.img = img;
+    }
+
+    public int getImg() {
+        return img;
+    }
+
+    public BreedModel(String breedName, Integer height, Integer weight, Integer lifeSpan, String adaptability, String intelligence, String feedings, String health, String link, String breedImage, int img) {
+        this.breedName = breedName;
+        this.height = height;
+        this.weight = weight;
+        this.lifeSpan = lifeSpan;
+        this.adaptability = adaptability;
+        this.intelligence = intelligence;
+        this.feedings = feedings;
+        this.health = health;
+        this.link = link;
+        this.breedImage = breedImage;
+        this.img = img;
+    }
 
     public BreedModel() {
     }
