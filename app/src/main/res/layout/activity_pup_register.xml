@@ -13,48 +13,17 @@
         android:layout_width="379dp"
         android:layout_height="232dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
         android:drawablePadding="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/owner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/addbutton"
-        android:layout_width="90dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="120dp"
-        android:drawablePadding="3dp"
-        app:layout_constraintEnd_toEndOf="@+id/petimage"
-        app:layout_constraintHorizontal_bias="0.678"
-        app:layout_constraintStart_toStartOf="@+id/petimage"
-        app:layout_constraintTop_toTopOf="@+id/petimage"
-        app:srcCompat="@drawable/add_foreground" />
-
-    <EditText
-        android:id="@+id/owner"
-        android:layout_width="265dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
-        android:drawableStart="@drawable/ic_baseline_perm_identity_24"
-        android:drawablePadding="3dp"
-        android:ems="10"
-        android:hint="Owner"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/breedname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petimage" />
 
     <EditText
         android:id="@+id/breedname"
         android:layout_width="263dp"
         android:layout_height="43dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="10dp"
         android:drawableStart="@drawable/ic_baseline_pets_24"
         android:drawablePadding="3dp"
@@ -64,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/owner" />
+        app:layout_constraintTop_toBottomOf="@+id/petimage" />
 
     <EditText
         android:id="@+id/email"
@@ -123,26 +92,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="92dp"
         android:alpha="0.7"
         android:background="@drawable/add_button"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contact_no" />
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="74dp"
-        android:layout_height="59dp"
+        android:layout_width="64dp"
+        android:layout_height="54dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/abc_vector_test"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/add_foreground"
+        app:layout_constraintEnd_toEndOf="@+id/petimage"
+        app:layout_constraintHorizontal_bias="0.738"
+        app:layout_constraintStart_toStartOf="@+id/petimage"
+        app:layout_constraintTop_toTopOf="@+id/petimage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

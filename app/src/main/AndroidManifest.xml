@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".update_advertiesment"></activity>
-        <activity android:name=".pup_register" />
+        <activity android:name=".pup_add_page" />
         <activity android:name=".MainActivity" />
         <activity android:name=".UploadUserImage" />
         <activity android:name=".PuppyPalSearch" />
@@ -28,7 +28,7 @@
         <activity android:name=".DogRegistration" />
         <activity android:name=".Registration" />
         <activity android:name=".Login" />
-        <activity android:name=".pup_add_page">
+        <activity android:name=".pup_register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
