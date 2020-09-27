@@ -11,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/user_background">
 
         <TextView
             android:id="@+id/adpanel"
@@ -21,7 +22,10 @@
             android:gravity="center"
             android:text="@string/Breed_info_customers_title"
             android:textColor="#121111"
-            android:textSize="24sp"
+            android:textSize="28sp"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorAccent"
+            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.523"
@@ -29,38 +33,38 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.022" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
 
-            <View
-                android:id="@+id/adminDivider"
-                android:layout_width="match_parent"
-                android:layout_height="53dp"
-                android:background="?android:attr/listDivider"
-                android:backgroundTint="#0B85E6"
-                android:backgroundTintMode="add"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.079" />
+<!--            <View-->
+<!--                android:id="@+id/adminDivider"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="53dp"-->
+<!--                android:background="?android:attr/listDivider"-->
+<!--                android:backgroundTint="#0B85E6"-->
+<!--                android:backgroundTintMode="add"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.0"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.079" />-->
 
 
-            <ImageButton
-                android:id="@+id/probtn"
-                android:layout_width="46dp"
-                android:layout_height="50dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="16dp"
-                android:onClick="showPopup"
-                app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
-                app:layout_constraintEnd_toEndOf="@+id/adminDivider"
-                app:layout_constraintTop_toTopOf="@+id/adminDivider"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/profile_icon" />
-        </RelativeLayout>
+<!--            <ImageButton-->
+<!--                android:id="@+id/probtn"-->
+<!--                android:layout_width="46dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:onClick="showPopup"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/adminDivider"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/adminDivider"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/adminDivider"-->
+<!--                app:layout_constraintVertical_bias="0.0"-->
+<!--                app:srcCompat="@drawable/profile_icon" />-->
+<!--        </RelativeLayout>-->
 
         <ScrollView
             android:layout_width="match_parent"
@@ -79,7 +83,6 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/aclonica"
                     android:gravity="center"
-
                     android:textColor="#160101"
                     android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -337,14 +340,13 @@
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#4A4AF4"
-        android:backgroundTint="#F4F0F0"
-        app:itemBackground="@color/design_default_color_background"
-        app:itemIconTint="@color/design_default_color_error"
-        app:itemTextColor="#BA0B0B"
+        android:background="@color/design_default_color_background"
+        android:backgroundTint="#FFFFFF"
+        app:itemBackground="@android:color/holo_red_dark"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

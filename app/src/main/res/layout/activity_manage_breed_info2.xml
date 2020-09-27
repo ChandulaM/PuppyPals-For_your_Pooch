@@ -35,14 +35,16 @@
         android:layout_height="0dp"
         android:layout_weight="8"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="#98D9EA">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/brdRecyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="3dp"
-            android:layout_marginTop="3dp" />
+            android:layout_marginTop="3dp"
+            />
 
     </LinearLayout>
 

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#98D9EA">
 
     <TextView
         android:id="@+id/adpanel"
@@ -117,7 +118,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -149,6 +151,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:textSize="25dp"
+                android:background="@drawable/shapes"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
@@ -182,6 +186,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:background="@drawable/shapes"
+                android:textSize="25dp"
                 android:layout_marginBottom="30dp"
                 android:ems="10"
                 android:inputType="textPassword"

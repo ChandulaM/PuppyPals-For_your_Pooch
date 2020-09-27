@@ -154,12 +154,8 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
                     filterResults.addAll(brdList);
                 } else {
                     String searchChr = constraint.toString().toLowerCase().trim();
-
-                    Log.d(TAG, "performFiltering: " + searchChr);
                     for (BreedModel breedModel : brdList) {
-                        Log.d(TAG, "performFiltering: " + breedModel.getBreedName());
-                        if (breedModel.getBreedName().toLowerCase().contains(searchChr)) {
-                            Log.d(TAG, "performFiltering: " + 1);
+                        if (breedModel.getBreedName().toLowerCase().trim().contains(searchChr)) {
                             filterResults.add(breedModel);
 
                         }

@@ -60,7 +60,6 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
 
     private String id, breedName, adaptability, intelligence, feedings, hlth, link, saveCurrentDate, saveCurrentTime, productRandomKey, downloadImageUrl;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -298,7 +297,7 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
             breedModel.setBreedImage(downloadImageUrl.trim());
 
             mDatabaseRef.child(productRandomKey).setValue(breedModel);
-            Toast.makeText(getApplicationContext(), "Breed Info is added successfully..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Breed Info is Updated successfully..", Toast.LENGTH_SHORT).show();
             loadingBar.dismiss();
             Intent i = new Intent(UpdateBreedInfo.this, Manage_breed_info.class);
             startActivity(i);

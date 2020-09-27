@@ -83,7 +83,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
 
                 //Alert dialog.
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("Are you Sure?")
+                builder.setMessage("Are you Sure You wanna Delete this?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
@@ -149,7 +149,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
                     List<BreedModel> resultData = new ArrayList<>();
 
                     for (BreedModel breedModel : getbreedModelListFiltered) {
-                        if (breedModel.getBreedName().toLowerCase().contains(searchChr)) {
+                        if (breedModel.getBreedName().toLowerCase().trim().contains(searchChr)) {
                             resultData.add(breedModel);
                         }
                     }
