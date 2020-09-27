@@ -140,12 +140,11 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
             });
             return view1;
         }
-
+        //Search result filter method.
         @Override
         public Filter getFilter() {
             return filter;
         }
-
         Filter filter = new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
@@ -157,17 +156,13 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
                     for (BreedModel breedModel : brdList) {
                         if (breedModel.getBreedName().toLowerCase().trim().contains(searchChr)) {
                             filterResults.add(breedModel);
-
                         }
-
                     }
-
                 }
                 FilterResults resultData = new FilterResults();
                 resultData.values = filterResults;
                 return resultData;
             }
-
             //Return data to grid list
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {

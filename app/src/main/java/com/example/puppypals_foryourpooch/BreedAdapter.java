@@ -83,7 +83,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
 
                 //Alert dialog.
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("Are you Sure You wanna Delete this?")
+                builder.setMessage("Are you Sure You wanna Remove breed "+breedModelList.get(position).getBreedName()+" ?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
@@ -91,7 +91,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
 
                                 deleteBreed(breedModelList.get(position).getBreedId());
                                 Intent intent = new Intent(context.getApplicationContext(), Manage_breed_info.class);
-                                Toast.makeText(context.getApplicationContext(), "Delete Successful.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context.getApplicationContext(), breedModelList.get(position).getBreedName()+" Deleted Successfully.", Toast.LENGTH_SHORT).show();
                                 context.startActivity(intent);
 
                                 dialogInterface.dismiss();
@@ -147,7 +147,6 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
                 } else {
                     String searchChr = constraint.toString().toLowerCase();
                     List<BreedModel> resultData = new ArrayList<>();
-
                     for (BreedModel breedModel : getbreedModelListFiltered) {
                         if (breedModel.getBreedName().toLowerCase().trim().contains(searchChr)) {
                             resultData.add(breedModel);
@@ -158,7 +157,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
                 }
                 return filterResults;
             }
-
+            //Return data to Recycler view list
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 breedModelList = (ArrayList<BreedModel>) results.values;

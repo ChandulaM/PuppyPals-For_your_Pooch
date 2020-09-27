@@ -321,7 +321,7 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
             bm.setBreedImage(downloadImageUrl.trim());
 
             mDatabaseRef.child(productRandomKey).setValue(bm);
-            Toast.makeText(getApplicationContext(), "Breed Info is added successfully..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Breed Info added successfully..", Toast.LENGTH_SHORT).show();
             loadingBar.dismiss();
             clearControlls();
         } catch (NumberFormatException e) {
