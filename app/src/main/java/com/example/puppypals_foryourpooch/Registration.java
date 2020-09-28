@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.puppypals_foryourpooch.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Registration extends AppCompatActivity{
     EditText email, username, password, conPassword;
+    TextInputLayout passwordHolder, confPassHolder;
     ProgressBar progressBar;
     Button regDog;
     User user;
@@ -49,6 +51,9 @@ public class Registration extends AppCompatActivity{
         conPassword = findViewById(R.id.reg_confPass);
         regDog = findViewById(R.id.btn_regDog);
         progressBar = findViewById(R.id.reg_pBar);
+        passwordHolder = findViewById(R.id.reg_pass_holder);
+        confPassHolder = findViewById(R.id.conf_pass_holder);
+
 
         fAuth = FirebaseAuth.getInstance();
 
@@ -72,12 +77,6 @@ public class Registration extends AppCompatActivity{
                 reference = FirebaseDatabase.getInstance().getReference().child("User");
                 progressBar.setVisibility(View.VISIBLE);
 
-                if(password.getText().toString().length() < 6){
-                    password.setError("Password must have at least 7 characters");
-                    progressBar.setVisibility(View.GONE);
-                    return;
-                }
-
                 if(TextUtils.isEmpty(email.getText().toString())) {
                     email.setError("Please enter an email");
                     progressBar.setVisibility(View.GONE);
@@ -89,17 +88,22 @@ public class Registration extends AppCompatActivity{
                     return;
                 }
                 else if(TextUtils.isEmpty(password.getText().toString())) {
-                    username.setError("Please enter a password");
+                    passwordHolder.setError("Please enter a password");
+                    progressBar.setVisibility(View.GONE);
+                    return;
+                }
+                else if(password.getText().toString().length() < 6) {
+                    passwordHolder.setError("Password must have at least 7 characters");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 else if(TextUtils.isEmpty(conPassword.getText().toString())) {
-                    username.setError("Please confirm your password");
+                    confPassHolder.setError("Please confirm your password");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
                 else if(!password.getText().toString().equalsIgnoreCase(conPassword.getText().toString())) {
-                    conPassword.setError("Passwords don't match");
+                    confPassHolder.setError("Passwords don't match");
                     progressBar.setVisibility(View.GONE);
                     return;
                 }
@@ -133,6 +137,7 @@ public class Registration extends AppCompatActivity{
                         }
                     });
                 }
+
             }
         });
     }
