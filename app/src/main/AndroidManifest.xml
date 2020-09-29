@@ -17,7 +17,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".update_advertiesment"></activity>
+        <activity android:name=".My_add_list"></activity>
+        <activity android:name=".update_ad" />
+        <activity android:name=".view_advertiesment" />
+        <activity
+            android:name=".MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".update_advertiesment" />
         <activity android:name=".pup_add_page" />
         <activity android:name=".MainActivity" />
         <activity android:name=".UploadUserImage" />
@@ -27,14 +34,14 @@
         <activity android:name=".UserProfile" />
         <activity android:name=".DogRegistration" />
         <activity android:name=".Registration" />
-        <activity android:name=".Login" />
-        <activity android:name=".pup_register">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".pup_register" />
 
         <meta-data
             android:name="preloaded_fonts"

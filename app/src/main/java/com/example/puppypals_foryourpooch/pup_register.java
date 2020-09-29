@@ -56,15 +56,15 @@ public class pup_register extends AppCompatActivity {
         chooseImage = findViewById(R.id.addbutton);
         upload = findViewById(R.id.uploadbutton);
         imageView = findViewById(R.id.petimage);
-        breed = findViewById(R.id.breed);
+        breed = findViewById(R.id.breedname);
         email = findViewById(R.id.email);
         phone = findViewById(R.id.phone);
         price = findViewById(R.id.price);
         back = findViewById(R.id.back_button);
 
         storageReference = FirebaseStorage.getInstance().getReference("uploads");
-        databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
-        //firebaseAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("uploads");
+        firebaseAuth = FirebaseAuth.getInstance();
 
         chooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +109,10 @@ public class pup_register extends AppCompatActivity {
 
             Log.i("onActivityResult", String.valueOf(data)+resultCode+requestCode);
 
+
             Picasso.with(this).load(imageUri).into(imageView);
+            imageView.getBackground().setAlpha(0);
+
 
         }
 
@@ -138,17 +141,23 @@ public class pup_register extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     AddPupAdd add = new AddPupAdd();
-                                    add.setUserId("M79LBHmia4X95sFrljyDIXQa35I3");
+                                    add.setAdId(databaseReference.push().getKey());
+                                    add.setUserId(firebaseAuth.getUid().toString());
                                     add.setBreed(breed.getText().toString());
                                     add.setPhone(phone.getText().toString());
+                                    add.setEmail(email.getText().toString());
                                     add.setPrice(Float.valueOf(price.getText().toString()));
                                     add.setImageUri(uri.toString());
 
-                                    //databaseReference.child(firebaseAuth.getUid()).setValue(add);
-                                    databaseReference.child("M79LBHmia4X95sFrljyDIXQa35I3").setValue(add);
+                                    databaseReference.child(databaseReference.push().getKey()).setValue(add);
 
                                     Toast.makeText(pup_register.this,"Ad posted successfully",Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(pup_register.this, "Error", Toast.LENGTH_SHORT).show();
                                 }
                             });
 

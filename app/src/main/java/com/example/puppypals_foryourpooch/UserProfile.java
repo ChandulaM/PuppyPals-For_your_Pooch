@@ -114,6 +114,10 @@ public class UserProfile extends AppCompatActivity {
                         return true;
                     case R.id.bot_nav_home:
                         return true;
+                    case R.id.bot_nav_ad:
+                        startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }

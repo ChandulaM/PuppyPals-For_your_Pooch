@@ -28,12 +28,13 @@
 
     <Button
         android:id="@+id/search"
-        android:layout_width="37dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="36dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/ic__search"
+        android:background="@drawable/ic_baseline_search_24"
         app:layout_constraintEnd_toStartOf="@+id/newadd"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/search_content"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,30 +44,36 @@
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="18dp"
+        android:background="@drawable/custom_search"
         android:ems="10"
+        android:hint="   search"
+        android:drawablePadding="3dp"
+        android:textColorHint="#FFFFFF"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/newadd"
-        android:layout_width="43dp"
-        android:layout_height="37dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="36dp"
-        android:background="@drawable/add_foreground"
+        android:background="@drawable/ic_baseline_post_add_24"
         app:layout_constraintBaseline_toBaselineOf="@+id/search"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cycle"
-        android:layout_width="409dp"
-        android:layout_height="615dp"
+        android:layout_width="410dp"
+        android:layout_height="564dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_content" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

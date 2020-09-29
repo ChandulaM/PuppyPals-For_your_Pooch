@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/user_background"
+    android:paddingEnd="8dp"
     tools:context=".pup_register">
 
     <ImageView
@@ -19,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/breedname"
         android:layout_width="264dp"
         android:layout_height="49dp"
@@ -32,17 +33,19 @@
         android:hint="@string/breed_name"
         android:imeOptions="actionNext"
         android:nextFocusDown="@id/email"
+        android:paddingStart="5dp"
         android:paddingLeft="5dp"
         android:singleLine="true"
         android:textColorHint="#260233"
         android:textFontWeight="3"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petimage" />
 
-    <EditText
+    <TextView
         android:id="@+id/email"
         android:layout_width="264dp"
         android:layout_height="49dp"
@@ -59,13 +62,14 @@
         android:paddingLeft="5dp"
         android:textColorHint="#330202"
         android:textFontWeight="3"
+        android:textSize="22dp"
         app:layout_constraintBottom_toTopOf="@+id/phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/breedname" />
 
-    <EditText
+    <TextView
         android:id="@+id/phone"
         android:layout_width="263dp"
         android:layout_height="46dp"
@@ -82,13 +86,14 @@
         android:paddingLeft="5dp"
         android:textColorHint="#330202"
         android:textFontWeight="3"
+        android:textSize="22dp"
         app:layout_constraintBottom_toTopOf="@+id/contact_no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
-    <EditText
+    <TextView
         android:id="@+id/price"
         android:layout_width="266dp"
         android:layout_height="43dp"
@@ -104,6 +109,7 @@
         android:textAlignment="viewStart"
         android:textColorHint="#330202"
         android:textFontWeight="3"
+        android:textSize="22dp"
         app:layout_constraintBottom_toTopOf="@+id/uploadbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -111,17 +117,17 @@
         app:layout_constraintTop_toBottomOf="@+id/phone"
         app:layout_constraintVertical_bias="0.189" />
 
+
     <Button
-        android:id="@+id/uploadbutton"
+        android:id="@+id/back"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="30dp"
         android:alpha="0.7"
         android:background="@drawable/add_button"
         android:fontFamily="@font/iceland"
-        android:text="Add"
+        android:text="back"
         android:textColor="#6F235C"
         android:textFontWeight="4"
         android:textSize="20sp"
@@ -129,31 +135,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_no" />
-
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_back"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/addbutton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="204dp"
-        android:background="@drawable/ic_baseline_add_a_photo_24"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/petimage"
-        app:layout_constraintHorizontal_bias="0.893"
-        app:layout_constraintStart_toStartOf="@+id/petimage"
-        app:layout_constraintTop_toTopOf="@+id/petimage" />
+        app:layout_constraintTop_toBottomOf="@+id/price"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
