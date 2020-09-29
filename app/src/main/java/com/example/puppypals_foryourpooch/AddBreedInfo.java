@@ -276,7 +276,7 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText(AddBreedInfo.this, "Product Image uploaded Successfully...", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(AddBreedInfo.this, "Product Image uploaded Successfully...", Toast.LENGTH_SHORT).show();
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -294,7 +294,7 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
                         if (task.isSuccessful()) {
                             downloadImageUrl = task.getResult().toString();
 
-                            Toast.makeText(AddBreedInfo.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(AddBreedInfo.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
 
                             SaveProductInfoToDatabase();
                         }
@@ -321,7 +321,7 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
             bm.setBreedImage(downloadImageUrl.trim());
 
             mDatabaseRef.child(productRandomKey).setValue(bm);
-            Toast.makeText(getApplicationContext(), "Breed Info added successfully..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.toast_breed_add, Toast.LENGTH_SHORT).show();
             loadingBar.dismiss();
             clearControlls();
         } catch (NumberFormatException e) {

@@ -90,10 +90,7 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
                             public void onClick(DialogInterface dialogInterface, int i) {
 
                                 deleteBreed(breedModelList.get(position).getBreedId());
-                                Intent intent = new Intent(context.getApplicationContext(), Manage_breed_info.class);
                                 Toast.makeText(context.getApplicationContext(), breedModelList.get(position).getBreedName()+" Deleted Successfully.", Toast.LENGTH_SHORT).show();
-                                context.startActivity(intent);
-
                                 dialogInterface.dismiss();
                             }
                         })

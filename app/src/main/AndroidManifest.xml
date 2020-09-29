@@ -16,20 +16,17 @@
             android:label="Search Breeds">
 
         </activity>
-        <activity android:name=".UpdateBreedInfo" />
-        <activity android:name=".BreedRows" />
-        <activity android:name=".Cus_breeds" />
+        <activity android:name=".UpdateBreedInfo" >
+
+        </activity>
         <activity android:name=".CusBreedInfoScroll" />
         <activity android:name=".botNav" />
         <activity android:name=".MainActivity" />
         <activity android:name=".AdminProfile" />
-        <activity android:name=".CusBreedInfo" />
-        <activity android:name=".CusBreedSelect" />
-        <activity android:name=".UpadteBreedInfo" />
         <activity
             android:name=".Manage_breed_info"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ManageBreedInfo" />
+
         <activity android:name=".AddBreedInfo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
