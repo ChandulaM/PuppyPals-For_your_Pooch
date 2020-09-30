@@ -57,12 +57,16 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
             feed.setText(model.getFeedings());
             hlth.setText(model.getHealth());
 
+
             morInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     Uri uri = Uri.parse(model.getLink());
+                    if(!Uri.EMPTY.equals(uri)) {
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
+                    }else  Toast.makeText(getApplicationContext(), "URL not available!", Toast.LENGTH_SHORT).show();
                 }
             });
         } else {
@@ -77,14 +81,19 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
             feed.setText(model2.getFeedings());
             hlth.setText(model2.getHealth());
 
+
             morInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Uri uri = Uri.parse(model2.getLink());
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
+
+                        Uri uri = Uri.parse(model2.getLink());
+                    if(!Uri.EMPTY.equals(uri)) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                    }else  Toast.makeText(getApplicationContext(), "URL not available!", Toast.LENGTH_SHORT).show();
                 }
             });
+
 
         }
 

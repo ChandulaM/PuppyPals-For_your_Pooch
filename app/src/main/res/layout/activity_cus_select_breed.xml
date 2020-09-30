@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".CusSelectBreed"
-    android:background="@drawable/user_background">
+    android:background="@drawable/bg_pink1">
 
 
 <!--    <RelativeLayout-->

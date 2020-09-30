@@ -206,9 +206,9 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
         } else if (TextUtils.isEmpty(hlth)) {
             Toast.makeText(this, "Breed Health is Mandatory!", Toast.LENGTH_SHORT).show();
             health.setError("Enter Health Info");
-        } else if (TextUtils.isEmpty(link)) {
-            Toast.makeText(this, "Info link is Mandatory!", Toast.LENGTH_SHORT).show();
-            links.setError("Enter the Link ");
+//        } else if (TextUtils.isEmpty(link)) {
+//            Toast.makeText(this, "Info link is Mandatory!", Toast.LENGTH_SHORT).show();
+//            links.setError("Enter the Link ");
         } else if (brdImgUri == null) {
             Toast.makeText(this, "Breed image is Mandatory!", Toast.LENGTH_SHORT).show();
 
