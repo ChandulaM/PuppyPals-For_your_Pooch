@@ -25,16 +25,19 @@
         <activity android:name=".UserProfile" />
         <activity android:name=".DogRegistration" />
         <activity android:name=".Registration" />
-        <activity android:name=".Login" />
-        <activity android:name=".CusSelectBreed"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-            android:label="Search Breeds">
-
-
-        <activity android:name=".UpdateBreedInfo" >
+        <activity android:name=".Login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".CusSelectBreed"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:label="Search Breeds">
+        </activity>
+
+        <activity android:name=".UpdateBreedInfo" >
         </activity>
         <activity android:name=".CusBreedInfoScroll" />
         <activity android:name=".botNav" />
@@ -45,11 +48,7 @@
             android:windowSoftInputMode="adjustPan" />
 
         <activity android:name=".AddBreedInfo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data

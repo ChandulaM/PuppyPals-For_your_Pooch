@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
 
 //Class for Display Breed information
 public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -116,7 +117,9 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
 
             case R.id.pitm2:
 
+                FirebaseAuth.getInstance().signOut();
                 Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),Login.class));
                 return true;
         }
         return false;

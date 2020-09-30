@@ -27,6 +27,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -249,7 +250,9 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
                 return true;
 
             case R.id.pitm2:
-                Toast.makeText(this, "Item 2 clicked", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),Login.class));
                 return true;
         }
         return false;

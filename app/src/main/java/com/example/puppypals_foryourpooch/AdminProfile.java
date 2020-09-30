@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
@@ -71,7 +73,9 @@ public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuI
                 return true;
 
             case R.id.pitm2:
+                FirebaseAuth.getInstance().signOut();
                 Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),Login.class));
                 return true;
         }
         return false;

@@ -30,6 +30,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -324,7 +325,9 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
                 return true;
 
             case R.id.pitm2:
+                FirebaseAuth.getInstance().signOut();
                 Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),Login.class));
                 return true;
         }
         return false;
