@@ -50,8 +50,8 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:paddingStart="23sp"
-            android:textAlignment="center"
             android:text="70% easy"
+            android:textAlignment="center"
             android:textColor="#190101"
             android:textSize="18sp" />
 
@@ -59,10 +59,10 @@
             android:id="@+id/getWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:padding="13dp"
             android:paddingStart="23sp"
             android:text="60%, can train"
+            android:textAlignment="center"
             android:textColor="#0E0E0E"
             android:textSize="18sp" />
 
@@ -70,10 +70,10 @@
             android:id="@+id/getLspan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:padding="10dp"
             android:paddingStart="23sp"
             android:text="70%, Easy"
+            android:textAlignment="center"
             android:textColor="#0E0E0E"
             android:textSize="18sp" />
     </TableRow>

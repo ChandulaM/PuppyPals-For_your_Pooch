@@ -1,21 +1,60 @@
 package com.example.puppypals_foryourpooch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+
+    private ImageButton navViewBrd, navManageBrd, navAddBrd;
+    private Button changeUP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_profile);
+
+        navViewBrd = findViewById(R.id.adminViewBreed);
+        navManageBrd = findViewById(R.id.manageBreed);
+        navAddBrd = findViewById(R.id.addNewBreed);
+
+        navViewBrd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AdminProfile.this, CusSelectBreed.class);
+                startActivity(i);
+
+
+            }
+        });
+
+        navManageBrd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AdminProfile.this, Manage_breed_info.class);
+                startActivity(i);
+            }
+        });
+
+        navAddBrd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AdminProfile.this, AddBreedInfo.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
 
@@ -28,13 +67,15 @@ public class AdminProfile extends AppCompatActivity implements PopupMenu.OnMenuI
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.pitm1:
-                Toast.makeText(this,"Item 1 clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You are in Admin Profile", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:
-                Toast.makeText(this,"Item 2 clicked", Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),Login.class));
                 return true;
         }
         return false;
