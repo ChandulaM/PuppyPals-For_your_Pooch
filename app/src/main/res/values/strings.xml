@@ -59,5 +59,6 @@
     <string name="update">Update</string>
     <string name="update_breed_info">Update Breed Info</string>
     <string name="admin_panel">Admin Panel</string>
+    <string name="search_error">Sorry! We couldn\'t locate any PuppyPals near you!</string>
     <string name="toast_breed_add">Breed Info added successfully</string>
 </resources>
