@@ -1,7 +1,11 @@
 /*IT19149318
-* Dharmasinghe P.D.G.N.T.D.
-* KDY_WD03*/
+ * Dharmasinghe P.D.G.N.T.D.
+ * KDY_WD03*/
 package com.example.puppypals_foryourpooch;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -20,10 +24,7 @@ import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,15 +39,14 @@ import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
 
-//Class for Adding Breed data
-public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
+//Class for update Breed details.
+public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
-    //Variable decelerations
+
     private static final int PICK_IMAGE_REQUEST = 1;
     private EditText breednm, brdHi, brdWe, brdLspn, adapt, intel, feeds, health, links;
-    private Button rest, save;
+    private Button rest, update;
     private ImageButton addImg, navViewBrd, navManageBrd, navAddBrd;
     private ImageView breedImg;
     private ProgressBar pBar;
@@ -59,76 +59,61 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
     private BreedModel bm;
 
 
-    private String breedName, adaptability, intelligence, feedings, hlth, link, saveCurrentDate, saveCurrentTime, productRandomKey, downloadImageUrl;
-    private Integer height, weight, lifeSpan;
-
-    //Clearing variables
-    private void clearControlls() {
-        breednm.setText("");
-        brdHi.setText("");
-        brdWe.setText("");
-        brdLspn.setText("");
-        adapt.setText("");
-        intel.setText("");
-        feeds.setText("");
-        health.setText("");
-        links.setText("");
-        breedImg.invalidate();
-        breedImg.setImageBitmap(null);
-    }
+    private String id, breedName, adaptability, intelligence, feedings, hlth, link, saveCurrentDate, saveCurrentTime, productRandomKey, downloadImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_breed_info);
+        setContentView(R.layout.activity_update_breed_info);
 
-        //Finding views
-        breednm = findViewById(R.id.breedName);
-        brdHi = findViewById(R.id.hno);
-        brdWe = findViewById(R.id.wno);
-        brdLspn = findViewById(R.id.lsno);
-        adapt = findViewById(R.id.adapget);
-        intel = findViewById(R.id.intelget);
-        feeds = findViewById(R.id.feedget);
-        health = findViewById(R.id.healget);
-        links = findViewById(R.id.infoLink);
+        final BreedModel model = (BreedModel) getIntent().getSerializableExtra("Breed");
 
-        rest = findViewById(R.id.resetBreed);
-        save = findViewById(R.id.saveBreed);
+        breednm = findViewById(R.id.upbreedName);
+        brdHi = findViewById(R.id.uphno);
+        brdWe = findViewById(R.id.upwno);
+        brdLspn = findViewById(R.id.uplsno);
+        adapt = findViewById(R.id.upadapget);
+        intel = findViewById(R.id.upintelget);
+        feeds = findViewById(R.id.upfeedget);
+        health = findViewById(R.id.uphealget);
+        links = findViewById(R.id.upinfoLink);
+        breedImg = findViewById(R.id.updogImgView);
 
-        addImg = findViewById(R.id.addImgBtn);
+        id = model.getBreedId();
+        breednm.setText(model.getBreedName());
+        brdHi.setText(model.getHeight().toString());
+        brdWe.setText(model.getWeight().toString());
+        brdLspn.setText(model.getLifeSpan().toString());
+        adapt.setText(model.getAdaptability());
+        intel.setText(model.getIntelligence());
+        feeds.setText(model.getFeedings());
+        health.setText(model.getHealth());
+        links.setText(model.getLink());
+        Glide.with(getApplicationContext()).load(model.getBreedImage()).into(breedImg);
+
+
+        update = findViewById(R.id.updateBreed);
+
+        addImg = findViewById(R.id.upaddImgBtn);
         navViewBrd = findViewById(R.id.adminViewBreed);
         navManageBrd = findViewById(R.id.manageBreed);
         navAddBrd = findViewById(R.id.addNewBreed);
 
-        breedImg = findViewById(R.id.dogImgView);
 
-        //Database variable declaration.
         ProductImagesRef = FirebaseStorage.getInstance().getReference("Breed Images");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Breed");
 
         bm = new BreedModel();
-
-        //Loading bar object
         loadingBar = new ProgressDialog(this);
 
-        //Clicking save button
-        save.setOnClickListener(new View.OnClickListener() {
+        update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 validateData();
             }
         });
 
-        //Clicking reset button.
-        rest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clearControlls();
-            }
-        });
 
-        //Clicking add image, image button.
         addImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,39 +121,35 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
             }
         });
 
-        //Top navigation image button for view and search breeds.
         navViewBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AddBreedInfo.this, CusSelectBreed.class);
+                Intent i = new Intent(UpdateBreedInfo.this, CusSelectBreed.class);
                 startActivity(i);
 
 
             }
         });
 
-        //Top navigation image button for manage breeds.
         navManageBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AddBreedInfo.this, Manage_breed_info.class);
+                Intent i = new Intent(UpdateBreedInfo.this, Manage_breed_info.class);
                 startActivity(i);
             }
         });
 
-        //Top navigation image button for add new breeds.
         navAddBrd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AddBreedInfo.this, AddBreedInfo.class);
+                Intent i = new Intent(UpdateBreedInfo.this, AddBreedInfo.class);
                 startActivity(i);
             }
         });
 
-
     }
 
-    //Local storage files opening method
+
     private void openFileChooser() {
         Intent i = new Intent();
         i.setType("image/*");
@@ -176,7 +157,6 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
         startActivityForResult(i, PICK_IMAGE_REQUEST);
     }
 
-    //Fetching image data
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -188,15 +168,12 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
-    //Getting image file extensions
     private String getFileExtension(Uri uri) {
         ContentResolver cr = getContentResolver();
         MimeTypeMap mm = MimeTypeMap.getSingleton();
         return mm.getExtensionFromMimeType(cr.getType(uri));
     }
 
-
-    //Validating input data
     public void validateData() {
 
         breedName = breednm.getText().toString();
@@ -243,23 +220,23 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
 
     }
 
-    //Store, upload image to the database.
+
     private void StoreProductInformation() {
 
-        loadingBar.setTitle("Adding New Breed Info");
-        loadingBar.setMessage("Dear Admin, please wait while we are adding the new Breed Info.");
+        loadingBar.setTitle("Updating Selected Breed Info");
+        loadingBar.setMessage("Dear Admin, please wait while we are Updating the Selected Breed Info.");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
 
-        Calendar calendar = Calendar.getInstance();
+//        Calendar calendar = Calendar.getInstance();
+//
+//        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+//        saveCurrentDate = currentDate.format(calendar.getTime());
+//
+//        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+//        saveCurrentTime = currentTime.format(calendar.getTime());
 
-        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-        saveCurrentDate = currentDate.format(calendar.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        saveCurrentTime = currentTime.format(calendar.getTime());
-
-        productRandomKey = saveCurrentDate + saveCurrentTime;
+        productRandomKey = id;
 
 
         final StorageReference filePath = ProductImagesRef.child(brdImgUri.getLastPathSegment());
@@ -271,13 +248,13 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
             @Override
             public void onFailure(@NonNull Exception e) {
                 String message = e.toString();
-                Toast.makeText(AddBreedInfo.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateBreedInfo.this, "Error: " + message, Toast.LENGTH_SHORT).show();
                 loadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                //Toast.makeText(AddBreedInfo.this, "Product Image uploaded Successfully...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateBreedInfo.this, "Product Image uploaded Successfully...", Toast.LENGTH_SHORT).show();
 
                 Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -295,9 +272,9 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
                         if (task.isSuccessful()) {
                             downloadImageUrl = task.getResult().toString();
 
-                           // Toast.makeText(AddBreedInfo.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpdateBreedInfo.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
 
-                            SaveProductInfoToDatabase();
+                            updateData();
                         }
                     }
                 });
@@ -305,34 +282,32 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
         });
     }
 
-    //Save all the data to the database.
-    private void SaveProductInfoToDatabase() {
-
+    public void updateData() {
         try {
-            bm.setBreedId(productRandomKey);
-            bm.setBreedName(breedName.trim());
-            bm.setHeight(Integer.parseInt(brdHi.getText().toString().trim()));
-            bm.setWeight(Integer.parseInt(brdWe.getText().toString().trim()));
-            bm.setLifeSpan(Integer.parseInt(brdLspn.getText().toString().trim()));
-            bm.setAdaptability(adaptability.trim());
-            bm.setIntelligence(intelligence.trim());
-            bm.setFeedings(feedings.trim());
-            bm.setHealth(hlth.trim());
-            bm.setLink(link.trim());
-            bm.setBreedImage(downloadImageUrl.trim());
+            BreedModel breedModel = new BreedModel();
+            breedModel.setBreedId(productRandomKey);
+            breedModel.setBreedName(breedName.trim());
+            breedModel.setHeight(Integer.parseInt(brdHi.getText().toString().trim()));
+            breedModel.setWeight(Integer.parseInt(brdWe.getText().toString().trim()));
+            breedModel.setLifeSpan(Integer.parseInt(brdLspn.getText().toString().trim()));
+            breedModel.setAdaptability(adaptability.trim());
+            breedModel.setIntelligence(intelligence.trim());
+            breedModel.setFeedings(feedings.trim());
+            breedModel.setHealth(hlth.trim());
+            breedModel.setLink(link.trim());
+            breedModel.setBreedImage(downloadImageUrl.trim());
 
-            mDatabaseRef.child(productRandomKey).setValue(bm);
-            Toast.makeText(getApplicationContext(), R.string.toast_breed_add, Toast.LENGTH_SHORT).show();
+            mDatabaseRef.child(productRandomKey).setValue(breedModel);
+            Toast.makeText(getApplicationContext(), "Breed Info is Updated successfully..", Toast.LENGTH_SHORT).show();
             loadingBar.dismiss();
-            clearControlls();
+            Intent i = new Intent(UpdateBreedInfo.this, Manage_breed_info.class);
+            startActivity(i);
         } catch (NumberFormatException e) {
             Toast.makeText(getApplicationContext(), "Invalid height/weight/lifeSpan values!", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
-    //For profile popup menu.
+
     public void showPopup(View v) {
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(this);
@@ -346,7 +321,7 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.pitm1:
                 Intent i = new Intent(this, AdminProfile.class);
                 startActivity(i);
-                Toast.makeText(this, "Admin Profile.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Admin Profile", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.pitm2:

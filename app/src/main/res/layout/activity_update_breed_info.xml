@@ -103,10 +103,10 @@
 
     <TextView
         android:id="@+id/addbreedinfo"
-        android:layout_width="158dp"
-        android:layout_height="27dp"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
         android:fontFamily="@font/aclonica"
-        android:text="Add Breed Info"
+        android:text="Update Breed Info"
         android:textColor="#0B0B0B"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -130,8 +130,13 @@
             android:orientation="vertical"
             android:showDividers="middle">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Breed Name" />
+
             <EditText
-                android:id="@+id/breedName"
+                android:id="@+id/upbreedName"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
@@ -140,7 +145,6 @@
                 android:inputType="textPersonName"
                 android:paddingLeft="10dp"
                 android:textSize="15sp"
-                android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.421"
@@ -155,8 +159,34 @@
                 android:orientation="horizontal"
                 android:showDividers="middle">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="Height" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="Weight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="Life Span" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/spaceline"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
                 <EditText
-                    android:id="@+id/hno"
+                    android:id="@+id/uphno"
                     android:layout_width="120dp"
                     android:layout_height="70dp"
                     android:background="@drawable/shapes"
@@ -172,7 +202,7 @@
                     app:layout_constraintVertical_bias="0.394" />
 
                 <EditText
-                    android:id="@+id/wno"
+                    android:id="@+id/upwno"
                     android:layout_width="120dp"
                     android:layout_height="70dp"
                     android:background="@drawable/shapes"
@@ -187,7 +217,7 @@
                     app:layout_constraintVertical_bias="0.394" />
 
                 <EditText
-                    android:id="@+id/lsno"
+                    android:id="@+id/uplsno"
                     android:layout_width="140dp"
                     android:layout_height="70dp"
                     android:background="@drawable/shapes"
@@ -203,8 +233,13 @@
                     app:layout_constraintVertical_bias="0.394" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adaptability" />
+
             <EditText
-                android:id="@+id/adapget"
+                android:id="@+id/upadapget"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
@@ -220,9 +255,13 @@
                 app:layout_constraintTop_toTopOf="@+id/adpanel"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Intelligence" />
 
             <EditText
-                android:id="@+id/intelget"
+                android:id="@+id/upintelget"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
@@ -238,8 +277,13 @@
                 app:layout_constraintTop_toTopOf="@+id/adpanel"
                 app:layout_constraintVertical_bias="0.195" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feedings" />
+
             <EditText
-                android:id="@+id/feedget"
+                android:id="@+id/upfeedget"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
@@ -255,8 +299,13 @@
                 app:layout_constraintTop_toTopOf="@+id/adpanel"
                 app:layout_constraintVertical_bias="0.39" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Health" />
+
             <EditText
-                android:id="@+id/healget"
+                android:id="@+id/uphealget"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
@@ -272,8 +321,13 @@
                 app:layout_constraintTop_toTopOf="@+id/adpanel"
                 app:layout_constraintVertical_bias="0.58" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Info Link" />
+
             <EditText
-                android:id="@+id/infoLink"
+                android:id="@+id/upinfoLink"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:background="@drawable/shapes"
@@ -296,7 +350,7 @@
                 android:showDividers="middle">
 
                 <ImageView
-                    android:id="@+id/dogImgView"
+                    android:id="@+id/updogImgView"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:src="@drawable/shapes"
@@ -308,7 +362,7 @@
                     app:layout_constraintVertical_bias="0.932" />
 
                 <ImageButton
-                    android:id="@+id/addImgBtn"
+                    android:id="@+id/upaddImgBtn"
                     android:layout_width="69dp"
                     android:layout_height="70dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -330,24 +384,11 @@
                 android:showDividers="middle">
 
                 <Button
-                    android:id="@+id/resetBreed"
+                    android:id="@+id/updateBreed"
                     android:layout_width="83dp"
                     android:layout_height="48dp"
                     android:backgroundTint="#2196F3"
-                    android:text="Reset"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.591"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.976" />
-
-                <Button
-                    android:id="@+id/saveBreed"
-                    android:layout_width="83dp"
-                    android:layout_height="48dp"
-                    android:backgroundTint="#2196F3"
-                    android:text="Save"
+                    android:text="Update"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.911"
