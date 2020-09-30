@@ -51,7 +51,7 @@ public class Manage_breed_info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_breed_info2);
 
-        recyView = findViewById(R.id.brdRecyclerview);
+        recyView = findViewById(R.id.brdRview);
         toolbar = findViewById(R.id.toolbar);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
