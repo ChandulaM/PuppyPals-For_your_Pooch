@@ -18,7 +18,7 @@
             android:id="@+id/adpanel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="cursive"
+            android:fontFamily="@font/cherry_swash"
             android:gravity="center"
             android:text="@string/Breed_info_customers_title"
             android:textColor="#121111"
@@ -340,11 +340,12 @@
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bot_nav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_background"
         android:backgroundTint="#FFFFFF"
-        app:itemBackground="@android:color/holo_red_dark"
+        app:itemBackground="@android:color/holo_red_light"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"

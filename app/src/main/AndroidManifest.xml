@@ -33,7 +33,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -41,21 +40,15 @@
         <activity android:name=".AdminProfile">
         </activity>
 
-        <activity android:name=".CusBreedInfo">
-        </activity>
 
-        <activity android:name=".CusBreedSelect">
         <activity android:name=".CusSelectBreed"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
             android:label="Search Breeds">
         </activity>
 
-        <activity android:name=".UpadteBreedInfo" >
+        <activity android:name=".UpdateBreedInfo" >
         </activity>
         <activity android:name=".CusBreedInfoScroll" />
-        <activity android:name=".botNav" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".AdminProfile" />
         <activity
             android:name=".Manage_breed_info"
             android:windowSoftInputMode="adjustPan" />

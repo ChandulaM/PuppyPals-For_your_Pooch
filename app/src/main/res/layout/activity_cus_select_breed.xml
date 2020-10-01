@@ -4,80 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_pink1"
     android:orientation="vertical"
-    tools:context=".CusSelectBreed"
-    android:background="@drawable/bg_pink1">
+    tools:context=".CusSelectBreed">
 
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content">-->
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content">-->
 
-<!--        <View-->
-<!--            android:id="@+id/adminDivider"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="53dp"-->
-<!--            android:background="?android:attr/listDivider"-->
-<!--            android:backgroundTint="#0B85E6"-->
-<!--            android:backgroundTintMode="add"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.0"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintVertical_bias="0.079" />-->
+    <!--        <View-->
+    <!--            android:id="@+id/adminDivider"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="53dp"-->
+    <!--            android:background="?android:attr/listDivider"-->
+    <!--            android:backgroundTint="#0B85E6"-->
+    <!--            android:backgroundTintMode="add"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintHorizontal_bias="0.0"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            app:layout_constraintVertical_bias="0.079" />-->
 
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/probtn"-->
-<!--            android:layout_width="46dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            android:onClick="showPopup"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/adminDivider"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/adminDivider"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/adminDivider"-->
-<!--            app:layout_constraintVertical_bias="0.0"-->
-<!--            app:srcCompat="@drawable/profile_icon" />-->
-<!--    </RelativeLayout>-->
+    <!--        <ImageButton-->
+    <!--            android:id="@+id/probtn"-->
+    <!--            android:layout_width="46dp"-->
+    <!--            android:layout_height="50dp"-->
+    <!--            android:layout_alignParentEnd="true"-->
+    <!--            android:layout_marginEnd="16dp"-->
+    <!--            android:onClick="showPopup"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@+id/adminDivider"-->
+    <!--            app:layout_constraintEnd_toEndOf="@+id/adminDivider"-->
+    <!--            app:layout_constraintTop_toTopOf="@+id/adminDivider"-->
+    <!--            app:layout_constraintVertical_bias="0.0"-->
+    <!--            app:srcCompat="@drawable/profile_icon" />-->
+    <!--    </RelativeLayout>-->
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <GridView
-        android:id="@+id/breedGrid"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:horizontalSpacing="6dp"
-        android:numColumns="2"
-        android:verticalSpacing="6dp"> </GridView>
+        android:layout_height="match_parent">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="2dp"
-        android:background="@color/design_default_color_background"
-        android:backgroundTint="#FFFFFF"
-        app:itemBackground="@android:color/holo_red_dark"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/menu_bot_nav" />
+        <GridView
+            android:id="@+id/breedGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:horizontalSpacing="6dp"
+            android:numColumns="2"
+            android:verticalSpacing="6dp"></GridView>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bot_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+            android:background="@color/design_default_color_background"
+            android:backgroundTint="#FFFFFF"
+            app:itemBackground="@android:color/holo_red_light"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:menu="@menu/menu_bot_nav" />
 
 
-</RelativeLayout>
-
+    </RelativeLayout>
 
 
 </LinearLayout>

@@ -27,6 +27,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -60,6 +61,8 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cus_select_breed);
+
+        getBotNav();
 
         gridView = findViewById(R.id.breedGrid);
         toolbar = findViewById(R.id.toolbar);
@@ -256,6 +259,31 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
                 return true;
         }
         return false;
+    }
+    private void getBotNav() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bot_nav);
+
+        bottomNavigationView.setSelectedItemId(R.id.bot_nav_info);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bot_nav_search:
+                        startActivity(new Intent(getApplicationContext(), PuppyPalSearch.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_home:
+                        startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_info:
+                        return true;
+                }
+                return false;
+            }
+        });
+
     }
 
 }

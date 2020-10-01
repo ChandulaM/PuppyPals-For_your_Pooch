@@ -114,6 +114,10 @@ public class UserProfile extends AppCompatActivity {
                         return true;
                     case R.id.bot_nav_home:
                         return true;
+                    case R.id.bot_nav_info:
+                        startActivity(new Intent(getApplicationContext(), CusSelectBreed.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }
