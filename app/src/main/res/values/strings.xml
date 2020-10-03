@@ -61,4 +61,7 @@
     <string name="admin_panel">Admin Panel</string>
     <string name="search_error">Sorry! We couldn\'t locate any PuppyPals near you!</string>
     <string name="toast_breed_add">Breed Info added successfully</string>
+    <string name="allChats_head">Your PuppyPals</string>
+    <string name="allChat_error">Looks like you haven\'t added any PuppyPals yet! Search for them on the Map and Chat with them here!</string>
+    <string name="type_here">Type Here...</string>
 </resources>

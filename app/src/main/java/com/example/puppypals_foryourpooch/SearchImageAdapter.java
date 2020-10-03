@@ -93,6 +93,17 @@ public class SearchImageAdapter extends RecyclerView.Adapter<SearchImageAdapter.
                 mContext.startActivity(intent);
             }
         });
+
+        //to chat with a specific user
+        holder.chat_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext.getApplicationContext(), UserChat.class);
+                intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("uId", userCurrent.getUserId());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

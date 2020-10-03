@@ -143,6 +143,10 @@ public class PuppyPalSearch extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), CusSelectBreed.class));
                         overridePendingTransition(0,0);
                         return true;
+                    case R.id.bot_nav_chat:
+                        startActivity(new Intent(getApplicationContext(), AllChats.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }
