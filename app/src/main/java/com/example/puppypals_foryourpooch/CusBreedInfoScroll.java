@@ -3,6 +3,7 @@
  * KDY_WD03*/
 package com.example.puppypals_foryourpooch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 //Class for Display Breed information
@@ -29,6 +31,7 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_cus_breed_info_scroll);
         final BreedModel model = (BreedModel) getIntent().getSerializableExtra("Breed");
         final BreedModel model2 = (BreedModel) getIntent().getSerializableExtra("breedGrid");
@@ -97,7 +100,7 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
 
 
         }
-
+        //getBotNav();
     }
 
     public void showPopup(View v) {
@@ -123,5 +126,31 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
                 return true;
         }
         return false;
+    }
+
+    private void getBotNav() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bot_nav);
+
+        bottomNavigationView.setSelectedItemId(R.id.bot_nav_info);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bot_nav_search:
+                        startActivity(new Intent(getApplicationContext(), PuppyPalSearch.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_home:
+                        startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_info:
+                        return true;
+                }
+                return false;
+            }
+        });
+
     }
 }

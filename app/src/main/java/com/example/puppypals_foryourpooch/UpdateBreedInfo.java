@@ -326,7 +326,7 @@ public class UpdateBreedInfo extends AppCompatActivity implements PopupMenu.OnMe
 
             case R.id.pitm2:
                 FirebaseAuth.getInstance().signOut();
-                Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),Login.class));
                 return true;
         }

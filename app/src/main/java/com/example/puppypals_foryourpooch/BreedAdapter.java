@@ -190,6 +190,13 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedAdapter
             brdUpdateBtn = itemView.findViewById(R.id.updateBreedInfo);
             brdRemoveBtn = itemView.findViewById(R.id.brdRemove);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(context,"Click on Breed name or Image to View Breed Info!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
             breedname.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
