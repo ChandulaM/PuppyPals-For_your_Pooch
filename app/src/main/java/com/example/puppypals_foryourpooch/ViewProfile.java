@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 public class ViewProfile extends AppCompatActivity {
 
     private static final String TAG = "USER";
@@ -38,7 +40,7 @@ public class ViewProfile extends AppCompatActivity {
 
         getBotNav();
 
-        String userId = getIntent().getStringExtra("userId");
+        final String userId = getIntent().getStringExtra("userId");
 
         btn_chat = findViewById(R.id.viewProf_btn_chat);
         btn_back = findViewById(R.id.viewProf_btn_back);
@@ -89,6 +91,15 @@ public class ViewProfile extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(ViewProfile.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), UserChat.class);
+                intent.putExtra("uId", userId);
+                startActivity(intent);
             }
         });
 

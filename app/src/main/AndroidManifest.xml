@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
 
     <application
@@ -16,10 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UploadUserImage"></activity>
+        <activity android:name=".UserChat"></activity>
+        <activity android:name=".AllChats" />
+        <activity android:name=".UploadUserImage" />
         <activity android:name=".PuppyPalSearch" />
-
-
         <activity android:name=".UpdateProfile" />
         <activity android:name=".ViewProfile" />
         <activity android:name=".UserProfile" />
@@ -33,29 +34,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".AdminProfile">
-        </activity>
-
-
-        <activity android:name=".CusSelectBreed"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-            android:label="Search Breeds">
-        </activity>
-
-        <activity android:name=".UpdateBreedInfo" >
-        </activity>
+        <activity android:name=".AdminProfile" />
+        <activity
+            android:name=".CusSelectBreed"
+            android:label="Search Breeds"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity android:name=".UpdateBreedInfo" />
         <activity android:name=".CusBreedInfoScroll" />
         <activity
             android:name=".Manage_breed_info"
             android:windowSoftInputMode="adjustPan" />
-
-        <activity android:name=".AddBreedInfo">
-
-        </activity>
+        <activity android:name=".AddBreedInfo" />
 
         <meta-data
             android:name="preloaded_fonts"
