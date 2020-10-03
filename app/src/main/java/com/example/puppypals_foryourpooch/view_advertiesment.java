@@ -34,6 +34,7 @@ public class view_advertiesment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_advertiesment);
 
+
         String adId = getIntent().getStringExtra("id");
 
         back = findViewById(R.id.back);
@@ -42,7 +43,6 @@ public class view_advertiesment extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         price = findViewById(R.id.price);
         imageView = findViewById(R.id.petimage);
-
         FirebaseAuth auth;
         DatabaseReference addRef;
 

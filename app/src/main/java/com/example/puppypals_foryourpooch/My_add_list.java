@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.puppypals_foryourpooch.model.AddPupAdd;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,8 +25,9 @@ import java.util.List;
 public class My_add_list extends AppCompatActivity {
 
     private RecyclerView myView;
+    private ImageHolderForUpdateDelete imageHolderForUpdateDelete;
     private ImageAdapter imageAdapter;
-    private List<AddPupAdd> add;
+    private List<AddPupAdd> adv;
     private DatabaseReference databaseReference;
     private FirebaseAuth auth;
     private Button back ;
@@ -33,34 +37,42 @@ public class My_add_list extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_add_list);
 
-        myView = findViewById(R.id.recyclerView);
+        myView = findViewById(R.id.recyclerViewMyAds);
+        back = findViewById(R.id.back);
         myView.setHasFixedSize(true);
         myView.setLayoutManager(new LinearLayoutManager(this));
-        add = new ArrayList<>();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("uploads");
+        adv = new ArrayList<>();
 
-        final String userId = auth.getUid();
+        auth = FirebaseAuth.getInstance();
+        final String userId  = auth.getUid().toString();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("uploads");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                AddPupAdd advert = new AddPupAdd();
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
+                    AddPupAdd advert = new AddPupAdd();
 
-                String key = snapshot.getKey();
+                    advert.setImageUri(dataSnapshot.child("imageUri").getValue().toString());
+                    advert.setEmail(dataSnapshot.child("email").getValue().toString());
+                    advert.setPrice(Float.parseFloat(dataSnapshot.child("price").getValue().toString()));
+                    advert.setPhone(dataSnapshot.child("phone").getValue().toString());
+                    advert.setAdId(dataSnapshot.getKey());
 
-                advert.setImageUri(snapshot.child("imageUri").getValue().toString());
-                advert.setEmail(snapshot.child("email").getValue().toString());
-                advert.setPrice(Float.valueOf(snapshot.child("price").getValue().toString()));
-                advert.setPhone(snapshot.child("phone").getValue().toString());
 
-                String adUid = snapshot.child("userId").getValue().toString();
-
-                if( userId == adUid ) {
-
-                    add.add(advert);
-
+                    if(dataSnapshot.child("userId").getValue()
+                    .toString().equals(userId)) {
+                        adv.add(advert);
+                    }
                 }
+
+                imageHolderForUpdateDelete = new ImageHolderForUpdateDelete(My_add_list.this,adv);
+                myView.setAdapter(imageHolderForUpdateDelete);
+
+                /*imageAdapter = new ImageAdapter(My_add_list.this,add);
+                myView.setAdapter(imageAdapter);*/
+
 
 
             }
@@ -68,6 +80,16 @@ public class My_add_list extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+                Toast.makeText(My_add_list.this, "Database error", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), pup_add_page.class));
             }
         });
 

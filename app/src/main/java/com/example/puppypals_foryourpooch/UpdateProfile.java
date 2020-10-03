@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -88,6 +89,8 @@ public class UpdateProfile extends AppCompatActivity {
                 String newPass = password.getText().toString().trim();
                 String newDogName = dogName.getText().toString().trim();
                 Integer newDogAge = Integer.parseInt(dogAge.getText().toString().trim());
+
+
 
                 if(newPass.length() < 6){
                     password.setError("Password must have at least 7 characters");

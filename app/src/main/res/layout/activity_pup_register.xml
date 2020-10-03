@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/register_ad_background"
+    android:id="@+id/view_advertiesment_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/user_background"
+    android:background="@drawable/bg_pink1"
     tools:context=".pup_register">
 
     <ImageView
@@ -15,6 +15,7 @@
         android:layout_marginTop="80dp"
         android:background="@drawable/ic_baseline_add_a_photo_24"
         android:backgroundTint="#D5851472"
+        android:contentDescription="@string/upImg_upload"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,15 +33,18 @@
         android:hint="@string/breed_name"
         android:imeOptions="actionNext"
         android:nextFocusDown="@id/email"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:singleLine="true"
         android:textColorHint="#260233"
-        android:textFontWeight="3"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petimage" />
+        app:layout_constraintTop_toBottomOf="@+id/petimage"
+        android:autofillHints=""
+        android:inputType="text"
+        tools:ignore="TextFields" />
 
     <EditText
         android:id="@+id/email"
@@ -56,13 +60,14 @@
         android:hint="@string/reg_email"
         android:inputType="textEmailAddress"
         android:nextFocusDown="@id/phone"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:textColorHint="#330202"
-        android:textFontWeight="3"
         app:layout_constraintBottom_toTopOf="@+id/phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        android:importantForAutofill="no"
         app:layout_constraintTop_toBottomOf="@+id/breedname" />
 
     <EditText
@@ -76,17 +81,18 @@
         android:drawablePadding="5dp"
         android:ems="10"
         android:fontFamily="@font/iceland"
-        android:hint="Phone"
+        android:hint="@string/phone"
         android:inputType="phone"
         android:nextFocusDown="@id/price"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:textColorHint="#330202"
-        android:textFontWeight="3"
-        app:layout_constraintBottom_toTopOf="@+id/contact_no"
+        app:layout_constraintBottom_toTopOf="@+id/price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/price"
@@ -98,21 +104,22 @@
         android:drawableStart="@drawable/ic_money"
         android:drawablePadding="5dp"
         android:fontFamily="@font/iceland"
-        android:hint="Price"
+        android:hint="@string/price"
         android:inputType="numberDecimal"
-        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:textAlignment="viewStart"
         android:textColorHint="#330202"
-        android:textFontWeight="3"
-        app:layout_constraintBottom_toTopOf="@+id/uploadbutton"
+        app:layout_constraintBottom_toTopOf="@+id/update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintVertical_bias="0.189"
+        android:importantForAutofill="no"/>
 
     <Button
-        android:id="@+id/uploadbutton"
+        android:id="@+id/update"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -121,21 +128,20 @@
         android:alpha="0.7"
         android:background="@drawable/add_button"
         android:fontFamily="@font/iceland"
-        android:text="Add"
+        android:text="@string/add"
         android:textColor="#6F235C"
-        android:textFontWeight="4"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_no" />
+        app:layout_constraintTop_toBottomOf="@+id/price" />
 
     <Button
         android:id="@+id/back_button"
         android:layout_width="38dp"
         android:layout_height="38dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/ic_back"
         android:textSize="24sp"

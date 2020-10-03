@@ -6,10 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.net.InetAddresses;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -31,6 +30,9 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class pup_register extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -40,12 +42,11 @@ public class pup_register extends AppCompatActivity {
     private ImageView imageView;
     private EditText owner,breed,email,phone,price;
 
-    private Uri imageUri;
 
+    private Uri imageUri;
     private StorageReference storageReference;
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
-
     private StorageTask storageTask;
 
     @Override
@@ -54,7 +55,7 @@ public class pup_register extends AppCompatActivity {
         setContentView(R.layout.activity_pup_register);
 
         chooseImage = findViewById(R.id.addbutton);
-        upload = findViewById(R.id.uploadbutton);
+        upload = findViewById(R.id.update);
         imageView = findViewById(R.id.petimage);
         breed = findViewById(R.id.breedname);
         email = findViewById(R.id.email);
@@ -107,12 +108,10 @@ public class pup_register extends AppCompatActivity {
 
             imageUri = data.getData();
 
-            Log.i("onActivityResult", String.valueOf(data)+resultCode+requestCode);
-
+            //Log.i("onActivityResult", String.valueOf(data)+resultCode+requestCode);
 
             Picasso.with(this).load(imageUri).into(imageView);
             imageView.getBackground().setAlpha(0);
-
 
         }
 
@@ -120,7 +119,7 @@ public class pup_register extends AppCompatActivity {
 
     private String getFileUri(Uri uri){
 
-        Log.i("getFileUri", String.valueOf(uri));
+        //Log.i("getFileUri", String.valueOf(uri));
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
 
@@ -140,19 +139,48 @@ public class pup_register extends AppCompatActivity {
                             fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    AddPupAdd add = new AddPupAdd();
-                                    add.setAdId(databaseReference.push().getKey());
-                                    add.setUserId(firebaseAuth.getUid().toString());
-                                    add.setBreed(breed.getText().toString());
-                                    add.setPhone(phone.getText().toString());
-                                    add.setEmail(email.getText().toString());
-                                    add.setPrice(Float.valueOf(price.getText().toString()));
-                                    add.setImageUri(uri.toString());
 
-                                    databaseReference.child(databaseReference.push().getKey()).setValue(add);
+                                    if(Float.valueOf(price.getText().toString()) < 0){
+                                        price.setError("invalid amount");
+                                        return;
+                                    }
+                                    if(TextUtils.isEmpty(email.getText().toString())) {
+                                        email.setError("Please enter an email");
+                                        return;
+                                    }
+                                    if(TextUtils.isEmpty(phone.getText().toString())){
+                                        phone.setError("Please enter a contact number");
+                                        return;
+                                    }
+                                    if(Float.valueOf(price.getText().toString()) == null) {
+                                        price.setError("Please enter an price for your dog");
+                                        return;
+                                    }
+                                    String userMail = email.getText().toString();
+                                    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-                                    Toast.makeText(pup_register.this,"Ad posted successfully",Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+                                    if(userMail.matches(emailPattern)==false){
+
+                                        email.setError("Please enter an valid email");
+
+                                    }
+                                    else {
+
+
+                                        AddPupAdd add = new AddPupAdd();
+                                        add.setAdId(databaseReference.push().getKey());
+                                        add.setUserId(firebaseAuth.getUid().toString());
+                                        add.setBreed(breed.getText().toString());
+                                        add.setPhone(phone.getText().toString());
+                                        add.setEmail(email.getText().toString());
+                                        add.setPrice(Float.valueOf(price.getText().toString()));
+                                        add.setImageUri(uri.toString());
+
+                                        databaseReference.child(databaseReference.push().getKey()).setValue(add);
+
+                                        Toast.makeText(pup_register.this, "Ad posted successfully", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+                                    }
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override

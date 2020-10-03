@@ -29,7 +29,7 @@ public class pup_add_page extends AppCompatActivity {
     private ImageAdapter imageAdapter;
     private List<AddPupAdd> list;
     private DatabaseReference databaseReference;
-    private Button add;
+    private Button add , myadd;
 
 
     @Override
@@ -43,6 +43,7 @@ public class pup_add_page extends AppCompatActivity {
         list = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("uploads");
         add = findViewById(R.id.newadd);
+        myadd = findViewById(R.id.myadd);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -55,9 +56,6 @@ public class pup_add_page extends AppCompatActivity {
                     user.setImageUri(dataSnapshot.child("imageUri").getValue().toString());
                     user.setUserId(dataSnapshot.child("userId").getValue().toString());
                     user.setAdId(key);
-                    String t = dataSnapshot.child("imageUri").getValue().toString();
-                    // Log.i("info",t);
-
 
                     list.add(user);
 
@@ -78,6 +76,16 @@ public class pup_add_page extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(pup_add_page.this,pup_register.class);
                 startActivity(intent);
+            }
+        });
+
+        myadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(pup_add_page.this,My_add_list.class);
+                startActivity(intent);
+
             }
         });
 

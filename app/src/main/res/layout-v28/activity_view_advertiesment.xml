@@ -5,7 +5,7 @@
     android:id="@+id/view_advertiesment_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_pink1"
+    android:background="@drawable/user_background"
     android:contentDescription="@string/view_advertiesmt_ui"
     tools:context=".pup_register">
 

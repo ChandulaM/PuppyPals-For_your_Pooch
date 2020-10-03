@@ -3,36 +3,24 @@ package com.example.puppypals_foryourpooch;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.puppypals_foryourpooch.model.AddPupAdd;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
 
-    private static final String TAG = "Img Url";
     private Context context;
     private List<AddPupAdd> uploads;
-
-    private DatabaseReference reference;
 
     public ImageAdapter(Context context,List<AddPupAdd> add){
 
@@ -50,6 +38,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return new ImageViewHolder(v);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
 
@@ -63,12 +52,11 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                 .centerCrop()
                 .into(holder.imageView);
 
-
+        //Toast.makeText(context, "adad"+add.getImageUri(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, "adad"+add.getAdId(), Toast.LENGTH_SHORT).show();
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                //Toast.makeText(context.getApplicationContext(),add.getAdId(),Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(context.getApplicationContext(),view_advertiesment.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -85,7 +73,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return uploads.size();
     }
 
-    public class ImageViewHolder extends RecyclerView.ViewHolder{
+    public static class ImageViewHolder extends RecyclerView.ViewHolder{
 
         public TextView textView;
         public ImageView imageView;
@@ -95,7 +83,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             super(itemView);
 
             textView = itemView.findViewById(R.id.dog_breed);
-            imageView = itemView.findViewById(R.id.dog);
+            imageView = itemView.findViewById(R.id.pupimage);
 
 
 

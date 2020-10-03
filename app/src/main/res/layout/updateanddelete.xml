@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/add_button"
+    android:backgroundTint="#000E0000"
+    app:cardBackgroundColor="#00FFFFFF">
+
+    <ImageView
+        android:id="@+id/pupimage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:baselineAlignBottom="false"
+        android:contentDescription="@string/dog_image" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/update" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="100dp"
+        android:contentDescription="@string/upImg_upload"
+        android:text="@string/delete" />
+
+</androidx.cardview.widget.CardView>

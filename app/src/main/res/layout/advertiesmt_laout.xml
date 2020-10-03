@@ -10,11 +10,12 @@
     app:cardBackgroundColor="@android:color/transparent">
 
     <ImageView
-        android:id="@+id/dog"
+        android:id="@+id/pupimage"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:layout_margin="10dp"
-        android:background="@drawable/ad_card" />
+        android:background="@drawable/ad_card"
+        android:contentDescription="@string/icon_for_text" />
 
     <TextView
         android:id="@+id/dog_breed"
@@ -26,6 +27,7 @@
         android:background="@drawable/add_button"
         android:fontFamily="sans-serif-medium"
         android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:textSize="24sp" />
 
 </androidx.cardview.widget.CardView>
