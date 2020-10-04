@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
+    tools:context=".CusBreedInfoScroll">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_pink1">
+
+        <TextView
+            android:id="@+id/adpanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cherry_swash"
+            android:gravity="center"
+            android:text="@string/Breed_info_customers_title"
+            android:textColor="#121111"
+            android:textSize="28sp"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorAccent"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.022" />
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <View-->
+<!--                android:id="@+id/adminDivider"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="53dp"-->
+<!--                android:background="?android:attr/listDivider"-->
+<!--                android:backgroundTint="#0B85E6"-->
+<!--                android:backgroundTintMode="add"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.0"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.079" />-->
+
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/probtn"-->
+<!--                android:layout_width="46dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:onClick="showPopup"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/adminDivider"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/adminDivider"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/adminDivider"-->
+<!--                app:layout_constraintVertical_bias="0.0"-->
+<!--                app:srcCompat="@drawable/profile_icon" />-->
+<!--        </RelativeLayout>-->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/cusBreednm"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/aclonica"
+                    android:gravity="center"
+                    android:textColor="#160101"
+                    android:textSize="26sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.166" />
+
+                <ImageView
+                    android:id="@+id/cusBreedimg"
+                    android:layout_width="match_parent"
+                    android:layout_height="166dp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.266" />
+                //app:srcCompat="@drawable/beagle"
+
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:layout="@layout/table"
+                    android:paddingRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.519"
+                    tools:layout_editor_absoluteX="1dp">
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/height"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:paddingStart="23sp"
+                            android:text="@string/height"
+                            android:textColor="#190101"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:paddingStart="23sp"
+                            android:text="@string/weight"
+                            android:textColor="#0E0E0E"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/lspan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:paddingStart="10sp"
+                            android:text="@string/life_span"
+                            android:textColor="#0E0E0E"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:id="@+id/txtHeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/text_view_decorations"
+                            android:padding="10dp"
+                            android:paddingStart="23sp"
+                            android:textAlignment="center"
+                            android:textColor="#190101"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtWeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/text_view_decorations"
+                            android:padding="13dp"
+                            android:paddingStart="23sp"
+                            android:textAlignment="center"
+
+                            android:textColor="#0E0E0E"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtLspan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/text_view_decorations"
+                            android:padding="10dp"
+                            android:paddingStart="23sp"
+                            android:textAlignment="center"
+                            android:textColor="#0E0E0E"
+                            android:textSize="18sp" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <TextView
+                    android:id="@+id/adap"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:fontFamily="@font/aclonica"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="Adaptability"
+                    android:textColor="#160101"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.166" />
+
+                <TextView
+                    android:id="@+id/adaptxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="115dp"
+                    android:background="@drawable/text_view_decorations"
+
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/intell"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:fontFamily="@font/aclonica"
+                    android:gravity="center"
+                    android:text="Intelligence"
+                    android:textColor="#160101"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.166" />
+
+                <TextView
+                    android:id="@+id/intelltxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="115dp"
+                    android:background="@drawable/text_view_decorations"
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/feeding"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:fontFamily="@font/aclonica"
+                    android:gravity="center"
+                    android:text="Feedings"
+                    android:textColor="#160101"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.166" />
+
+                <TextView
+                    android:id="@+id/fed"
+                    android:layout_width="match_parent"
+                    android:layout_height="115dp"
+                    android:background="@drawable/text_view_decorations"
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/medtxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:fontFamily="@font/aclonica"
+                    android:gravity="center"
+                    android:text="Health"
+                    android:textColor="#160101"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.166" />
+
+                <TextView
+                    android:id="@+id/med"
+                    android:layout_width="match_parent"
+                    android:layout_height="115dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/text_view_decorations"
+                    android:textAlignment="center"
+                    android:textSize="17sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <Button
+                        android:id="@+id/bypup"
+                        android:layout_width="110dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="33dp"
+                        android:backgroundTint="#0B85E6"
+                        android:text="Buy Puppies"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.252"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.898" />
+
+                    <Button
+                        android:id="@+id/moreinfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="160dp"
+                        android:backgroundTint="#0B85E6"
+                        android:text="More Info"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.764"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.898" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/space"
+                    android:layout_width="match_parent"
+                    android:layout_height="115dp" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bot_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/design_default_color_background"
+        android:backgroundTint="#FFFFFF"
+        app:itemBackground="@android:color/holo_red_light"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu_bot_nav" />
+</androidx.constraintlayout.widget.ConstraintLayout>

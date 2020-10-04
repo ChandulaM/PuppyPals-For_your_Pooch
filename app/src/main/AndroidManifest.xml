@@ -17,6 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UserChat"></activity>
+        <activity android:name=".AllChats" />
+        <activity android:name=".UploadUserImage" />
         <activity android:name=".UpdateAndDeletepup"></activity>
         <activity android:name=".My_add_list" />
         <activity android:name=".view_advertiesment" />
@@ -25,9 +28,9 @@
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".pup_add_page" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".UploadUserImage" />
         <activity android:name=".PuppyPalSearch" />
+
+
         <activity android:name=".UpdateProfile" />
         <activity android:name=".ViewProfile" />
         <activity android:name=".UserProfile" />
@@ -40,20 +43,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".pup_register" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
         <activity android:name=".AdminProfile" />
-        <activity android:name=".CusBreedInfo" />
-        <activity android:name=".CusBreedSelect" />
-        <activity android:name=".UpadteBreedInfo" />
+        <activity
+            android:name=".CusSelectBreed"
+            android:label="Search Breeds"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
+        <activity android:name=".UpdateBreedInfo" />
+        <activity android:name=".CusBreedInfoScroll" />
         <activity
             android:name=".Manage_breed_info"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ManageBreedInfo" />
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
         <activity android:name=".AddBreedInfo" />
 
         <meta-data

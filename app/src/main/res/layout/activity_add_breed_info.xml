@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddBreedInfo">
-
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:background="?android:attr/listDivider"
-        android:backgroundTint="#0B85E6"
-        android:backgroundTintMode="add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08" />
+    android:orientation="vertical"
+    android:background="#98D9EA">
 
     <TextView
         android:id="@+id/adpanel"
-        android:layout_width="130dp"
+        android:layout_width="match_parent"
         android:layout_height="29dp"
         android:fontFamily="cursive"
+        android:gravity="center"
         android:text="Admin Panel"
         android:textColor="#121111"
         android:textSize="24sp"
@@ -34,90 +22,84 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
 
-    <ImageButton
-        android:id="@+id/probtn"
-        android:layout_width="42dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="12dp"
-        android:onClick="showPopup"
-        app:layout_constraintBottom_toBottomOf="@+id/divider3"
-        app:layout_constraintEnd_toEndOf="@+id/divider3"
-        app:layout_constraintTop_toTopOf="@+id/divider3"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/profile_icon" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/breed"
-        android:layout_width="373dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="Breed Name"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
+        <View
+            android:id="@+id/adminDivider"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#0B85E6"
+            android:backgroundTintMode="add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.08" />
 
-    <EditText
-        android:id="@+id/adap"
-        android:layout_width="373dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="Adaptability"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
 
-    <EditText
-        android:id="@+id/intell"
-        android:layout_width="373dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="Intelligence"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599" />
+        <ImageButton
+            android:id="@+id/probtn"
+            android:layout_width="46dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:onClick="showPopup"
+            app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
+            app:layout_constraintEnd_toEndOf="@+id/adminDivider"
+            app:layout_constraintTop_toTopOf="@+id/adminDivider"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/profile_icon" />
 
-    <EditText
-        android:id="@+id/feed"
-        android:layout_width="374dp"
-        android:layout_height="51dp"
-        android:ems="10"
-        android:hint="Feedings"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705" />
+        <ImageButton
+            android:id="@+id/addNewBreed"
+            android:layout_width="54dp"
+            android:layout_height="51dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="#F3F4F8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.798"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.081"
+            app:srcCompat="@drawable/add_foreground" />
 
-    <EditText
-        android:id="@+id/feed2"
-        android:layout_width="183dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="Infor Link"
-        android:inputType="textPersonName"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826" />
+        <ImageButton
+            android:id="@+id/manageBreed"
+            android:layout_width="48dp"
+            android:layout_height="51dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="156dp"
+            android:backgroundTint="#FBF6F6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.595"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.081"
+            app:srcCompat="@drawable/list_foreground" />
+
+        <ImageButton
+            android:id="@+id/adminViewBreed"
+            android:layout_width="52dp"
+            android:layout_height="51dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="230dp"
+            android:backgroundTint="#FBF9F9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.395"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.08"
+            app:srcCompat="@drawable/find_page_foreground" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/addbreedinfo"
@@ -134,173 +116,249 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.171" />
 
-    <EditText
-        android:id="@+id/hno"
-        android:layout_width="117dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        >
 
-    <EditText
-        android:id="@+id/wno"
-        android:layout_width="118dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/spaceline"
+            android:orientation="vertical"
+            android:showDividers="middle">
 
-    <EditText
-        android:id="@+id/lsno"
-        android:layout_width="117dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394" />
+            <EditText
+                android:id="@+id/breedName"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/shapes"
+                android:ems="10"
+                android:hint="Breed Name"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.421"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.251" />
 
-    <TextView
-        android:id="@+id/heighttxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Height(feets)"
-        android:textColor="#121111"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/spaceline"
+                android:orientation="horizontal"
+                android:showDividers="middle">
 
-    <TextView
-        android:id="@+id/heighttxt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Weight(kg)"
-        android:textColor="#121111"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+                <EditText
+                    android:id="@+id/hno"
+                    android:layout_width="110dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/shapes"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/height"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.064"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.394" />
 
-    <TextView
-        android:id="@+id/heighttxt3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Life Span(years)"
-        android:textColor="#121111"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+                <EditText
+                    android:id="@+id/wno"
+                    android:layout_width="110dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/shapes"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/weight"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.394" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="75dp"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.849"
-        android:src="@drawable/beagal" />
+                <EditText
+                    android:id="@+id/lsno"
+                    android:layout_width="110dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/shapes"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:textSize="15dp"
+                    android:hint="@string/life_span"
+                    android:inputType="number"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.931"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.394" />
+            </LinearLayout>
 
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="83dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#2196F3"
-        android:text="Reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.591"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979" />
+            <EditText
+                android:id="@+id/adapget"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/shapes"
+                android:ems="10"
+                android:gravity="start|center"
+                android:hint="@string/adap"
+                android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/adpanel"
+                app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/add"
-        android:layout_width="83dp"
-        android:layout_height="46dp"
-        android:backgroundTint="#2196F3"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.905"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="61dp"
-        android:layout_height="57dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.302"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819"
-        app:srcCompat="@drawable/img_add_foreground" />
+            <EditText
+                android:id="@+id/intelget"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/shapes"
+                android:ems="10"
+                android:gravity="start|center"
+                android:hint="@string/intel"
+                android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.431"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/adpanel"
+                app:layout_constraintVertical_bias="0.195" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="48dp"
-        android:layout_height="45dp"
-        android:backgroundTint="#FBF6F6"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.595"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081"
-        app:srcCompat="@drawable/list_foreground" />
+            <EditText
+                android:id="@+id/feedget"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/shapes"
+                android:ems="10"
+                android:gravity="start|center"
+                android:hint="@string/feed"
+                android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.478"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/adpanel"
+                app:layout_constraintVertical_bias="0.39" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="48dp"
-        android:layout_height="44dp"
-        android:backgroundTint="#F3F4F8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.798"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081"
-        app:srcCompat="@drawable/add_foreground" />
+            <EditText
+                android:id="@+id/healget"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/shapes"
+                android:ems="10"
+                android:gravity="start|center"
+                android:hint="Health"
+                android:inputType="textMultiLine"
+                android:paddingLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.478"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/adpanel"
+                app:layout_constraintVertical_bias="0.58" />
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="52dp"
-        android:layout_height="56dp"
-        android:backgroundTint="#FBF9F9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08"
-        app:srcCompat="@drawable/find_page_foreground" />
+            <EditText
+                android:id="@+id/infoLink"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@drawable/shapes"
+                android:ems="10"
+                android:hint="Infor Link"
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.912"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.884" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/spaceline"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+                <ImageView
+                    android:id="@+id/dogImgView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/shapes"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.047"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.932" />
+
+                <ImageButton
+                    android:id="@+id/addImgBtn"
+                    android:layout_width="69dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.306"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.897"
+                    app:srcCompat="@drawable/img_add_foreground" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/spaceline"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:showDividers="middle">
+
+                <Button
+                    android:id="@+id/resetBreed"
+                    android:layout_width="83dp"
+                    android:layout_height="48dp"
+                    android:backgroundTint="#2196F3"
+                    android:text="Reset"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.591"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.976" />
+
+                <Button
+                    android:id="@+id/saveBreed"
+                    android:layout_width="83dp"
+                    android:layout_height="48dp"
+                    android:backgroundTint="#2196F3"
+                    android:text="Save"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.911"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.976" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

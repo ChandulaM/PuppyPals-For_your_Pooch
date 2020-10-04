@@ -1,5 +1,6 @@
 package com.example.puppypals_foryourpooch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,18 +11,27 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.puppypals_foryourpooch.model.Dog;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class DogRegistration extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
+import java.util.ArrayList;
+
+public class DogRegistration extends AppCompatActivity {
     Button btn_signUp;
     Spinner spinner;
     EditText dogName, dogAge;
-    DatabaseReference userRef, dogRef;
+    DatabaseReference userRef, dogRef, breedRef;
     FirebaseAuth fAuth;
+    ValueEventListener listener;
+    ArrayAdapter<String> adapter;
+    ArrayList<String> spinnerData;
     Dog dog;
 
     @Override
@@ -31,15 +41,17 @@ public class DogRegistration extends AppCompatActivity implements AdapterView.On
 
         dog = new Dog();
         fAuth = FirebaseAuth.getInstance();
+        breedRef = FirebaseDatabase.getInstance().getReference().child("Breed");
         dogName = findViewById(R.id.dogreg_dname);
         dogAge = findViewById(R.id.dogreg_age);
         btn_signUp = findViewById(R.id.btn_dogreg_signup);
         spinner = findViewById(R.id.dogreg_breed);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.breeds_trial,
-                android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinnerData = new ArrayList<>();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
+                spinnerData);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        retrieveBreeds();
 
         btn_signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,18 +83,44 @@ public class DogRegistration extends AppCompatActivity implements AdapterView.On
         });
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        dog.setBreed(adapterView.getItemAtPosition(i).toString());
+    public void retrieveBreeds(){
+
+        listener = breedRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot item : dataSnapshot.getChildren()){
+
+                    spinnerData.add(item.child("breedName").getValue().toString());
+
+                }
+
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(DogRegistration.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
+//    @Override
+//    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//        dog.setBreed(adapterView.getItemAtPosition(i).toString());
+//    }
+//
+//    @Override
+//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//    }
 }

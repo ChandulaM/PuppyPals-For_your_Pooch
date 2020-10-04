@@ -3,9 +3,13 @@ package com.example.puppypals_foryourpooch;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,7 +35,7 @@ public class UploadUserImage extends AppCompatActivity {
 
     private static final int PICK_IMG_REQUEST = 2;
 
-    Button btn_choose, btn_take, btn_upload;
+    Button btn_choose, btn_upload, btn_back;
     ImageView profilePic;
     ProgressBar progressBar;
     Uri imgUri;
@@ -45,14 +49,23 @@ public class UploadUserImage extends AppCompatActivity {
         setContentView(R.layout.activity_upload_user_image);
 
         btn_choose = findViewById(R.id.upImg_btn_choose);
-        btn_take = findViewById(R.id.upImg_btn_cam);
         btn_upload = findViewById(R.id.upImg_btn_upload);
+        btn_back = findViewById(R.id.upImg_btn_back);
         profilePic = findViewById(R.id.upImg_pic);
         progressBar = findViewById(R.id.upImg_progress);
 
         fAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference("UserUploads");
         userRef = FirebaseDatabase.getInstance().getReference().child("User").child(fAuth.getUid());
+
+        try {
+            if(ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         btn_choose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +78,13 @@ public class UploadUserImage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 uploadFile();
+            }
+        });
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), UserProfile.class));
             }
         });
     }

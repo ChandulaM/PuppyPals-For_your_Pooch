@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <View
-        android:id="@+id/divider3"
+        android:id="@+id/adminDivider"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="?android:attr/listDivider"
@@ -16,15 +16,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08" />
+
     <ImageButton
         android:id="@+id/probtn"
         android:layout_width="42dp"
         android:layout_height="45dp"
         android:layout_marginEnd="12dp"
         android:onClick="showPopup"
-        app:layout_constraintBottom_toBottomOf="@+id/divider3"
-        app:layout_constraintEnd_toEndOf="@+id/divider3"
-        app:layout_constraintTop_toTopOf="@+id/divider3"
+        app:layout_constraintBottom_toBottomOf="@+id/adminDivider"
+        app:layout_constraintEnd_toEndOf="@+id/adminDivider"
+        app:layout_constraintTop_toTopOf="@+id/adminDivider"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/profile_icon" />
 

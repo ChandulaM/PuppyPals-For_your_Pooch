@@ -42,8 +42,8 @@ public class Login extends AppCompatActivity  {
 
         btn_signUp = findViewById(R.id.signup_btn);
         btn_login = findViewById(R.id.login_btn);
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
+        username = findViewById(R.id.login_username);
+        password = findViewById(R.id.login_password);
         fAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.login_pBar);
 
@@ -66,19 +66,34 @@ public class Login extends AppCompatActivity  {
                 password.setError(null);
                 progressBar.setVisibility(View.VISIBLE);
 
-                fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(Login.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                if(email.equals("adminpps@gmail.com") && pass.equals("admin123")){
+                    fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(Login.this, "Logged in as Admin", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), AddBreedInfo.class));
+                            }else{
+                                Toast.makeText(Login.this, "Incorrect Email or Password", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            }
                         }
-                        else{
-                            Toast.makeText(Login.this, "Incorrect Email or Password", Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+                    });
+                }
+                else {
+                    fAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(Login.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                            } else {
+                                Toast.makeText(Login.this, "Incorrect Email or Password", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
 

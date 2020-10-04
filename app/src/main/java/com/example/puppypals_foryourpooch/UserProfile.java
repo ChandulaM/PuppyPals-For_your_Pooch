@@ -82,7 +82,7 @@ public class UserProfile extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                Toast.makeText(UserProfile.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -114,8 +114,12 @@ public class UserProfile extends AppCompatActivity {
                         return true;
                     case R.id.bot_nav_home:
                         return true;
-                    case R.id.bot_nav_ad:
-                        startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+                    case R.id.bot_nav_info:
+                        startActivity(new Intent(getApplicationContext(), CusSelectBreed.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_chat:
+                        startActivity(new Intent(getApplicationContext(), AllChats.class));
                         overridePendingTransition(0,0);
                         return true;
                 }
