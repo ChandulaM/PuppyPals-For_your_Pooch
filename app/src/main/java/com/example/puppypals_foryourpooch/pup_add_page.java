@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.puppypals_foryourpooch.model.AddPupAdd;
@@ -28,8 +29,10 @@ public class pup_add_page extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ImageAdapter imageAdapter;
     private List<AddPupAdd> list;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,databaseReference1;
     private Button add , myadd;
+    private TextView count;
+    private long countVal ;
 
 
     @Override
@@ -44,9 +47,12 @@ public class pup_add_page extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("uploads");
         add = findViewById(R.id.newadd);
         myadd = findViewById(R.id.myadd);
+        count = findViewById(R.id.count);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                //setAdsCount(snapshot.getChildrenCount());
 
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
 
@@ -60,6 +66,12 @@ public class pup_add_page extends AppCompatActivity {
                     list.add(user);
 
                 }
+                pup_add_page count1 = new pup_add_page();
+
+                count1.setAdsCount(snapshot.getChildrenCount());
+
+
+                count.setText(String.valueOf(count1.getAdsCount()));
                 imageAdapter = new ImageAdapter(pup_add_page.this,list);
                 recyclerView.setAdapter(imageAdapter);
 
@@ -93,6 +105,44 @@ public class pup_add_page extends AppCompatActivity {
 
 
     }
+    public void setAdsCount(long count){
 
+        countVal = count;
+
+    }
+    public long getAdsCount(){
+
+
+        return countVal;
+    }
+
+    /*
+    public long count() {
+
+        databaseReference1 = FirebaseDatabase.getInstance().getReference().child("uploads");
+        databaseReference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists()) {
+
+                    setAdsCount(snapshot.getChildrenCount());
+                }
+                else {
+
+                    Toast.makeText(pup_add_page.this, "no adds", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(pup_add_page.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return 5;
+    }*/
 
 }

@@ -72,4 +72,6 @@
     <string name="phone">Phone</string>
     <string name="delete">delete</string>
     <string name="myadds">myadds</string>
+    <string name="countofadd">add count</string>
+    <string name="total_adds">total ads</string>
 </resources>
