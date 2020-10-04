@@ -8,12 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.puppypals_foryourpooch.model.AddPupAdd;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,6 +41,8 @@ public class pup_add_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pup_add_page);
+
+        getBotNav();
 
         recyclerView = findViewById(R.id.cycle);
         recyclerView.setHasFixedSize(true);
@@ -116,6 +120,38 @@ public class pup_add_page extends AppCompatActivity {
         return countVal;
     }
 
+    private void getBotNav() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bot_nav);
+        bottomNavigationView.setSelectedItemId(R.id.bot_nav_ad);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.bot_nav_search:
+                        startActivity(new Intent(getApplicationContext(), PuppyPalSearch.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_home:
+                        startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                        overridePendingTransition(0,0);
+                        return true;                    case R.id.bot_nav_info:
+                        startActivity(new Intent(getApplicationContext(), CusSelectBreed.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_chat:
+                        startActivity(new Intent(getApplicationContext(), AllChats.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_ad:
+                        startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+
     /*
     public long count() {
 
@@ -144,5 +180,6 @@ public class pup_add_page extends AppCompatActivity {
 
         return 5;
     }*/
+
 
 }

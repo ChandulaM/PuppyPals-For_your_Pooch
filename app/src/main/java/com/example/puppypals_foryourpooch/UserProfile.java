@@ -122,6 +122,10 @@ public class UserProfile extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), AllChats.class));
                         overridePendingTransition(0,0);
                         return true;
+                    case R.id.bot_nav_ad:
+                        startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+                        overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }
