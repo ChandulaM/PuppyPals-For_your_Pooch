@@ -5,19 +5,20 @@
     android:id="@+id/viewProf_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/user_background"
+    android:background="@drawable/bg_pink1"
     tools:context=".ViewProfile">
 
     <Button
         android:id="@+id/viewProf_btn_back"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/abc_vector_test"
         android:backgroundTint="@color/design_default_color_on_secondary"
         app:layout_constraintEnd_toStartOf="@+id/viewProf_head"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +26,7 @@
         android:id="@+id/viewProf_head"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/cherry_swash"
@@ -33,7 +34,7 @@
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/viewProf_prPic"
+        app:layout_constraintBottom_toTopOf="@+id/viewProf_pic_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/viewProf_btn_back"
@@ -41,18 +42,25 @@
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <ImageView
-        android:id="@+id/viewProf_prPic"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/sample_profile_pic"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/viewProf_pic_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="100dp"
         app:layout_constraintBottom_toTopOf="@+id/viewProf_dname_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewProf_head"
-        app:srcCompat="@drawable/sample_profile_pic" />
+        app:layout_constraintTop_toBottomOf="@+id/viewProf_head">
+
+        <ImageView
+            android:id="@+id/viewProf_prPic"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:background="@drawable/new_logo"
+             />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/viewProf_dname_tv"
@@ -69,14 +77,13 @@
         app:layout_constraintEnd_toStartOf="@+id/viewProf_dname"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewProf_prPic" />
+        app:layout_constraintTop_toBottomOf="@+id/viewProf_pic_holder" />
 
     <TextView
         android:id="@+id/viewProf_dname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
-        android:text="TextView"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/viewProf_dname_tv"
@@ -106,7 +113,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
-        android:text="TextView"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/viewProf_breed_tv"
@@ -136,7 +142,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
-        android:text="TextView"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/viewProf_age_tv"

@@ -33,6 +33,9 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_cus_breed_info_scroll);
+
+        getBotNav();
+
         final BreedModel model = (BreedModel) getIntent().getSerializableExtra("Breed");
         final BreedModel model2 = (BreedModel) getIntent().getSerializableExtra("breedGrid");
 
@@ -146,6 +149,12 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.bot_nav_info:
+                        startActivity(new Intent(getApplicationContext(), CusSelectBreed.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.bot_nav_chat:
+                        startActivity(new Intent(getApplicationContext(), AllChats.class));
+                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
