@@ -31,6 +31,7 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_cus_breed_info_scroll);
 
         getBotNav();
@@ -102,7 +103,7 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
 
 
         }
-
+        //getBotNav();
     }
 
     public void showPopup(View v) {

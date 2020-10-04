@@ -48,10 +48,11 @@
         <activity android:name=".CusBreedInfoScroll" />
         <activity
             android:name=".Manage_breed_info"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
         <activity android:name=".AddBreedInfo" />
 
-        <meta-data
+      <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>

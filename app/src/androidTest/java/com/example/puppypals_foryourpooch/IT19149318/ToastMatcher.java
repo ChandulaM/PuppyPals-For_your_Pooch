@@ -1,4 +1,4 @@
-package com.example.puppypals_foryourpooch;
+package com.example.puppypals_foryourpooch.IT19149318;
 
 import android.os.IBinder;
 import android.view.WindowManager;

@@ -131,6 +131,7 @@ public class ViewProfile extends AppCompatActivity {
                     case R.id.bot_nav_info:
                         startActivity(new Intent(getApplicationContext(), CusSelectBreed.class));
                         overridePendingTransition(0,0);
+                        return true;
                 }
                 return false;
             }

@@ -23,7 +23,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -35,10 +34,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.HashMap;
+
 
 //Class for Adding Breed data
 public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -351,7 +349,7 @@ public class AddBreedInfo extends AppCompatActivity implements PopupMenu.OnMenuI
 
             case R.id.pitm2:
                 FirebaseAuth.getInstance().signOut();
-                Toast.makeText(this, "Logging Out!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(),Login.class));
                 return true;
         }
