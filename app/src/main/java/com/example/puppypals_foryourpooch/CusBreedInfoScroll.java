@@ -103,7 +103,14 @@ public class CusBreedInfoScroll extends AppCompatActivity implements PopupMenu.O
 
 
         }
-        //getBotNav();
+
+        buyPup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+            }
+        });
+
     }
 
     public void showPopup(View v) {
