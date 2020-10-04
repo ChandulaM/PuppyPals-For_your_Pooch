@@ -44,7 +44,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <GridView
             android:id="@+id/breedGrid"
@@ -76,7 +77,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             app:menu="@menu/menu_bot_nav" />
-
 
     </RelativeLayout>
 
