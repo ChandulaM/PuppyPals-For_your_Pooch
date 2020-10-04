@@ -157,7 +157,7 @@
 
                 <EditText
                     android:id="@+id/hno"
-                    android:layout_width="120dp"
+                    android:layout_width="110dp"
                     android:layout_height="70dp"
                     android:background="@drawable/shapes"
                     android:ems="10"
@@ -173,7 +173,7 @@
 
                 <EditText
                     android:id="@+id/wno"
-                    android:layout_width="120dp"
+                    android:layout_width="110dp"
                     android:layout_height="70dp"
                     android:background="@drawable/shapes"
                     android:ems="10"
@@ -188,11 +188,12 @@
 
                 <EditText
                     android:id="@+id/lsno"
-                    android:layout_width="140dp"
+                    android:layout_width="110dp"
                     android:layout_height="70dp"
                     android:background="@drawable/shapes"
                     android:ems="10"
                     android:gravity="center"
+                    android:textSize="15dp"
                     android:hint="@string/life_span"
                     android:inputType="number"
                     app:layout_constraintBottom_toBottomOf="parent"

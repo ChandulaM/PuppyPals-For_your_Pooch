@@ -112,6 +112,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     app:layout="@layout/table"
+                    android:paddingRight="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.519"
@@ -127,7 +128,7 @@
                             android:paddingStart="23sp"
                             android:text="@string/height"
                             android:textColor="#190101"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -138,7 +139,7 @@
                             android:paddingStart="23sp"
                             android:text="@string/weight"
                             android:textColor="#0E0E0E"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -149,7 +150,7 @@
                             android:paddingStart="10sp"
                             android:text="@string/life_span"
                             android:textColor="#0E0E0E"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                     </TableRow>

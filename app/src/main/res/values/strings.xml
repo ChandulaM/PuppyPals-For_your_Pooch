@@ -44,9 +44,9 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Breed_info_customers_title">Breed Information</string>
-    <string name="height">Height(feet)</string>
+    <string name="height">Height(ft.)</string>
     <string name="weight">Weight(kg)</string>
-    <string name="life_span">Life Span(years)</string>
+    <string name="life_span">Life Span(yrs)</string>
     <string name="adap">Adaptability</string>
     <string name="intel">Intelligence</string>
     <string name="feed">Feedings</string>

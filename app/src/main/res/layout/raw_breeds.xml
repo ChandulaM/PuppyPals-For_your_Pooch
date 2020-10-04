@@ -22,16 +22,6 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/breedname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="90dp"
-            android:text="Breed Name"
-            android:textColor="#0D0C0C"
-            android:textSize="16sp" />
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -50,20 +40,33 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/brdRemove"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.821" />
 
             <Button
                 android:id="@+id/brdRemove"
                 android:layout_width="73dp"
                 android:layout_height="38dp"
-                android:layout_marginEnd="92dp"
+                android:layout_marginEnd="96dp"
                 android:backgroundTint="#EF0E0E"
                 android:text="Remove"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.518" />
+                app:layout_constraintVertical_bias="0.833" />
+
+            <TextView
+                android:id="@+id/breedname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breed Name"
+                android:textColor="#0D0C0C"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.346"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="1dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
