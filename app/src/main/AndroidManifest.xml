@@ -20,7 +20,13 @@
         <activity android:name=".UserChat"></activity>
         <activity android:name=".AllChats" />
         <activity android:name=".UploadUserImage" />
+        <activity android:name=".UpdateAndDeletepup"></activity>
+        <activity android:name=".My_add_list" />
+        <activity android:name=".view_advertiesment" />
+        <activity android:name=".pup_add_page" />
         <activity android:name=".PuppyPalSearch" />
+
+
         <activity android:name=".UpdateProfile" />
         <activity android:name=".ViewProfile" />
         <activity android:name=".UserProfile" />
@@ -34,10 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        <activity android:name=".pup_register" />
 
         <activity android:name=".AdminProfile" />
         <activity
@@ -52,7 +55,7 @@
         </activity>
         <activity android:name=".AddBreedInfo" />
 
-      <meta-data
+        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>

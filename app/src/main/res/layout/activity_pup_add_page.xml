@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_pink1"
+    tools:context=".pup_add_page">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#4A4AF4"
+        android:backgroundTint="#F4F0F0"
+        app:itemBackground="@android:color/holo_red_light"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/menu_bot_nav" />
+
+
+    <Button
+        android:id="@+id/myadd"
+        android:layout_width="182dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/custom_search"
+        android:backgroundTint="#AC5454"
+        android:drawablePadding="3dp"
+        android:ems="10"
+        android:text="@string/myadds"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/newadd"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/newadd"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/ic_baseline_post_add_24"
+        android:backgroundTint="#A31414"
+        app:layout_constraintBottom_toTopOf="@+id/cycle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cycle"
+        android:layout_width="410dp"
+        android:layout_height="564dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/notIcon"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/countofadd"
+        android:gravity="center_vertical"
+        android:text="@string/total_adds"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#BA0000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cycle"
+        app:layout_constraintEnd_toStartOf="@+id/newadd"
+        app:layout_constraintStart_toEndOf="@+id/myadd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_upload" />
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewEnd"
+        android:textAllCaps="true"
+        android:textColor="#04DAC8"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/notIcon"
+        app:layout_constraintEnd_toStartOf="@+id/newadd"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="@+id/notIcon"
+        app:layout_constraintTop_toTopOf="@+id/notIcon"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

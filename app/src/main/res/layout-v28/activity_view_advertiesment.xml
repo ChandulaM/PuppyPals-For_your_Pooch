@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_advertiesment_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/user_background"
+    android:contentDescription="@string/view_advertiesmt_ui"
+    tools:context=".pup_register">
+
+    <ImageView
+        android:id="@+id/petimage"
+        android:layout_width="285dp"
+        android:layout_height="285dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/ic_baseline_add_a_photo_24"
+        android:backgroundTint="#D5851472"
+        android:contentDescription="@string/dog_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="264dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_search"
+        android:backgroundTint="#7C86C1"
+        android:fontFamily="@font/iceland"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/breedname" />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="264dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_search"
+        android:backgroundTint="#7C86C1"
+        android:fontFamily="@font/iceland"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="264dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/custom_search"
+        android:backgroundTint="#7C86C1"
+        android:fontFamily="@font/iceland"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
+
+    <Button
+        android:id="@+id/back"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:background="@drawable/add_button"
+        android:contentDescription="@string/icon_for_text"
+        android:fontFamily="@font/iceland"
+        android:text="@string/back_button"
+        android:textColor="#6F235C"
+        android:textFontWeight="4"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_pets_24"
+        android:contentDescription="@string/icon_for_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petimage" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_email_24"
+        android:contentDescription="@string/icon_for_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_baseline_local_phone_24"
+        android:contentDescription="@string/icon_for_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_money"
+        android:contentDescription="@string/icon_for_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <TextView
+        android:id="@+id/breedname"
+        android:layout_width="264dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_search"
+        android:backgroundTint="#7C86C1"
+        android:fontFamily="@font/iceland"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/petimage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
