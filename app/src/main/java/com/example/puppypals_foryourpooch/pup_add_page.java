@@ -52,6 +52,9 @@ public class pup_add_page extends AppCompatActivity {
         add = findViewById(R.id.newadd);
         myadd = findViewById(R.id.myadd);
         count = findViewById(R.id.count);
+
+        final pup_add_page count1 = new pup_add_page();
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -70,7 +73,7 @@ public class pup_add_page extends AppCompatActivity {
                     list.add(user);
 
                 }
-                pup_add_page count1 = new pup_add_page();
+
 
                 count1.setAdsCount(snapshot.getChildrenCount());
 
