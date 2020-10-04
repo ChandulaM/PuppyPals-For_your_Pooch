@@ -23,10 +23,6 @@
         <activity android:name=".UpdateAndDeletepup"></activity>
         <activity android:name=".My_add_list" />
         <activity android:name=".view_advertiesment" />
-        <activity
-            android:name=".MainActivity2"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".pup_add_page" />
         <activity android:name=".PuppyPalSearch" />
 
