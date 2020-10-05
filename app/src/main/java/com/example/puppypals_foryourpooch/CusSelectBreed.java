@@ -62,7 +62,7 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cus_select_breed);
 
-        getBotNav();
+//        getBotNav();
 
         gridView = findViewById(R.id.breedGrid);
         toolbar = findViewById(R.id.toolbar);
@@ -260,38 +260,38 @@ public class CusSelectBreed extends AppCompatActivity implements PopupMenu.OnMen
         }
         return false;
     }
-    private void getBotNav() {
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bot_nav);
-
-        bottomNavigationView.setSelectedItemId(R.id.bot_nav_info);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.bot_nav_search:
-                        startActivity(new Intent(getApplicationContext(), PuppyPalSearch.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.bot_nav_home:
-                        startActivity(new Intent(getApplicationContext(), UserProfile.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.bot_nav_info:
-                        return true;
-                    case R.id.bot_nav_chat:
-                        startActivity(new Intent(getApplicationContext(), AllChats.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.bot_nav_ad:
-                        startActivity(new Intent(getApplicationContext(), pup_add_page.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
-            }
-        });
-
-    }
+//    private void getBotNav() {
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bot_nav);
+//
+//        bottomNavigationView.setSelectedItemId(R.id.bot_nav_info);
+//
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId()){
+//                    case R.id.bot_nav_search:
+//                        startActivity(new Intent(getApplicationContext(), PuppyPalSearch.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
+//                    case R.id.bot_nav_home:
+//                        startActivity(new Intent(getApplicationContext(), UserProfile.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
+//                    case R.id.bot_nav_info:
+//                        return true;
+//                    case R.id.bot_nav_chat:
+//                        startActivity(new Intent(getApplicationContext(), AllChats.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
+//                    case R.id.bot_nav_ad:
+//                        startActivity(new Intent(getApplicationContext(), pup_add_page.class));
+//                        overridePendingTransition(0,0);
+//                        return true;
+//                }
+//                return false;
+//            }
+//        });
+//
+//    }
 
 }

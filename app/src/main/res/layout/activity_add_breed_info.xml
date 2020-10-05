@@ -193,7 +193,6 @@
                     android:background="@drawable/shapes"
                     android:ems="10"
                     android:gravity="center"
-                    android:textSize="15dp"
                     android:hint="@string/life_span"
                     android:inputType="number"
                     app:layout_constraintBottom_toBottomOf="parent"

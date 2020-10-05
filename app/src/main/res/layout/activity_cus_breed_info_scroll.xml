@@ -173,10 +173,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/text_view_decorations"
-                            android:padding="13dp"
+                            android:padding="10dp"
                             android:paddingStart="23sp"
                             android:textAlignment="center"
-
                             android:textColor="#0E0E0E"
                             android:textSize="18sp" />
 
