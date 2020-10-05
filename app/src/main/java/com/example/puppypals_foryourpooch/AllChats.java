@@ -64,13 +64,13 @@ public class AllChats extends AppCompatActivity {
                         user.setUserId(userId);
                         users.add(user);
                     }
-                    progressBar.setVisibility(View.GONE);
-                    if(!users.isEmpty()) {
-                        chatAdapter = new AllChatAdapter(getApplicationContext(), users);
-                        recyclerView.setAdapter(chatAdapter);
-                    }else{
-                        allChatError.setVisibility(View.VISIBLE);
-                    }
+                }
+                progressBar.setVisibility(View.GONE);
+                if(!users.isEmpty()) {
+                    chatAdapter = new AllChatAdapter(getApplicationContext(), users);
+                    recyclerView.setAdapter(chatAdapter);
+                }else{
+                    allChatError.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -80,27 +80,6 @@ public class AllChats extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void getUserAndAdd(String userId, final List<User> users){
-        userRef = FirebaseDatabase.getInstance().getReference()
-                .child("User").child(userId);
-        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.hasChildren()){
-                    User user = new User();
-                    user.setUserId(snapshot.child("userId").getValue().toString());
-                    user.setImageUrl(snapshot.child("imgUrl").getValue().toString());
-                    user.setUsername(snapshot.child("username").getValue().toString());
-                    users.add(user);
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(AllChats.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void getBotNav() {

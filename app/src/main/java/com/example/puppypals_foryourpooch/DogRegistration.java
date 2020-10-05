@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class DogRegistration extends AppCompatActivity {
-    Button btn_signUp;
+    Button btn_signUp, btn_back;
     Spinner spinner;
     EditText dogName, dogAge;
     DatabaseReference userRef, dogRef, breedRef;
@@ -45,6 +45,7 @@ public class DogRegistration extends AppCompatActivity {
         dogName = findViewById(R.id.dogreg_dname);
         dogAge = findViewById(R.id.dogreg_age);
         btn_signUp = findViewById(R.id.btn_dogreg_signup);
+        btn_back = findViewById(R.id.dogreg_btn_back);
         spinner = findViewById(R.id.dogreg_breed);
 
         spinnerData = new ArrayList<>();
@@ -79,6 +80,13 @@ public class DogRegistration extends AppCompatActivity {
                     userRef.child(fAuth.getUid()).child("dog").setValue(dogId);
                     startActivity(new Intent(getApplicationContext(), UserProfile.class));
                 }
+            }
+        });
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Registration.class));
             }
         });
     }
